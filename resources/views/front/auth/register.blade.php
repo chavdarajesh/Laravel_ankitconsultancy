@@ -34,7 +34,7 @@
         <section id="get-a-quote" class="get-a-quote">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 m-auto">
+                    <div class="col-lg-5 m-auto">
                         <div class="card">
                             <div class="card-body">
                                 <!-- Logo -->
@@ -103,7 +103,7 @@
                                     <div class="mb-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="accept_t_c" name="accept_t_c" required/>
-                                            <label class="form-check-label" for="remember-me"> accept terms and conditions.<span class="text-danger">*</span> </label>
+                                            <label class="form-check-label" for="remember-me">I agree to the <a target="_blank" href="{{route('front.term_and_conditionpage')}}">Terms and Conditions</a> and <a target="_blank"  href="{{route('front.privacy_policypage')}}">Privacy Policy</a>.<span class="text-danger">*</span> </label>
                                         </div>
                                     </div>
                                     <div class="mb-3">

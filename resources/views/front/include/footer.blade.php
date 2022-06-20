@@ -23,7 +23,7 @@
                      <li><a href="{{route('front.homepage')}}">Home</a></li>
                      <li><a href="{{route('front.aboutpage')}}">About us</a></li>
                      <li><a href="{{route('front.servicespage')}}">Services</a></li>
-                     <li><a href="{{route('front.term_of_servicepage')}}">Terms of service</a></li>
+                     <li><a href="{{route('front.term_and_conditionpage')}}">Terms of service</a></li>
                      <li><a href="{{route('front.privacy_policypage')}}">Privacy policy</a></li>
                  </ul>
              </div>

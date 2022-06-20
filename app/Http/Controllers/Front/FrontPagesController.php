@@ -21,9 +21,9 @@ class FrontPagesController extends Controller
     {
         return view('front.pages.services');
     }
-    public function term_of_servicepage()
+    public function term_and_conditionpage()
     {
-        return view('front.pages.term_of_service');
+        return view('front.pages.term_and_condition');
     }
     public function privacy_policypage()
     {

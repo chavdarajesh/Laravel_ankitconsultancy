@@ -116,7 +116,7 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('/about', [FrontPagesController::class, 'aboutpage'])->name('front.aboutpage');
     Route::get('/services', [FrontPagesController::class, 'servicespage'])->name('front.servicespage');
     Route::get('/privacy_policy', [FrontPagesController::class, 'privacy_policypage'])->name('front.privacy_policypage');
-    Route::get('/term_of_service', [FrontPagesController::class, 'term_of_servicepage'])->name('front.term_of_servicepage');
+    Route::get('/term_and_condition', [FrontPagesController::class, 'term_and_conditionpage'])->name('front.term_and_conditionpage');
     
     Route::get('/profile', [ProfileController::class, 'profilepage'])->name('front.profilepage')->middleware('auth');
     Route::post('/profile', [ProfileController::class, 'postprofilepage'])->name('front.post.profilepage');
