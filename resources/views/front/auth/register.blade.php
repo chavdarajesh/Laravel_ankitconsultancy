@@ -1,0 +1,140 @@
+@extends('front.layouts.main')
+@section('title', 'Register')
+@section('content')
+
+    <main id="main">
+
+
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center"
+                style="background-image: url('{{ asset('assets/front/img/page-header.jpg') }}');">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2>Register</h2>
+                            <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas
+                                consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione
+                                sint. Sit quaerat ipsum dolorem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="{{ route('front.homepage') }}">Home</a></li>
+                        <li>Register</li>
+                    </ol>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <section id="get-a-quote" class="get-a-quote">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 m-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Logo -->
+
+                                <!-- /Logo -->
+                                <h4 class="mb-2">Welcome to Financial Advisory 👋</h4>
+                                <p class="mb-4">Please sign-up to your account and start the adventure</p>
+
+                                <form id="formAuthentication" class="mb-3" action="{{ route('front.post.register') }}"
+                                    method="POST">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                            value="{{ old('name') }}" id="name" name="name"
+                                            placeholder="Enter your Name" autofocus />
+                                        @error('name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="username" class="form-control @error('username') is-invalid @enderror"
+                                            value="{{ old('username') }}" id="username" name="username"
+                                            placeholder="Enter your Username" />
+                                        @error('username')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                            id="email" value="{{ old('email') }}" name="email"
+                                            placeholder="Enter your email" />
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Phone</label>
+                                        <input type="tel" class="form-control @error('phone') is-invalid @enderror"
+                                            value="{{ old('phone') }}" id="phone" name="phone"
+                                            placeholder="Enter your Phone" />
+                                        @error('phone')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="address" class="form-label">Address</label>
+                                        <textarea name="address" class="form-control @error('address') is-invalid @enderror" name="address" id="address"
+                                            rows="2">{{ old('address') }}</textarea>
+                                        @error('address')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="dateofbirth" class="form-label">Date Of Birth</label>
+                                        <input type="date"
+                                            class="form-control @error('dateofbirth') is-invalid @enderror"
+                                            value="{{ old('dateofbirth') }}" id="dateofbirth" name="dateofbirth" />
+                                        @error('dateofbirth')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="remember-me" />
+                                            <label class="form-check-label" for="remember-me"> Remember Me </label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary d-grid w-100" type="submit">Sign up</button>
+                                    </div>
+                                </form>
+
+                                <p class="text-center">
+                                    <span>Already have an account?</span>
+                                    <a href="{{ route('front.login') }}">
+                                        <span>Sign In</span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="authentication-wrapper authentication-basic container-p-y">
+                    <div class="authentication-inner">
+                        <!-- Register -->
+
+                        <!-- /Register -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+@stop
+@section('js')
+    <script>
+        dateofbirth.max = new Date().toISOString().split("T")[0];
+    </script>
+@stop
