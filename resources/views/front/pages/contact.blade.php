@@ -69,24 +69,42 @@
                     </div>
 
                     <div class="col-lg-8">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <form action="{{ route('front.post.contact') }}" method="post" role="form"
+                            class="php-email-form">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name"
-                                        placeholder="Your Name" required>
+                                    <input type="text" name="name"
+                                        class="form-control  @error('name') border border-danger @enderror" id="name"
+                                        placeholder="Your Name"  value="{{ old('name') }}" autofocus>
+                                        @error('name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                 </div>
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="Your Email" required>
+                                    <input type="email" class="form-control  @error('email') border border-danger @enderror"
+                                        name="email" id="email" placeholder="Your Email" 
+                                        value="{{ old('email') }}">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" required>
+                                <input type="text" class="form-control  @error('subject') border border-danger @enderror"
+                                    name="subject" id="subject" placeholder="Subject" 
+                                    value="{{ old('subject') }}">
                             </div>
+                            @error('subject')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                <textarea class="form-control   @error('message') border border-danger @enderror" name="message" rows="5"
+                                    placeholder="Message" >{{ old('message') }}</textarea>
                             </div>
+                            @error('message')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             <div class="my-3">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>

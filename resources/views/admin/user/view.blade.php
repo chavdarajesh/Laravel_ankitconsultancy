@@ -17,7 +17,7 @@
 
                 </ul>
                 <div class="card mb-4">
-                    <h5 class="card-header">Profile Setting</h5>
+                    <h5 class="card-header">User View</h5>
                     <hr class="my-0" />
                     <div class="card-body">
                         <input type="hidden" name="id" value="{{ $User->id }}">
@@ -59,13 +59,13 @@
                                     value="{{ $User->username }}" autofocus readonly />
                             </div>
                             <div class="mb-3 col-md-12">
-                                <label for="username" class="form-label">UPI ID</label>
-                                <input class="form-control" type="text" id="username" name="username"
+                                <label for="upiid" class="form-label">UPI ID</label>
+                                <input class="form-control" type="text" id="upiid" name="upiid"
                                     value="{{ $User->qrcode ? QRCode::get_qrcode_by_id($User->qrcode)->upiid : '' }}"
                                     autofocus readonly />
                             </div>
                             <div class="mb-3 col-md-12">
-                                <label for="adminname" class="form-label">Address</label>
+                                <label for="address" class="form-label">Address</label>
                                 <textarea name="address" id="address" rows="3" class="form-control" readonly> {{ $User->address }}</textarea>
                             </div>
                             <div class="mb-3 col-md-12">

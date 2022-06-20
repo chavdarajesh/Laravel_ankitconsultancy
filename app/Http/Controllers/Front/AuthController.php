@@ -36,6 +36,7 @@ class AuthController extends Controller
             'username' => 'required |unique:users',
             'address' => 'required',
             'dateofbirth' => 'required',
+            'accept_t_c' => 'required',
         ]);
 
         $user = new User();
@@ -64,6 +65,7 @@ class AuthController extends Controller
         $ValidatedData = Validator::make($request->all(), [
             'email' => 'required',
             'password' => 'required',
+            'accept_t_c' => 'required',
         ]);
         if ($ValidatedData->fails()) {
             return redirect()->back()->with('error', 'All Filed Require..!');

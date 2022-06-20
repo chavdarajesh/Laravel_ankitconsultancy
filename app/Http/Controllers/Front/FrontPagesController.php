@@ -17,12 +17,16 @@ class FrontPagesController extends Controller
     {
         return view('front.pages.about');
     }
-    public function contactpage()
-    {
-        return view('front.pages.contact');
-    }
     public function servicespage()
     {
         return view('front.pages.services');
+    }
+    public function term_of_servicepage()
+    {
+        return view('front.pages.term_of_service');
+    }
+    public function privacy_policypage()
+    {
+        return view('front.pages.privacy_policy');
     }
 }

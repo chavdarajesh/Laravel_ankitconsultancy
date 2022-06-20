@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\BankDetailsContaroller;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\EMIController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\QRCodeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Front\AuthController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\FrontPagesController;
 use App\Http\Controllers\Front\PaymentController;
 use App\Http\Controllers\Front\ProfileController;
@@ -97,6 +99,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'is_a
     Route::put('/user/update', [UserController::class, 'user_update'])->name('admin.update.user');
     Route::post('/user_status/update', [UserController::class, 'user_status_update'])->name('admin.update.user.status');
     Route::post('/user_is_verified/update', [UserController::class, 'user_is_verified_update'])->name('admin.update.user.is_verified');
+
+
+    Route::get('/contact_msg', [AdminContactController::class, 'get_contact_msg'])->name('admin.get.contact_msg');
+    Route::delete('/contact_msg/delete/{id}', [AdminContactController::class, 'contact_msg_delete'])->name('admin.delete.contact_msg');
+    Route::get('/contcat_msg/view/{id}', [AdminContactController::class, 'contcat_msg_view'])->name('admin.view.contcat_msg');
+
 });
 
 
@@ -106,14 +114,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'is_a
 Route::group(['namespace' => 'Front'], function () {
     Route::get('/', [FrontPagesController::class, 'homepage'])->name('front.homepage');
     Route::get('/about', [FrontPagesController::class, 'aboutpage'])->name('front.aboutpage');
-    Route::get('/contact', [FrontPagesController::class, 'contactpage'])->name('front.contactpage');
     Route::get('/services', [FrontPagesController::class, 'servicespage'])->name('front.servicespage');
-
+    Route::get('/privacy_policy', [FrontPagesController::class, 'privacy_policypage'])->name('front.privacy_policypage');
+    Route::get('/term_of_service', [FrontPagesController::class, 'term_of_servicepage'])->name('front.term_of_servicepage');
+    
     Route::get('/profile', [ProfileController::class, 'profilepage'])->name('front.profilepage')->middleware('auth');
     Route::post('/profile', [ProfileController::class, 'postprofilepage'])->name('front.post.profilepage');
     Route::post('/profile/changepassword', [ProfileController::class, 'postprofilechangepassword'])->name('front.post.profile.changepassword');
-
-
+    
+    Route::get('/contact', [ContactController::class, 'contactpage'])->name('front.contactpage');
+    Route::post('/contact', [ContactController::class, 'postcontact'])->name('front.post.contact');
 
     Route::get('/login', [AuthController::class, 'login'])->name('front.login');
     Route::get('/register', [AuthController::class, 'register'])->name('front.register');

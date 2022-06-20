@@ -28,45 +28,6 @@
                 </div>
             </nav>
         </div>
-
-        {{-- <section id="get-a-quote" class="get-a-quote">
-            <div class="container" data-aos="fade-up">
-
-                <div class="row g-0">
-
-                    <div class="col-lg-5 quote-bg"
-                        style="background-image: url(https://colorlib.com/etc/regform/colorlib-regform-7/images/signup-image.jpg);"></div>
-
-                    <div class="col-lg-7">
-                        <form action="" method="post" class="php-email-form">
-                            <h3>Login</h3>
-
-                            <div class="row gy-4">
-
-                                <div class="col-md-12 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your quote request has been sent successfully. Thank you!
-                                    </div>
-
-                                    <button type="submit">Login</button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div><!-- End Quote Form -->
-
-                </div>
-
-            </div>
-        </section> --}}
-
         <section id="get-a-quote" class="get-a-quote">
             <div class="container">
                 <div class="row">
@@ -83,14 +44,14 @@
                                     method="POST">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="email" class="form-label">Email or Username</label>
+                                        <label for="email" class="form-label">Email or Username<span class="text-danger">*</span></label>
                                         <input type="email" value="" class="form-control " id="email"
-                                            name="email" placeholder="Enter your email or username" autofocus />
+                                            name="email" placeholder="Enter your email or username" autofocus required />
 
                                     </div>
                                     <div class="mb-3 form-password-toggle">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="adminpassword">Password</label>
+                                            <label class="form-label" for="adminpassword">Password<span class="text-danger">*</span></label>
                                             <a href="{{ route('front.forgotpassword') }}">
                                                 <small>Forgot Password?</small>
                                             </a>
@@ -99,14 +60,14 @@
                                             <input type="password" id="password" value="" class="form-control "
                                                 name="password"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                                aria-describedby="password" />
+                                                aria-describedby="password" required/>
                                         </div>
 
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="remember-me" />
-                                            <label class="form-check-label" for="remember-me"> Show Password </label>
+                                            <input class="form-check-input" type="checkbox" id="accept_t_c" name="accept_t_c" required/>
+                                            <label class="form-check-label" for="remember-me">accept terms and conditions.<span class="text-danger">*</span></label>
                                         </div>
                                     </div>
                                     <div class="mb-3">

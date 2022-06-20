@@ -47,54 +47,54 @@
                                     method="POST">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="name" class="form-label">Name</label>
+                                        <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control @error('name') is-invalid @enderror"
                                             value="{{ old('name') }}" id="name" name="name"
-                                            placeholder="Enter your Name" autofocus />
+                                            placeholder="Enter your Name" autofocus required/>
                                         @error('name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="username" class="form-label">Username</label>
+                                        <label for="username" class="form-label">Username<span class="text-danger">*</span></label>
                                         <input type="username" class="form-control @error('username') is-invalid @enderror"
                                             value="{{ old('username') }}" id="username" name="username"
-                                            placeholder="Enter your Username" />
+                                            placeholder="Enter your Username" required/>
                                         @error('username')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
+                                        <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
                                         <input type="email" class="form-control @error('email') is-invalid @enderror"
                                             id="email" value="{{ old('email') }}" name="email"
-                                            placeholder="Enter your email" />
+                                            placeholder="Enter your email" required/>
                                         @error('email')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="phone" class="form-label">Phone</label>
+                                        <label for="phone" class="form-label">Phone<span class="text-danger">*</span></label>
                                         <input type="tel" class="form-control @error('phone') is-invalid @enderror"
                                             value="{{ old('phone') }}" id="phone" name="phone"
-                                            placeholder="Enter your Phone" />
+                                            placeholder="Enter your Phone" required/>
                                         @error('phone')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="address" class="form-label">Address</label>
+                                        <label for="address" class="form-label">Address<span class="text-danger">*</span></label>
                                         <textarea name="address" class="form-control @error('address') is-invalid @enderror" name="address" id="address"
-                                            rows="2">{{ old('address') }}</textarea>
+                                            rows="2" required>{{ old('address') }}</textarea>
                                         @error('address')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="dateofbirth" class="form-label">Date Of Birth</label>
+                                        <label for="dateofbirth" class="form-label">Date Of Birth<span class="text-danger">*</span></label>
                                         <input type="date"
                                             class="form-control @error('dateofbirth') is-invalid @enderror"
-                                            value="{{ old('dateofbirth') }}" id="dateofbirth" name="dateofbirth" />
+                                            value="{{ old('dateofbirth') }}" id="dateofbirth" name="dateofbirth" required/>
                                         @error('dateofbirth')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -102,8 +102,8 @@
 
                                     <div class="mb-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="remember-me" />
-                                            <label class="form-check-label" for="remember-me"> Remember Me </label>
+                                            <input class="form-check-input" type="checkbox" id="accept_t_c" name="accept_t_c" required/>
+                                            <label class="form-check-label" for="remember-me"> accept terms and conditions.<span class="text-danger">*</span> </label>
                                         </div>
                                     </div>
                                     <div class="mb-3">

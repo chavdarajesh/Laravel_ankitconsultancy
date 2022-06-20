@@ -34,32 +34,45 @@ class DashboardController extends Controller
             return redirect()->back()->with('error', 'All Fileds are Required..');
             // return redirect()->back()->withInput()->withErrors($ValidatedData);
         } else {
-            if (Auth::attempt(['email' => $request->adminemail, 'password' => $request->adminpassword, 'is_verified' => 1, 'status' => 1])) {
+            if (!Auth::check()) {
                 if (Auth::user()->is_admin == 1) {
                     return redirect()->route('admin.dashboard')->with('message', 'Admin Login Successfully');
                 } else {
-                    return redirect()->back()->with('error', 'You have not Admin access');
+                    if (Auth::attempt(['email' => $request->adminemail, 'password' => $request->adminpassword, 'is_verified' => 1, 'status' => 1])) {
+                        if (Auth::user()->is_admin == 1) {
+                            return redirect()->route('admin.dashboard')->with('message', 'Admin Login Successfully');
+                        } else {
+                            return redirect()->back()->with('error', 'You have not Admin access');
+                        }
+                    } else {
+                        return redirect()->back()->with('errors', 'Invalid Credantials');
+                    }
                 }
             } else {
-                return redirect()->back()->with('errors', 'Invalid Credantials');
+                if (Auth::user()->is_admin == 1) {
+                    return redirect()->route('admin.dashboard')->with('message', 'Admin Login Successfully');
+                }
+                else{
+                    return redirect()->route('front.homepage')->with('error', 'User Not Acees Admin Site..!');
+                }
             }
         }
     }
     public function admindashboard()
     {
-        $data['Total_Users']= User::where('is_admin',0)->count();
-        $data['Total_Verified_Users']= User::where('is_admin',0)->where('is_verified',1)->count();
-        $data['Total_Not_Verified_Users']= User::where('is_admin',0)->where('is_verified',0)->count();
-        $data['Total_Active_Users']= User::where('is_admin',0)->where('status',1)->count();
-        $data['Total_Not_Active_Users']= User::where('is_admin',0)->where('status',0)->count();
+        $data['Total_Users'] = User::where('is_admin', 0)->count();
+        $data['Total_Verified_Users'] = User::where('is_admin', 0)->where('is_verified', 1)->count();
+        $data['Total_Not_Verified_Users'] = User::where('is_admin', 0)->where('is_verified', 0)->count();
+        $data['Total_Active_Users'] = User::where('is_admin', 0)->where('status', 1)->count();
+        $data['Total_Not_Active_Users'] = User::where('is_admin', 0)->where('status', 0)->count();
 
-        $data['Total_Payments']= Payment::count();
-        $data['Total_Verified_Payments']= Payment::where('is_verified',1)->count();
-        $data['Total_Not_Verified_Payments']= Payment::where('is_verified',0)->count();
-        
-        $data['Total_Payments_Sum']= Payment::sum('emi_amount');
+        $data['Total_Payments'] = Payment::count();
+        $data['Total_Verified_Payments'] = Payment::where('is_verified', 1)->count();
+        $data['Total_Not_Verified_Payments'] = Payment::where('is_verified', 0)->count();
 
-        return view('admin.dashboard',['data'=>$data]);
+        $data['Total_Payments_Sum'] = Payment::sum('emi_amount');
+
+        return view('admin.dashboard', ['data' => $data]);
     }
     public function adminlogout(Request $request)
     {

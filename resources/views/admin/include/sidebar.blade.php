@@ -100,7 +100,7 @@
             style="">
             <a href="{{ route('admin.get.users') }}" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons bx bxs-user' ></i>
-                <div data-i18n="Layouts">All Users</div>
+                <div data-i18n="Layouts">Users</div>
             </a>
 
             <ul class="menu-sub">
@@ -144,6 +144,27 @@
                 </li>
             </ul>
         </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Contacts</span>
+        </li>
+        <li class="menu-item {{ $current_route_name == 'admin.get.contact_msg' ? 'open active' : '' }}"
+            style="">
+            <a href="{{ route('admin.get.contact_msg') }}" class="menu-link menu-toggle">
+                <i class='menu-icon tf-icons bx bxs-contact'></i>
+                <div data-i18n="Layouts">Contacts</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li
+                    class="menu-item {{ $current_route_name == 'admin.get.contact_msg' ? 'active' : '' }}">
+                    <a href="{{ route('admin.get.contact_msg') }}" class="menu-link">
+                        <div data-i18n="Without menu">All Contacts</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Profile</span>
         </li>
