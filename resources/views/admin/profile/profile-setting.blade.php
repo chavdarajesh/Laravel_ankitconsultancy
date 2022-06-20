@@ -13,8 +13,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.profile.profilechangepassword') }}"><i
-                                class="bx bx-bell me-1"></i> Password Setting</a>
+                        <a class="nav-link" href="{{ route('admin.profile.profilechangepassword') }}"><i class="bx bx-cog me-1"></i> Password Setting</a>
                     </li>
                 </ul>
                 <div class="card mb-4">

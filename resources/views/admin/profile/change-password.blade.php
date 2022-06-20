@@ -14,7 +14,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript:void(0);"><i class="bx bx-bell me-1"></i> Password
+                        <a class="nav-link active" href="javascript:void(0);"><i class="bx bx-cog me-1"></i> Password
                             Setting</a>
                     </li>
                 </ul>

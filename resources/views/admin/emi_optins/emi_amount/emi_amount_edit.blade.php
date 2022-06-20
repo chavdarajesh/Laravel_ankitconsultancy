@@ -10,17 +10,17 @@
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> EMI
+                        <a class="nav-link active" href="javascript:void(0);"><i class='bx bxs-wallet me-1' ></i> EMI
                             Amoount
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ route('admin.get.qr_code') }}"><i class="bx bx-bell me-1"></i> QR
+                        <a class="nav-link " href="{{ route('admin.get.qr_code') }}"><i class='bx bx-qr me-1' ></i> QR
                             Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.get.bankdetails') }}"><i class="bx bx-bell me-1"></i>
+                        <a class="nav-link" href="{{ route('admin.get.bankdetails') }}"><i class='bx bxs-bank me-1'></i>
                             Bank Details</a>
                     </li>
                 </ul>

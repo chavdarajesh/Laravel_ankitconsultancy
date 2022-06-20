@@ -20,7 +20,17 @@
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
-                        <a class="nav-link active " href="javascript:void(0);"><i class="bx bx-user me-1"></i>
+                        <a class="nav-link" href="{{route('admin.get.first_payment')}}"><i class='bx bx-credit-card me-1'></i>
+                            First Payment
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript:void(0);"><i class='bx bx-credit-card me-1'></i>
+                            Not Verified Payment
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  " href="{{route('admin.get.all_payment')}}"><i class='bx bx-credit-card me-1'></i>
                             All Payment
                         </a>
                     </li>
