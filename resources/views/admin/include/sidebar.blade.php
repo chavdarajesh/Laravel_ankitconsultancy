@@ -46,7 +46,7 @@
                     </g>
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Financial Advisor</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2"><button type="button" class="btn btn-primary">F A</button></span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -55,7 +55,9 @@
     </div>
 
     <div class="menu-inner-shadow"></div>
-
+    <div class="divider">
+        <div class="divider-text">Financial Advisory</div>
+      </div>
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
         <li class="menu-item  {{ $current_route_name == 'admin.dashboard' ? 'active' : '' }}">
