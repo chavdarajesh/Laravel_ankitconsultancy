@@ -7,9 +7,11 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\BankDetailsContaroller;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\EMIController;
+use App\Http\Controllers\Admin\FaqsController as AdminFaqsController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
 use App\Http\Controllers\Admin\QRCodeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\Front\AuthController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\FrontPagesController;
@@ -109,6 +111,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'is_a
     Route::get('/contact_settings', [AdminContactController::class, 'get_contact_settings'])->name('admin.get.contact_settings');
     Route::post('/contact_settings', [AdminContactController::class, 'post_contact_settings'])->name('admin.post.contact_settings');
 
+    Route::get('/faqs', [AdminFaqsController::class, 'get_faqs'])->name('admin.get.faqs');
+    Route::get('/faqs/add', [AdminFaqsController::class, 'get_faqs_add'])->name('admin.add.faq');
+    Route::post('/faqs', [AdminFaqsController::class, 'post_faqs'])->name('admin.post.faq');
+    Route::delete('/faqs/delete/{id}', [AdminFaqsController::class, 'faqs_delete'])->name('admin.delete.faq');
+    Route::get('/faqs/edit/{id}', [AdminFaqsController::class, 'faqs_edit'])->name('admin.edit.faq');
+    Route::get('/faqs/view/{id}', [AdminFaqsController::class, 'faqs_view'])->name('admin.view.faq');
+    Route::put('/faqs/update', [AdminFaqsController::class, 'faqs_update'])->name('admin.update.faq');
+    Route::post('/faq_status/update', [AdminFaqsController::class, 'faq_status_update'])->name('admin.update.faq.status');
+
+
 });
 
 
@@ -122,9 +134,6 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('/privacy_policy', [FrontPagesController::class, 'privacy_policypage'])->name('front.privacy_policypage');
     Route::get('/term_and_condition', [FrontPagesController::class, 'term_and_conditionpage'])->name('front.term_and_conditionpage');
 
-    Route::get('/profile', [ProfileController::class, 'profilepage'])->name('front.profilepage')->middleware('auth');
-    Route::post('/profile', [ProfileController::class, 'postprofilepage'])->name('front.post.profilepage');
-    Route::post('/profile/changepassword', [ProfileController::class, 'postprofilechangepassword'])->name('front.post.profile.changepassword');
 
     Route::get('/contact', [ContactController::class, 'contactpage'])->name('front.contactpage');
     Route::post('/contact', [ContactController::class, 'postcontact'])->name('front.post.contact');
@@ -137,16 +146,24 @@ Route::group(['namespace' => 'Front'], function () {
 
     Route::post('/login', [AuthController::class, 'postlogin'])->name('front.post.login');
     Route::post('/register', [AuthController::class, 'postregister'])->name('front.post.register');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('front.post.logout');
     Route::post('/forgotpassword', [AuthController::class, 'postforgotpassword'])->name('front.post.forgotpassword');
     Route::post('/reset-password', [AuthController::class, 'submitResetPasswordFormpost'])->name('front.reset.password.post');
 
+    Route::get('/faqs', [FrontPagesController::class, 'faqspage'])->name('front.faqspage');
 
+    Route::group(['middleware' => 'is_auth'], function () {
 
+        Route::post('/logout', [AuthController::class, 'logout'])->name('front.post.logout');
 
-    Route::get('/first_payment', [PaymentController::class, 'first_paymentpage'])->name('front.first_paymentpage');
-    Route::post('/first_payment', [PaymentController::class, 'postfirst_payment'])->name('front.post.first_payment');
-    Route::get('/next_payment', [PaymentController::class, 'next_paymentpage'])->name('front.next_paymentpage');
-    Route::post('/next_payment', [PaymentController::class, 'postnext_paymentpage'])->name('front.post.next_payment');
-    Route::get('/all_emi', [PaymentController::class, 'all_emipage'])->name('front.all_emipage');
+        Route::get('/first_payment', [PaymentController::class, 'first_paymentpage'])->name('front.first_paymentpage');
+        Route::post('/first_payment', [PaymentController::class, 'postfirst_payment'])->name('front.post.first_payment');
+        Route::get('/next_payment', [PaymentController::class, 'next_paymentpage'])->name('front.next_paymentpage');
+        Route::post('/next_payment', [PaymentController::class, 'postnext_paymentpage'])->name('front.post.next_payment');
+        Route::get('/all_emi', [PaymentController::class, 'all_emipage'])->name('front.all_emipage');
+
+        Route::get('/profile', [ProfileController::class, 'profilepage'])->name('front.profilepage');
+        Route::post('/profile', [ProfileController::class, 'postprofilepage'])->name('front.post.profilepage');
+        Route::post('/profile/changepassword', [ProfileController::class, 'postprofilechangepassword'])->name('front.post.profile.changepassword');
+    });
+
 });

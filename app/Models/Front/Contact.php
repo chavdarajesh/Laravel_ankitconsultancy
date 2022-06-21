@@ -15,5 +15,8 @@ class Contact extends Model
         'email',
         'subject',
         'message',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 }

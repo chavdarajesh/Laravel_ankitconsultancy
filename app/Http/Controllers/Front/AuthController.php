@@ -20,11 +20,21 @@ class AuthController extends Controller
     //
     public function login()
     {
-        return view('front.auth.login');
+        if(!Auth::check()){
+            return view('front.auth.login');
+        }
+        else{
+            return redirect()->route('front.homepage')->with('message', 'User Login Successfully');
+        }
     }
     public function register()
     {
+        if(!Auth::check()){
         return view('front.auth.register');
+        }
+        else{
+            return redirect()->route('front.homepage')->with('message', 'User Login Successfully');
+        }
     }
     public function postregister(Request $request)
     {

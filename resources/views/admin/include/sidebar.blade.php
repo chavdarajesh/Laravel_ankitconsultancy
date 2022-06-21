@@ -170,7 +170,25 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Faqs</span>
+        </li>
+        <li class="menu-item {{ $current_route_name == 'admin.get.faqs'||  $current_route_name == 'admin.add.faq' ||  $current_route_name == 'admin.edit.faq' ||  $current_route_name == 'admin.view.faq'  ? 'open active' : '' }}"
+            style="">
+            <a href="{{ route('admin.get.faqs') }}" class="menu-link menu-toggle">
+                <i class='bx bx-question-mark menu-icon tf-icons' ></i>
+                <div data-i18n="Layouts">Faqs</div>
+            </a>
 
+            <ul class="menu-sub">
+                <li
+                    class="menu-item {{  $current_route_name == 'admin.get.faqs'||  $current_route_name == 'admin.add.faq' ||  $current_route_name == 'admin.edit.faq' ||  $current_route_name == 'admin.view.faq'  ? 'active' : '' }}">
+                    <a href="{{ route('admin.get.faqs') }}" class="menu-link">
+                        <div data-i18n="Without menu">All Faqs</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Profile</span>
         </li>

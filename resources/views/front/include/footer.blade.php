@@ -21,7 +21,7 @@
              <div class="col-lg-2 col-6 footer-links">
                  <h4>Useful Links</h4>
                  <ul>
-                     <li><a href="{{route('front.homepage')}}">Home</a></li>
+                     <li><a href="{{route('front.faqspage')}}">Faqs</a></li>
                      <li><a href="{{route('front.aboutpage')}}">About us</a></li>
                      <li><a href="{{route('front.servicespage')}}">Services</a></li>
                      <li><a href="{{route('front.term_and_conditionpage')}}">Terms of service</a></li>
