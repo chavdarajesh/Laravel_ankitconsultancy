@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
 
                         <div class="accordion accordion-flush" id="faqlist">
                             @php $counter=0 @endphp
@@ -45,15 +45,21 @@
                             @php $counter ++ @endphp
                             <div class="accordion-item shadow-lg">
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button collapsed justify-content-center" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#faq-content-{{$Payment->id}}">
-                                        <span class="bg-secondary text-white rounded px-3 py-1 mx-2 h3">{{$counter}}</span>
-                                       <h3> Amount :- {{$Payment->emi_amount}} | Instalment Date:- {{$Payment->created_at}} | Reference ID -  {{$Payment->id}}</h3>
+                                        {{-- <span class="bg-secondary text-white rounded  py-1 px-3">{{$counter}}</span> --}}
+                                        <style>
+                                            .bi-question-circle-{{$counter}}::before {
+                                                content: "{{$counter}}";
+                                            }
+                                        </style>
+                                        <i class="bi bi-question-circle-{{$counter}} question-icon"></i>
+                                        Amount :- {{$Payment->emi_amount}} | Instalment Date:- {{$Payment->created_at}} | Reference ID -  {{$Payment->id}}
                                     </button>
                                 </h3>
                                 <div id="faq-content-{{$Payment->id}}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
-                                        <h4>Your Screen Shot</h4>
+                                        <h6>Your Screen Shot</h6>
                                        <img class="shadow-lg w-100" src="{{ asset($Payment->payment_screenshot)}}" alt="">
                                     </div>
                                 </div>
@@ -70,7 +76,7 @@
             </div>
         </section><!-- End Frequently Asked Questions Section -->
 
-        
+
     </main><!-- End #main -->
 
 
