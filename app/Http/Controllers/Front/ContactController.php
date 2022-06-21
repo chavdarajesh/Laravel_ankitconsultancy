@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Front\Contact;
 use Illuminate\Http\Request;
+use App\Models\Admin\ContactSetting;
 
 class ContactController extends Controller
 {
     //
     public function contactpage()
     {
-        return view('front.pages.contact');
+        $ContactSetting = ContactSetting::where('static_id', 1)->where('status', 1)->first();
+        return view('front.pages.contact',['ContactSetting'=>$ContactSetting]);
     }
     public function postcontact(Request $request)
     {

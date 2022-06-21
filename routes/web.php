@@ -105,6 +105,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'is_a
     Route::delete('/contact_msg/delete/{id}', [AdminContactController::class, 'contact_msg_delete'])->name('admin.delete.contact_msg');
     Route::get('/contcat_msg/view/{id}', [AdminContactController::class, 'contcat_msg_view'])->name('admin.view.contcat_msg');
 
+
+    Route::get('/contact_settings', [AdminContactController::class, 'get_contact_settings'])->name('admin.get.contact_settings');
+    Route::post('/contact_settings', [AdminContactController::class, 'post_contact_settings'])->name('admin.post.contact_settings');
+
 });
 
 
@@ -117,11 +121,11 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('/services', [FrontPagesController::class, 'servicespage'])->name('front.servicespage');
     Route::get('/privacy_policy', [FrontPagesController::class, 'privacy_policypage'])->name('front.privacy_policypage');
     Route::get('/term_and_condition', [FrontPagesController::class, 'term_and_conditionpage'])->name('front.term_and_conditionpage');
-    
+
     Route::get('/profile', [ProfileController::class, 'profilepage'])->name('front.profilepage')->middleware('auth');
     Route::post('/profile', [ProfileController::class, 'postprofilepage'])->name('front.post.profilepage');
     Route::post('/profile/changepassword', [ProfileController::class, 'postprofilechangepassword'])->name('front.post.profile.changepassword');
-    
+
     Route::get('/contact', [ContactController::class, 'contactpage'])->name('front.contactpage');
     Route::post('/contact', [ContactController::class, 'postcontact'])->name('front.post.contact');
 

@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            AdminSeeder::class,BankDetailsSedder::class,QRCodeSeeder::class,EMIAmountSeeder::class
+            AdminSeeder::class,BankDetailsSedder::class,QRCodeSeeder::class,EMIAmountSeeder::class,ContactSettingSeeder::class
         ]);
     }
 }

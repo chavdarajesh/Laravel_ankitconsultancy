@@ -5,14 +5,18 @@
 @stop
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Contact /</span> All Conact Message</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Contact /</span>  Contact Message</h4>
 
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
                         <a class="nav-link active " href="javascript:void(0);"><i class='bx bxs-contact me-1' ></i>
-                            All Contact Message
+                             Contact Message
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.get.contact_settings')}}"><i class='bx bxs-contact me-1' ></i>  Conatct Settings
                         </a>
                     </li>
 

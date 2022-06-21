@@ -1,4 +1,5 @@
  <!-- ======= Footer ======= -->
+ @php use App\Models\Admin\ContactSetting; @endphp
  <footer id="footer" class="footer">
 
      <div class="container">
@@ -42,11 +43,9 @@
              <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                  <h4>Contact Us</h4>
                  <p>
-                     A108 Adam Street <br>
-                     New York, NY 535022<br>
-                     United States <br><br>
-                     <strong>Phone:</strong> +1 5589 55488 55<br>
-                     <strong>Email:</strong> info@example.com<br>
+                    {{ ContactSetting::get_contact_us_details()->location ? ContactSetting::get_contact_us_details()->location : 'A108 Adam Street, New York, NY 535022' }}<br><br>
+                     <strong>Phone:</strong> <a href="tel:{{ContactSetting::get_contact_us_details()->phone ? ContactSetting::get_contact_us_details()->phone : '+1 5589 55488 55' }}" class="Blondie">{{ ContactSetting::get_contact_us_details()->phone ? ContactSetting::get_contact_us_details()->phone : '+1 5589 55488 55' }}</a><br>
+                     <strong>Email:</strong> <a href="mailto:{{ ContactSetting::get_contact_us_details()->email ? ContactSetting::get_contact_us_details()->email : 'info@example.com' }}">{{ ContactSetting::get_contact_us_details()->email ? ContactSetting::get_contact_us_details()->email : 'info@example.com' }}</a><br>
                  </p>
 
              </div>
