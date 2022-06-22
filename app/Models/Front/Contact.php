@@ -15,6 +15,7 @@ class Contact extends Model
         'email',
         'subject',
         'message',
+        'user_id',
         'created_at',
         'updated_at',
         'deleted_at',

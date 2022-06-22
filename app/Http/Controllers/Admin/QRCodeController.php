@@ -17,13 +17,10 @@ class QRCodeController extends Controller
 
     public function qr_code_post(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'adminupiid' => 'required|regex:/^\w.+@\w+$/',
             'adminqrcodeimage' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Fileds are Required..');
-        } else {
             $QRCode = new QRCode();
             $QRCode->upiid = $request['adminupiid'];
             $QRCode->status = 1;
@@ -45,7 +42,6 @@ class QRCodeController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
-        }
     }
     public function qr_code_delete(Request $request, $id)
     {
@@ -72,12 +68,9 @@ class QRCodeController extends Controller
     }
     public function qr_code_update(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'adminupiid' => 'required|regex:/^\w.+@\w+$/',
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Fileds are Required..');
-        } else {
             $QRCode = QRCode::find($request->id);
             $QRCode->upiid = $request['adminupiid'];
             $QRCode->status = 1;
@@ -99,7 +92,6 @@ class QRCodeController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
-        }
     }
     public function qr_code_status_update(Request $request)
     {

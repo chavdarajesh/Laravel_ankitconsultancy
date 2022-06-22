@@ -6,6 +6,13 @@
             display: none;
         }
     </style>
+    @error('emi_amount')
+        <style>
+            .add-form {
+                display: block;
+            }
+        </style>
+    @enderror
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 @stop
@@ -18,14 +25,14 @@
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
-                        <a class="nav-link active " href="javascript:void(0);"><i class='bx bxs-wallet me-1' ></i>
+                        <a class="nav-link active " href="javascript:void(0);"><i class='bx bxs-wallet me-1'></i>
                             EMI
                             Amoount
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ route('admin.get.qr_code') }}"><i class='bx bx-qr me-1' ></i> QR
+                        <a class="nav-link " href="{{ route('admin.get.qr_code') }}"><i class='bx bx-qr me-1'></i> QR
                             Code</a>
                     </li>
                     <li class="nav-item">
@@ -48,8 +55,11 @@
                             <div class="row">
                                 <div class="mb-3 col-md-12">
                                     <label for="emi_amount" class="form-label">EMI Amount</label>
-                                    <input class="form-control" type="number" id="emi_amount" name="emi_amount"
-                                        value="" autofocus />
+                                    <input class="form-control @error('emi_amount') is-invalid @enderror" type="number"
+                                        id="emi_amount" name="emi_amount" value="{{ old('emi_amount') }}" autofocus />
+                                    @error('emi_amount')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>
@@ -66,11 +76,11 @@
                         <table class="table table-hover " id="example">
                             <thead>
                                 <tr>
-                                    <th class="text-center" >ID</th>
-                                    <th class="text-center" >EMI Amount</th>
-                                    <th class="text-center" >Status</th>
-                                    <th class="text-center" >Created At</th>
-                                    <th class="text-center" >Actions</th>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">EMI Amount</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Created At</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
@@ -81,12 +91,12 @@
                                         </td>
                                         <td class="text-center">{{ $EMIAmount->emi_amount }}</td>
 
-                                        <td class="text-center"> <input data-id="{{ $EMIAmount->id }}" class="toggle-class" type="checkbox"
-                                                data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
-                                                data-on="Active" data-off="InActive"
-                                                {{ $EMIAmount->status ? 'checked' : '' }}></td>
-                                        <td class="text-center" >{{ $EMIAmount->created_at }}</td>
-                                        <td class="text-center" >
+                                        <td class="text-center"> <input data-id="{{ $EMIAmount->id }}"
+                                                class="toggle-class" type="checkbox" data-onstyle="success"
+                                                data-offstyle="danger" data-toggle="toggle" data-on="Active"
+                                                data-off="InActive" {{ $EMIAmount->status ? 'checked' : '' }}></td>
+                                        <td class="text-center">{{ $EMIAmount->created_at }}</td>
+                                        <td class="text-center">
                                             <a href="{{ route('admin.edit.emi_amount', $EMIAmount->id) }}"> <button
                                                     type="button" class="btn btn-success">Edit</button></a>
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
@@ -139,7 +149,9 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                "order": [[ 0, 'desc' ]]
+                "order": [
+                    [0, 'desc']
+                ]
             });
         });
         $('.add-btn').click(function() {

@@ -72,24 +72,24 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <input type="text" name="name"
+                                    <input required type="text" name="name"
                                         class="form-control  @error('name') border border-danger @enderror" id="name"
-                                        placeholder="Your Name"  value="{{ old('name') }}" autofocus>
+                                        placeholder="Your Name"  value="{{ Auth::check() ? Auth::user()->name : old('name') }}" autofocus>
                                         @error('name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                 </div>
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="email" class="form-control  @error('email') border border-danger @enderror"
+                                    <input required type="email" class="form-control  @error('email') border border-danger @enderror"
                                         name="email" id="email" placeholder="Your Email"
-                                        value="{{ old('email') }}">
+                                        value="{{ Auth::check() ? Auth::user()->email : old('email') }}">
                                         @error('email')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="text" class="form-control  @error('subject') border border-danger @enderror"
+                                <input type="text" required class="form-control  @error('subject') border border-danger @enderror"
                                     name="subject" id="subject" placeholder="Subject"
                                     value="{{ old('subject') }}">
                             </div>
@@ -97,7 +97,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group mt-3">
-                                <textarea class="form-control   @error('message') border border-danger @enderror" name="message" rows="5"
+                                <textarea required class="form-control   @error('message') border border-danger @enderror" name="message" rows="5"
                                     placeholder="Message" >{{ old('message') }}</textarea>
                             </div>
                             @error('message')

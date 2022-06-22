@@ -32,7 +32,7 @@
                         </ul>
                     </li>
                     @else
-                    <li><a href="{{ route('admin.login') }}"
+                    <li><a target="_blank" href="{{ route('admin.login') }}"
                         class="{{ $current_route_name == 'admin.login' ? 'active' : '' }}">Admin Panel</a></li>
                     @endif
                     <li class="dropdown"><a href="#"

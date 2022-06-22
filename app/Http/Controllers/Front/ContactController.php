@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Front\Contact;
 use Illuminate\Http\Request;
 use App\Models\Admin\ContactSetting;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -28,6 +29,9 @@ class ContactController extends Controller
         $Contact->email = $request['email'];
         $Contact->subject = $request['subject'];
         $Contact->message = $request['message'];
+        if(Auth::check()){
+        $Contact->user_id = Auth::user()->id;
+        }
         $Contact->save();
 
         if ($Contact) {

@@ -10,6 +10,9 @@
             display: none;
         }
     </style>
+     @error('oldpassword') <style> .password_setting { display: block; } .profile_setting{ display: none; } </style> @enderror
+     @error('newpassword') <style> .password_setting { display: block; } .profile_setting{ display: none; } </style> @enderror
+     @error('confirmnewpasswod') <style> .password_setting { display: block; } .profile_setting{ display: none; } </style> @enderror
 @stop
 @section('content')
     <main id="main">
@@ -80,33 +83,53 @@
                                     <h3 class="my-3">Profile Setting</h3>
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control " id="name"
-                                            value="{{ Auth::user()->name }}" name="name">
+                                        <input required type="text" class="form-control @error('name') is-invalid @enderror "
+                                            id="name" value="{{ Auth::user()->name }}" name="name">
+                                        @error('name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
-                                        <input type="text" class="form-control " id="username"
-                                            value="{{ Auth::user()->username }}" name="username">
+                                        <input required type="text" class="form-control @error('username') is-invalid @enderror "
+                                            id="username" value="{{ Auth::user()->username }}" name="username">
+                                        @error('username')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control " id="email"
-                                            value="{{ Auth::user()->email }}" name="email">
+                                        <input required type="email" class="form-control @error('email') is-invalid @enderror "
+                                            id="email" value="{{ Auth::user()->email }}" name="email">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
-                                        <input type="tel" class="form-control " id="phone" maxlength="10"
-                                            value="{{ Auth::user()->phone }}" name="phone">
+                                        <input required type="tel" class="form-control @error('phone') is-invalid @enderror "
+                                            id="phone" maxlength="10" value="{{ Auth::user()->phone }}"
+                                            name="phone">
+                                        @error('phone')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="address" class="form-label">Address</label>
-                                        <textarea name="address" id="address" class="form-control" rows="3">{{ Auth::user()->address }}</textarea>
+                                        <textarea required name="address" id="address" class="form-control @error('address') is-invalid @enderror" rows="3">{{ Auth::user()->address }}</textarea>
+                                        @error('address')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="dateofbirth" class="form-label">Date Of Birth</label>
-                                        <input type="date" class="form-control "
+                                        <input required type="date"
+                                            class="form-control @error('dateofbirth') is-invalid @enderror "
                                             value="{{ Auth::user()->dateofbirth }}" id="dateofbirth" name="dateofbirth"
                                             max="2022-06-16">
+                                        @error('dateofbirth')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <button class="btn btn-primary d-grid " type="submit">Save Changes</button>
@@ -119,25 +142,34 @@
                                     <h3 class="my-3">Password Setting</h3>
                                     <div class="mb-3">
                                         <label for="oldpassword" class="form-label">Old Password</label>
-                                        <input type="text" class="form-control " id="oldpassword" value=""
+                                        <input required type="text" class="form-control @error('oldpassword') is-invalid @enderror" id="oldpassword" value="{{ old('oldpassword') }}"
                                             name="oldpassword">
+                                            @error('oldpassword')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="newpassword" class="form-label">New Password</label>
-                                        <input type="text" class="form-control " id="newpassword" value=""
+                                        <input required type="text" class="form-control @error('newpassword') is-invalid @enderror" id="newpassword" value="{{ old('newpassword') }}"
                                             name="newpassword">
+                                            @error('newpassword')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="confirmnewpasswod" class="form-label">Confirm New Password</label>
-                                        <input type="text" class="form-control " id="confirmnewpasswod"
-                                            value="" name="confirmnewpasswod">
+                                        <input required type="text" class="form-control @error('confirmnewpasswod') is-invalid @enderror" id="confirmnewpasswod"
+                                            value="{{ old('confirmnewpasswod') }}" name="confirmnewpasswod">
+                                            @error('confirmnewpasswod')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <button class="btn btn-primary d-grid " type="submit">Save Changes</button>
                                     </div>
                                 </div>
                             </form>
-                            
+
                             <p class="profile_setting">
                                 <span>Password Setting?</span>
                                 <a href="" class="click_here_profile cursor-pointer">Click Here</a>

@@ -25,13 +25,19 @@
                             <div class="row">
                                 <div class="mb-3 col-md-12">
                                     <label for="title" class="form-label">Title</label>
-                                    <input class="form-control" type="text" id="title" name="title"
+                                    <input class="form-control @error('title') is-invalid @enderror" type="text" id="title" name="title"
                                         value="{{$Faq['title']}}" autofocus />
+                                        @error('title')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="description" class="form-label">Description</label>
-                                    <textarea class="form-control" rows="5" type="text" id="description" name="description"
+                                    <textarea class="form-control @error('description') is-invalid @enderror" rows="5" type="text" id="description" name="description"
                                         value="" >{{$Faq['description']}}</textarea>
+                                        @error('description')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>

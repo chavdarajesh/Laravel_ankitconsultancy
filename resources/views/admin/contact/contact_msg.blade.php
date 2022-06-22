@@ -28,6 +28,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
+                                    <th class="text-center">Is User </th>
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Email </th>
                                     <th class="text-center">Subject</th>
@@ -41,7 +42,16 @@
                                         <td class="text-center"><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                             <strong>{{ $Contact->id }}</strong>
                                         </td>
-
+                                        {{-- {{ $Contact->user_id ? '<a href="'.route('admin.view.user',$Contact->user_id) .'">' : '11'}} --}}
+                                            <td class="text-center">
+                                                <a href="{{ $Contact->user_id ?  route('admin.view.user',$Contact->user_id): 'javascript:void(0)'}}">
+                                            @if ($Contact->user_id)
+                                            <span class="badge bg-success">Yes</span>
+                                            @else
+                                            <span class="badge bg-secondary">No</span>
+                                            @endif
+                                            {!! $Contact->user_id ? '</a>' : '' !!}
+                                        </td>
                                         <td class="text-center">{{ $Contact->name }}</td>
                                         <td class="text-center">{{ $Contact->email }}</td>
                                         <td class="text-center">{{ $Contact->subject }}</td>

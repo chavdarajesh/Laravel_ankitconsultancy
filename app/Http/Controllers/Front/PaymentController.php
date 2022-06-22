@@ -30,15 +30,12 @@ class PaymentController extends Controller
 
     public function postfirst_payment(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'emi_amount' => 'required',
             'emi_amount_id' => 'required',
             'user_id' => 'required',
-            'payment_screenshot' => 'required',
+            'payment_screenshot' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Fileds are Required..');
-        } else {
             $Payment = new Payment();
             $Payment->emi_amount = $request['emi_amount'];
             $Payment->emi_amount_id = $request['emi_amount_id'];
@@ -63,7 +60,7 @@ class PaymentController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
-        }
+
     }
 
     public function next_paymentpage()
@@ -84,15 +81,12 @@ class PaymentController extends Controller
 
     public function postnext_paymentpage(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'emi_amount' => 'required',
             'emi_amount_id' => 'required',
             'user_id' => 'required',
             'payment_screenshot' => 'required',
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Fileds are Required..');
-        } else {
             $Payment = new Payment();
             $Payment->emi_amount = $request['emi_amount'];
             $Payment->emi_amount_id = $request['emi_amount_id'];
@@ -115,7 +109,7 @@ class PaymentController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
-        }
+
     }
 
     public function all_emipage()

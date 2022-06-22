@@ -115,13 +115,13 @@
 
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">EMI Optins</span>
+            <span class="menu-header-text">EMI Options</span>
         </li>
         <li class="menu-item {{ $current_route_name == 'admin.get.emi_option' || $current_route_name == 'admin.get.qr_code' || $current_route_name == 'admin.get.bankdetails' || $current_route_name == 'admin.get.emi_amount' || $current_route_name == 'admin.edit.emi_amount' || $current_route_name == 'admin.edit.qr_code' ? 'open active' : '' }}"
             style="">
             <a href="{{ route('admin.profile.profilechangepassword') }}" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons bx bxs-bank' ></i>
-                <div data-i18n="Layouts">EMI Optins</div>
+                <div data-i18n="Layouts">EMI Options</div>
             </a>
 
             <ul class="menu-sub">
@@ -159,7 +159,7 @@
                 <li
                     class="menu-item {{ $current_route_name == 'admin.get.contact_msg' ? 'active' : '' }}">
                     <a href="{{ route('admin.get.contact_msg') }}" class="menu-link">
-                        <div data-i18n="Without menu">All Contacts</div>
+                        <div data-i18n="Without menu">All Contacts Us</div>
                     </a>
                 </li>
                 <li

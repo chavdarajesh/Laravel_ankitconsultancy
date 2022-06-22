@@ -30,7 +30,7 @@ class AdminProfileController extends Controller
     }
     public function adminprofilesettingpost(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|max:20',
             'phone' => 'required',
             'email' => 'required|email',
@@ -40,9 +40,6 @@ class AdminProfileController extends Controller
             'dateofbirth' => 'required',
         ]);
 
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Fileds are Required..');
-        } else {
             $user = Auth::user();
             $user->name = $request->name;
             $user->email = $request->email;
@@ -64,18 +61,16 @@ class AdminProfileController extends Controller
             }
             $user->save();
             return redirect()->route('admin.profile.setting')->with('message', 'Profile Updated Succesfully..');
-        }
+
     }
     public function adminprofilsettingchangepasswordepost(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'adminoldpassword' => 'required',
             'adminnewpassword' => 'min:6',
             'adminconfirmnewpasswod' => 'required_with:adminnewpassword|same:adminnewpassword|min:6'
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', $ValidatedData->errors());
-        } else {
+
             $user = Auth::user();
             if (!Hash::check($request->adminoldpassword, $user->password)) {
                 return redirect()->back()->with('error', 'Current password does not match!');
@@ -85,7 +80,7 @@ class AdminProfileController extends Controller
             Auth::logout();
             $request->session()->flush();
             return redirect()->route('admin.login')->with('message', 'Password changed Successfully Please Login Again..');;
-        }
+
     }
 
     public function adminforgotpasswordget()

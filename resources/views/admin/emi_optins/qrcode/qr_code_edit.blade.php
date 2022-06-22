@@ -54,8 +54,11 @@
                             <div class="row">
                                 <div class="mb-3 col-md-12">
                                     <label for="adminupiid" class="form-label">UPI ID</label>
-                                    <input class="form-control" type="text" id="adminupiid" name="adminupiid"
-                                        value="{{ $QRCode['upiid'] }}" autofocus />
+                                    <input class="form-control @error('adminupiid') is-invalid @enderror" type="text" id="adminupiid" name="adminupiid"
+                                        value="{{ $QRCode['upiid'] ? $QRCode['upiid'] :  old('adminupiid') }}" autofocus />
+                                        @error('adminupiid')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Update changes</button>

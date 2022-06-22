@@ -102,6 +102,14 @@
             }
         }
     </style>
+    @error('payment_screenshot')
+        <style>
+            .payment-silder-main,
+            .bank-acc-detail-main-div {
+                display: block
+            }
+        </style>
+    @enderror
 @stop
 @section('content')
     <main id="main">
@@ -159,7 +167,8 @@
                     </div>
                 </div>
                 @php $qrcodecount= count($QRCodes); @endphp
-                <div class="@if($qrcodecount > 1)  slides-1 swiper  @endif payment-silder-main" data-aos="fade-up">
+                <div class="@if ($qrcodecount > 1) slides-1 swiper @endif payment-silder-main"
+                    data-aos="fade-up">
                     <div class="swiper-wrapper text-center">
                         @foreach ($QRCodes as $QRCode)
                             <div class="swiper-slide">
@@ -203,8 +212,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="bank_aaccount_no" class="form-label">Bank Account No.</label>
-                                <input type="text" class="form-control " value="{{ $BankDetails['bank_aaccount_no'] }}"
-                                    readonly>
+                                <input type="text" class="form-control "
+                                    value="{{ $BankDetails['bank_aaccount_no'] }}" readonly>
                             </div>
                             <div class="mb-3">
                                 <label for="bank_aaccount_holder_name" class="form-label">Bank Account Holder Name</label>
@@ -228,14 +237,18 @@
                                     <form action="{{ route('front.post.first_payment') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" name="emi_amount" id="emi_amount" value="">
-                                        <input type="hidden" name="emi_amount_id" id="emi_amount_id" value="">
+                                        <input type="hidden" name="emi_amount" id="emi_amount" value="{{ old('emi_amount') }}">
+                                        <input type="hidden" name="emi_amount_id" id="emi_amount_id" value="{{ old('emi_amount_id') }}">
                                         <input type="hidden" name="user_id" id="user_id"
                                             value="{{ Auth::user()->id }}">
                                         <div class="mb-3">
                                             <label for="formFile" class="form-label">Choose Scrrenshot </label>
-                                            <input accept="image/*" class="form-control" name="payment_screenshot"
-                                                type="file" onchange="readURL(this)">
+                                            <input required accept="image/*"
+                                                class="form-control @error('payment_screenshot') is-invalid @enderror"
+                                                name="payment_screenshot" type="file" onchange="readURL(this)">
+                                            @error('payment_screenshot')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
                                         <div class="mb-3">

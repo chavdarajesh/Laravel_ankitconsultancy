@@ -23,12 +23,10 @@ class EMIController extends Controller
     }
     public function emi_amount_post(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'emi_amount' => 'required',
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Fileds are Required..');
-        } else {
+
             $EMIAmount = new EMIAmount();
             $EMIAmount->emi_amount = $request['emi_amount'];
             $EMIAmount->status = 1;
@@ -39,7 +37,7 @@ class EMIController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
-        }
+
     }
     public function emi_amount_delete(Request $request, $id)
     {
@@ -66,12 +64,10 @@ class EMIController extends Controller
     }
     public function emi_amount_update(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'emi_amount' => 'required',
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Fileds are Required..');
-        } else {
+
             $EMIAmount = EMIAmount::find($request->id);
             $EMIAmount->emi_amount = $request['emi_amount'];
             $EMIAmount->status = 1;
@@ -82,7 +78,7 @@ class EMIController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
-        }
+
     }
     public function emi_amount_status_update(Request $request)
     {

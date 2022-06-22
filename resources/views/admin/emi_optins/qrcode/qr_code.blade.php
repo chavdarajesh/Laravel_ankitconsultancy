@@ -6,6 +6,21 @@
             display: none;
         }
     </style>
+    @error('adminupiid')
+        <style>
+            .add-form {
+                display: block;
+            }
+        </style>
+    @enderror
+    @error('adminqrcodeimage')
+        <style>
+            .add-form {
+                display: block;
+            }
+        </style>
+    @enderror
+
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 @stop
@@ -18,14 +33,14 @@
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ route('admin.get.emi_option') }}"><i class='bx bxs-wallet me-1' ></i>
+                        <a class="nav-link " href="{{ route('admin.get.emi_option') }}"><i class='bx bxs-wallet me-1'></i>
                             EMI
                             Amoount
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript:void(0);"><i class='bx bx-qr me-1' ></i> QR Code</a>
+                        <a class="nav-link active" href="javascript:void(0);"><i class='bx bx-qr me-1'></i> QR Code</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.get.bankdetails') }}"><i class='bx bxs-bank me-1'></i>
@@ -47,7 +62,7 @@
                             <div class="row mb-3">
                                 <div class="d-flex align-items-start align-items-sm-center gap-4">
                                     <img src="{{ asset('assets/admin/img/custom/qr-code-svgrepo-com.svg') }}"
-                                        alt="user-avatar" class="d-block rounded" height="100" width="100"
+                                        alt="user-avatar" class="d-block rounded @error('adminupiid') border border-danger @enderror" height="100" width="100"
                                         id="uploadedAvatar" />
                                     <div id="dvPreview">
                                     </div>
@@ -57,17 +72,23 @@
                                             <i class="bx bx-upload d-block d-sm-none"></i>
                                             <input type="file" id="upload" class="account-file-input adminqrcodeimage"
                                                 hidden accept="image/png, image/jpeg" name="adminqrcodeimage"
-                                                onchange="readURL(this)" />
+                                                value="{{ old('adminqrcodeimage') }}" onchange="readURL(this)" />
                                         </label>
                                         <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                        @error('adminqrcodeimage')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-md-12">
                                     <label for="adminupiid" class="form-label">UPI ID</label>
-                                    <input class="form-control" type="text" id="adminupiid" name="adminupiid"
-                                        value="" autofocus />
+                                    <input class="form-control @error('adminupiid') is-invalid @enderror" type="text"
+                                        id="adminupiid" name="adminupiid" value="{{ old('adminupiid') }}" autofocus />
+                                    @error('adminupiid')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>
@@ -84,12 +105,12 @@
                         <table class="table table-hover " id="example">
                             <thead>
                                 <tr>
-                                    <th class="text-center" >ID</th>
-                                    <th class="text-center" >UPI ID</th>
-                                    <th class="text-center" >QR Image</th>
-                                    <th class="text-center" >Status</th>
-                                    <th class="text-center" >Created At</th>
-                                    <th class="text-center" >Actions</th>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">UPI ID</th>
+                                    <th class="text-center">QR Image</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Created At</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
@@ -98,11 +119,12 @@
                                         <td class="text-center"><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                             <strong>{{ $QRCode->id }}</strong>
                                         </td>
-                                        <td class="text-center" >{{ $QRCode->upiid }}</td>
-                                        <td class="text-center" >
+                                        <td class="text-center">{{ $QRCode->upiid }}</td>
+                                        <td class="text-center">
                                             <img src="{{ asset($QRCode->qrcodeimage) }}"
                                                 alt="{{ asset($QRCode->qrcodeimage) }}" width="40px" height="40px"
-                                                data-bs-toggle="modal" data-bs-target="#fullscreenModal-{{ $QRCode->id }}"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#fullscreenModal-{{ $QRCode->id }}"
                                                 class="cursor-pointer">
 
                                             <div class="modal fade" id="fullscreenModal-{{ $QRCode->id }}" tabindex="-1"
@@ -112,8 +134,8 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="modalFullTitle">UPI ID :
                                                                 {{ $QRCode->upiid }}</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close"></button>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <img src="{{ asset($QRCode->qrcodeimage) }}"
@@ -127,10 +149,10 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-center"> <input data-id="{{ $QRCode->id }}" class="toggle-class" type="checkbox"
-                                                data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
-                                                data-on="Active" data-off="InActive"
-                                                {{ $QRCode->status ? 'checked' : '' }}></td>
+                                        <td class="text-center"> <input data-id="{{ $QRCode->id }}"
+                                                class="toggle-class" type="checkbox" data-onstyle="success"
+                                                data-offstyle="danger" data-toggle="toggle" data-on="Active"
+                                                data-off="InActive" {{ $QRCode->status ? 'checked' : '' }}></td>
                                         <td class="text-center">{{ $QRCode->created_at }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.edit.qr_code', $QRCode->id) }}"> <button
@@ -188,7 +210,9 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                "order": [[ 0, 'desc' ]]
+                "order": [
+                    [0, 'desc']
+                ]
             });
         });
 
