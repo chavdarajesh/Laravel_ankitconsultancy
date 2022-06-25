@@ -56,7 +56,7 @@ $base_url = URL::to('/');
                                         </p>
                                         <h4>Your Password Is</h4>
                                         <p
-                                            style="background:#20e277;text-decoration:none !important; font-weight:500;  color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">
+                                            style="background:#20e277;text-decoration:none !important; font-weight:500;  color:#fff; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">
                                             {{ $data['password'] }}</p>
                                     </td>
                                 </tr>
