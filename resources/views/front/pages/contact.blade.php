@@ -19,7 +19,7 @@
                 </div>
             </div>
             <nav>
-                <div class="container">
+                <div class="container"> 
                     <ol>
                         <li><a href="{{ route('front.homepage') }}">Home</a></li>
                         <li>Contact</li>
@@ -38,6 +38,7 @@
 
                 <div class="row gy-4 mt-4">
                     <h1 class="text-center">Ankit Consultancy</h1>
+                    <hr>
                     <div class="col-lg-4">
                         <div class="info-item d-flex">
                             <i class="bi bi-whatsapp flex-shrink-0"></i>
@@ -69,6 +70,13 @@
                                 <a href="tel:{{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+1 5589 55488 55' }}" class="Blondie">{{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+1 5589 55488 55' }}</a>
                             </div>
                         </div><!-- End Info Item -->
+                        <div class="info-item d-flex">
+                            <i class="bi bi-calendar-check flex-shrink-0" ></i>
+                            <div>
+                                <h4>Timimg:</h4>
+                                <h6>Monday To Friday (10am-5pm) </h6><h6>Saturday and Sunday (By Appointment)</h6>
+                            </div>
+                        </div><!-- End Info Item -->
 
 
                     </div>
@@ -78,6 +86,8 @@
                             class="php-email-form">
                             @csrf
                             <div class="row">
+                                <h4 class="text-center">Send Message To US</h4>
+                                <hr>
                                 <div class="col-md-6 form-group">
                                     <input required type="text" name="name"
                                         class="form-control  @error('name') border border-danger @enderror" id="name"
@@ -121,7 +131,7 @@
 
                 </div>
                 <div class="row gy-4 mt-4">
-
+                   
                 </div>
             </div>
         </section><!-- End Contact Section -->
