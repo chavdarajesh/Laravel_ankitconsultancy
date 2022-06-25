@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FINANCIAL ADVISOR | Reset Password</title>
+    <title>FINANCIAL ADVISOR | OTP Verification</title>
 </head>
 @php
 $base_url = URL::to('/');
@@ -13,112 +13,21 @@ $base_url = URL::to('/');
 <body
     style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; -webkit-text-size-adjust:none">
     <center style="width: 100%; table-layout: fixed;">
-        <div style="margin:10px;padding:10px;max-width:650px; margin:0 auto;" bgcolor="#ffffff">
-            <table style="max-width:320px" width="100%" cellspacing="0" cellpadding="0" bgcolor="#fff">
-
-                <tbody>
-                    <tr>
-                        <td style="padding:10px 10px">
-
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                                <tbody>
-                                    <tr>
-                                        <td bgcolor="#ffffff">
-                                            <table width="600" align="center" style="margin:0 auto" cellpadding="0"
-                                                cellspacing="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="padding:40px 10px 0px 0px;background-color:#f9f9f9">
-                                                            <table width="100%" cellpadding="0" cellspacing="0"
-                                                                align="center">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th width="113" align="center">
-                                                                            <table>
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td style="line-height:0">
-                                                                                            <a style="text-decoration:none"
-                                                                                                href="#"><img
-                                                                                                    src=""
-                                                                                                    border="0"
-                                                                                                    style="font:bold 12px/12px Arial,Helvetica,sans-serif;color:#fff"
-                                                                                                    align="center"
-                                                                                                    vspace="0"
-                                                                                                    hspace="0"
-                                                                                                    width="186"
-                                                                                                    height="75"
-                                                                                                    alt="Logo"
-                                                                                                    class="CToWUd"></a>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </th>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                                <tbody>
-                                    <tr>
-                                        <td bgcolor="#ffffff">
-                                            <table width="600" align="center" style="margin:0 auto" cellpadding="0"
-                                                cellspacing="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="padding:0px 30px 10px" bgcolor="#f9f9f9">
-                                                            <table width="100%" cellpadding="0" cellspacing="0">
-                                                                <tbody>
-
-                                                                    <tr>
-                                                                        <td align="left"
-                                                                            style="font:14px/16px Arial;color:#888;padding:0 0 23px">
-                                                                            Hello<br>
-                                                                            <br>
-                                                                            You are receiving this email because we
-                                                                            received a password reset request for your
-                                                                            account.<br><br>
-                                                                            <div
-                                                                                style="text-align: center; margin-top: 15px">
-                                                                            </div>
-                                                                            <br>
-                                                                            <br>
-                                                                            <p style="line-height: 20px">
-                                                                                If you did not request a password reset,
-                                                                                no further action is required.
-                                                                            <h1>YOUR OTP IS :-
-                                                                                {{ $data['otp'] }}
-                                                                                <strong></strong></h1>
-                                                                            </p>
-
-
-                                                                            <p>Thank You !</p>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+            <div style="margin:50px auto;width:70%;padding:20px 0">
+              <div style="border-bottom:1px solid #eee">
+                <a href="{{$base_url}}" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">FINANCIAL ADVISOR</a>
+              </div>
+              <p style="font-size:1.1em">Hi,</p>
+              <p>Thank you for choosing Your Brand. Use the following OTP to complete your Sign Up procedures.</p>
+              <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">  {{ $data['otp'] }}</h2>
+              <p style="font-size:0.9em;">Regards,<br />FINANCIAL ADVISOR</p>
+              <hr style="border:none;border-top:1px solid #eee" />
+              <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
+                <p>FINANCIAL ADVISOR</p>
+              </div>
+            </div>
+          </div>
     </center>
 </body>
 

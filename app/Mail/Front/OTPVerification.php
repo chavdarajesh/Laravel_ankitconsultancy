@@ -29,6 +29,6 @@ class OTPVerification extends Mailable
      */
     public function build()
     {
-        return $this->subject('OTP Verification')->view('front.mail.otp_verification')->with('data',$this->data);
+        return $this->subject('OTP Verification For FINANCIAL ADVISOR')->view('front.mail.otp_verification')->with('data',$this->data);
     }
 }

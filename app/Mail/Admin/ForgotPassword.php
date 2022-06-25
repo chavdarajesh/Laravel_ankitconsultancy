@@ -29,6 +29,6 @@ class ForgotPassword extends Mailable
      */
     public function build()
     {
-        return $this->subject('Reset Password')->view('admin.mail.mailtemplete')->with('data',$this->data);
+        return $this->subject('Reset Password For FINANCIAL ADVISOR')->view('admin.mail.mailtemplete')->with('data',$this->data);
     }
 }

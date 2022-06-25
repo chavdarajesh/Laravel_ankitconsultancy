@@ -39,8 +39,7 @@
                                 <!-- /Logo -->
                                 <h4 class="mb-2">Welcome to FINANCIAL ADVISOR 👋</h4>
                                 <h4 class="mb-2">OTP Verification 🔒</h4>
-                                <p class="mb-4">Enter your  and we'll send you instructions to reset your
-                                    password</p>
+                                <p class="mb-4">Please Enter OTP Code Send To Your Email Address To Continue.</p>
 
                                 <form id="formAuthentication" class="mb-3"
                                     action="{{ route('front.post.otp_verification') }}" method="POST">
