@@ -56,7 +56,7 @@
 
     <div class="menu-inner-shadow"></div>
     <div class="divider">
-        <div class="divider-text">Financial Advisory</div>
+        <div class="divider-text">FINANCIAL ADVISOR</div>
       </div>
     <ul class="menu-inner py-1">
         <!-- Dashboard -->

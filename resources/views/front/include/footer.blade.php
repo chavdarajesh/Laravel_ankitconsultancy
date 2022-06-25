@@ -6,7 +6,7 @@
          <div class="row gy-4">
              <div class="col-lg-5 col-md-12 footer-info">
                  <a href="{{ route('front.homepage') }}" class="logo d-flex align-items-center">
-                     <span>Financial Advisory</span>
+                     <span>FINANCIAL ADVISOR</span>
                  </a>
                  <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
                      darta donna mare fermentum iaculis eu non diam phasellus.</p>
@@ -55,10 +55,10 @@
 
      <div class="container mt-4">
          <div class="copyright">
-           <?php echo date("Y");  ?>  &copy; Copyright <strong><span>Financial Advisory</span></strong>. All Rights Reserved
+           <?php echo date("Y");  ?>  &copy; Copyright <strong><span>FINANCIAL ADVISOR</span></strong>. All Rights Reserved
          </div>
          <div class="credits">
-             Designed by <a href="javascript:void(0);">Financial Advisory</a>
+             Designed by <a href="javascript:void(0);">FINANCIAL ADVISOR</a>
          </div>
      </div>
 

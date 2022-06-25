@@ -37,9 +37,15 @@
                 </div><!-- End Google Maps -->
 
                 <div class="row gy-4 mt-4">
-
+                    <h1 class="text-center">Ankit Consultancy</h1>
                     <div class="col-lg-4">
-
+                        <div class="info-item d-flex">
+                            <i class="bi bi-whatsapp flex-shrink-0"></i>
+                            <div>
+                                <h4>Message On Whatsapp:</h4>
+                                <a target="_blank" href="https://api.whatsapp.com/send?phone={{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+918888888888' }}">Send Message</a>
+                            </div>
+                        </div><!-- End Info Item -->
                         <div class="info-item d-flex">
                             <i class="bi bi-geo-alt flex-shrink-0"></i>
                             <div>
@@ -63,6 +69,7 @@
                                 <a href="tel:{{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+1 5589 55488 55' }}" class="Blondie">{{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+1 5589 55488 55' }}</a>
                             </div>
                         </div><!-- End Info Item -->
+
 
                     </div>
 
@@ -97,7 +104,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group mt-3">
-                                <textarea required class="form-control   @error('message') border border-danger @enderror" name="message" rows="5"
+                                <textarea required class="form-control   @error('message') border border-danger @enderror" name="message" rows="6"
                                     placeholder="Message" >{{ old('message') }}</textarea>
                             </div>
                             @error('message')
@@ -113,7 +120,9 @@
                     </div><!-- End Contact Form -->
 
                 </div>
+                <div class="row gy-4 mt-4">
 
+                </div>
             </div>
         </section><!-- End Contact Section -->
 

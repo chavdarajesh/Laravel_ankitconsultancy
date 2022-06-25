@@ -12,7 +12,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <title>Financial Advisory Admin | @yield('title')</title>
+    <title>FINANCIAL ADVISOR Admin | @yield('title')</title>
     @include('admin.layouts.head')
 
 </head>

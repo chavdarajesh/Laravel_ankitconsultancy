@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Financial Advisory | Admin Forgot Password</title>
+    <title>FINANCIAL ADVISOR | Admin Forgot Password</title>
 
     <meta name="description" content="" />
 
@@ -82,7 +82,7 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Financial Advisory</span>
+                                <span class="app-brand-text demo text-body fw-bolder">FINANCIAL ADVISOR</span>
                             </a>
                         </div>
                         <!-- /Logo -->

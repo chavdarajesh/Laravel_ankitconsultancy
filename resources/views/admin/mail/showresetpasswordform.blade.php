@@ -82,7 +82,7 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Financial Advisory</span>
+                                <span class="app-brand-text demo text-body fw-bolder">FINANCIAL ADVISOR</span>
                             </a>
                         </div>
                         <!-- /Logo -->

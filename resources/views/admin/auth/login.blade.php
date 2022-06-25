@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Financial Advisory | Admin Login</title>
+    <title>FINANCIAL ADVISOR | Admin Login</title>
 
     <meta name="description" content="" />
 
@@ -82,11 +82,11 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Financial Advisory</span>
+                                <span class="app-brand-text demo text-body fw-bolder">FINANCIAL ADVISOR</span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2">Welcome to Financial Advisory 👋</h4>
+                        <h4 class="mb-2">Welcome to FINANCIAL ADVISOR 👋</h4>
                         <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
                         <form id="formAuthentication" class="mb-3" action="{{ route('admin.login.post') }}"

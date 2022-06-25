@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Advisory | Reset Password</title>
+    <title>FINANCIAL ADVISOR | Reset Password</title>
 </head>
 @php
 $base_url = URL::to('/');
