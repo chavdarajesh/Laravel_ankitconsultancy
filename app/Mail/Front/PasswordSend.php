@@ -29,6 +29,6 @@ class PasswordSend extends Mailable
      */
     public function build()
     {
-        return $this->subject('Your Password For FINANCIAL ADVISOR')->view('front.mail.password_send')->with('data', $this->data);
+        return $this->subject('Your Account Password For FINANCIAL ADVISOR')->view('front.mail.password_send')->with('data', $this->data);
     }
 }

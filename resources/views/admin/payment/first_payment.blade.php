@@ -154,13 +154,9 @@
                 "order": [[ 0, 'desc' ]]
             });
         });
-        // $('.add-btn').click(function() {
-        //     $('.add-form').slideToggle('slow');
-        // })
-
         $(function() {
             $('.payment_verified').change(function() {
-                console.log('111111111');
+                $(this).prop('disabled',true)
                 var is_verified = $(this).prop('checked') == true ? 1 : 0;
                 var id = $(this).data('id');
                 $.ajax({
@@ -186,7 +182,6 @@
 
 
             $('.payment_status').change(function() {
-                console.log('3333');
                 var status = $(this).prop('checked') == true ? 1 : 0;
                 var id = $(this).data('id');
                 $.ajax({
