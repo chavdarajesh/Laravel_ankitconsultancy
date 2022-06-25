@@ -54,7 +54,7 @@
                                 <!-- /Logo -->
                                 @csrf
                                 <div class="row p-3 border-bottom shadow-lg p-3 mb-5 bg-white rounded ">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-3 p-2">
                                         <img src="{{ Auth::user()->profileimage ? asset(Auth::user()->profileimage) : asset('assets/admin/img/avatars/1.png') }}"
                                             alt="user-avatar" class="d-block rounded" width="200px" height="200px"
                                             id="uploadedAvatar" />

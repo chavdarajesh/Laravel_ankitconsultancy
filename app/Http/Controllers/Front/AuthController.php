@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Mail;
 use App\Mail\Front\ForgotPassword;
+use App\Mail\Front\OTPVerification;
 
 
 class AuthController extends Controller
@@ -20,19 +21,17 @@ class AuthController extends Controller
     //
     public function login()
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return view('front.auth.login');
-        }
-        else{
+        } else {
             return redirect()->route('front.homepage')->with('message', 'User Login Successfully');
         }
     }
     public function register()
     {
-        if(!Auth::check()){
-        return view('front.auth.register');
-        }
-        else{
+        if (!Auth::check()) {
+            return view('front.auth.register');
+        } else {
             return redirect()->route('front.homepage')->with('message', 'User Login Successfully');
         }
     }
@@ -56,20 +55,52 @@ class AuthController extends Controller
         $user->phone = $request['phone'];
         $user->address = $request['address'];
         $user->dateofbirth = $request['dateofbirth'];
-        $random_pass = rand(10000, 100000);
+        $random_pass = rand(100000, 999999);
         $user->password = Hash::make($random_pass);
+        $user->otp = $random_pass;
         $user->save();
 
         if ($user) {
-            if (Auth::attempt(['email' => $user['email'], 'password' => $random_pass])) {
-                return redirect()->route('front.first_paymentpage')->with('message', 'Account Created Sucssesfully..');
-            } else {
-                return redirect()->back()->with('error', 'Somthing Went Wrong11..');
-            }
+            $data = [
+                'otp' => $random_pass
+            ];
+            Mail::to($request->email)->send(new OTPVerification($data));
+            return view('front.auth.otp_verification', ['email' => $request->email, 'user_id' => $user->id])->with('message', 'Please Enter OTP To Verify Your Account..');
         } else {
             return redirect()->back()->with('error', 'Somthing Went Wrong..');
         }
     }
+    public function postotp_verification(Request $request)
+    {
+        $ValidatedData = Validator::make($request->all(), [
+            'user_id' => 'required|max:40',
+            'email' => 'required|email',
+            'otp' => 'required',
+        ]);
+        if ($ValidatedData->fails()) {
+            return redirect()->back()->with('error', 'All Filed Require..!');
+        } else {
+            $user_email_check  = User::where([['email', '=', $request->email]])->first();
+            if ($user_email_check) {
+
+                $user  = User::where([['id', '=', $request->user_id], ['otp', '=', $request->otp], ['email', '=', $request->email]])->first();
+                if ($user) {
+                    User::where('id', '=', $request->user_id)->where('email', '=', $request->email)->update(['otp' => null]);
+                    User::where('id', '=', $request->user_id)->where('email', '=', $request->email)->update(['email_verified_at' =>  Carbon::now()]);
+                    if (Auth::attempt(['email' => $request->email, 'password' => $request->otp])) {
+                        return redirect()->route('front.first_paymentpage')->with('message', 'Account Created Sucssesfully..');
+                    } else {
+                        return redirect()->back()->with('error', 'Somthing Went Wrong11..');
+                    }
+                } else {
+                    return redirect()->back()->with('error', 'User Not Found..');
+                }
+            } else {
+                return redirect()->back()->with('error', 'User Not Found...!');
+            }
+        }
+    }
+
     public function postlogin(Request $request)
     {
         $ValidatedData = Validator::make($request->all(), [
@@ -81,7 +112,14 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'All Filed Require..!');
         } else {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_verified' => 1, 'status' => 1])) {
-                return redirect()->route('front.homepage')->with('message', 'User Login Successfully');
+                if(Auth::user()->email_verified_at != null && Auth::user()->otp == null){
+                    return redirect()->route('front.homepage')->with('message', 'User Login Successfully');
+                }
+                else{
+                    Auth::logout();
+                    $request->session()->flush();
+                    return redirect()->back()->with('error', 'User Not Verified...');
+                }
             } else {
                 return redirect()->back()->with('error', 'Invalid Credantials');
             }

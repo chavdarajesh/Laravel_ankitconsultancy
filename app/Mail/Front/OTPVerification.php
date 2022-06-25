@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PasswordSend extends Mailable
+class OTPVerification extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,7 +19,7 @@ class PasswordSend extends Mailable
     public function __construct($data)
     {
         //
-        $this->data = $data;
+        $this->data= $data;
     }
 
     /**
@@ -29,6 +29,6 @@ class PasswordSend extends Mailable
      */
     public function build()
     {
-        return $this->subject('Your Password')->view('front.mail.password_send')->with('data', $this->data);
+        return $this->subject('OTP Verification')->view('front.mail.otp_verification')->with('data',$this->data);
     }
 }

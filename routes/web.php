@@ -146,6 +146,7 @@ Route::group(['namespace' => 'Front'], function () {
 
     Route::post('/login', [AuthController::class, 'postlogin'])->name('front.post.login');
     Route::post('/register', [AuthController::class, 'postregister'])->name('front.post.register');
+    Route::post('/otp_verification', [AuthController::class, 'postotp_verification'])->name('front.post.otp_verification');
     Route::post('/forgotpassword', [AuthController::class, 'postforgotpassword'])->name('front.post.forgotpassword');
     Route::post('/reset-password', [AuthController::class, 'submitResetPasswordFormpost'])->name('front.reset.password.post');
 
