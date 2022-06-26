@@ -173,8 +173,8 @@
                         @foreach ($QRCodes as $QRCode)
                             <div class="swiper-slide">
                                 <div class="testimonial-item ">
-                                    <img src="{{ asset($QRCode->qrcodeimage) }}" alt="" width="400px"
-                                        height="400px">
+                                    <img src="{{ asset($QRCode->qrcodeimage) }}" alt="" width="300px"
+                                        height="300px">
                                     <h1 class="py-4">{{ $QRCode->upiid }}</h1>
                                 </div>
                             </div>

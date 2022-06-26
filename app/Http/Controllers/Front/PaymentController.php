@@ -75,7 +75,7 @@ class PaymentController extends Controller
             return view('front.payment.next_payment', ['EMIAmount' => $EMIAmount, 'BankDetails' => $BankDetails, 'QRCodes' => $QRCodes,'QRCode'=>$QRCode]);
         }
         else{
-            return redirect()->back()->with('error','Your First Payment is Not Done Yet..!');
+            return redirect()->route('front.first_paymentpage')->with('error','Your First Payment is Not Done Yet. Please Done First Payment!');
         }
     }
 
