@@ -14,10 +14,8 @@
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-6 text-center">
-                            <h2>About</h2>
-                            <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas
-                                consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione
-                                sint. Sit quaerat ipsum dolorem.</p>
+                            <h2>About Us</h2>
+                            <p>Planning Is Bringing The Future Into The Present So That You Can Do Somthing About It Now.</p>
                         </div>
                     </div>
                 </div>
@@ -26,7 +24,7 @@
                 <div class="container">
                     <ol>
                         <li><a href="{{ route('front.homepage') }}">Home</a></li>
-                        <li>About</li>
+                        <li>About Us</li>
                     </ol>
                 </div>
             </nav>
@@ -37,18 +35,17 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="row gy-4">
-                    <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+                    {{-- <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
                         <img src="{{ asset('assets/front/img/about.jpg') }}" class="img-fluid" alt="">
                         <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-                    </div>
-                    <div class="col-lg-6 content order-last  order-lg-first">
+                    </div> --}}
+                    <div class="col-lg-12 content order-last  order-lg-first">
                         <h3>About Us</h3>
                         <p>
-                            Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti.
-                            Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius
-                            incidunt reiciendis veritatis asperiores placeat.
+                            Planning Is Bringing The Future Into The Present So That You Can Do Somthing About It Now.
                         </p>
-                        <ul>
+                        <p>We Have Planned A System To Meet Long -term Financial Goals We Analyze Your Goals And Recommend An Investment Strategy Designed To Meet Your Risk Tolerance</p>
+                        {{-- <ul>
                             <li data-aos="fade-up" data-aos-delay="100">
                                 <i class="bi bi-diagram-3"></i>
                                 <div>
@@ -72,7 +69,7 @@
                                         veniam</p>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
 
@@ -80,7 +77,7 @@
         </section><!-- End About Us Section -->
 
         <!-- ======= Stats Counter Section ======= -->
-        <section id="stats-counter" class="stats-counter pt-0">
+        {{-- <section id="stats-counter" class="stats-counter pt-0">
             <div class="container" data-aos="fade-up">
 
                 <div class="row gy-4">
@@ -120,10 +117,10 @@
                 </div>
 
             </div>
-        </section><!-- End Stats Counter Section -->
+        </section><!-- End Stats Counter Section --> --}}
 
         <!-- ======= Our Team Section ======= -->
-        <section id="team" class="team pt-0">
+        {{-- <section id="team" class="team pt-0">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
@@ -197,10 +194,10 @@
                 </div>
 
             </div>
-        </section><!-- End Our Team Section -->
+        </section><!-- End Our Team Section --> --}}
 
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials">
+        {{-- <section id="testimonials" class="testimonials">
             <div class="container">
 
                 <div class="slides-1 swiper" data-aos="fade-up">
@@ -315,7 +312,7 @@
                 </div>
 
             </div>
-        </section><!-- End Testimonials Section -->
+        </section><!-- End Testimonials Section --> --}}
 
         <!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq">

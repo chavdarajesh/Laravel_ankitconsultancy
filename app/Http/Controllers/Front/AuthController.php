@@ -64,17 +64,28 @@ class AuthController extends Controller
             $data = [
                 'otp' => $random_pass
             ];
+            $user_id=encrypt($user->id);
             Mail::to($request->email)->send(new OTPVerification($data));
-            return view('front.auth.otp_verification', ['email' => $request->email, 'user_id' => $user->id])->with('message', 'Please Enter OTP To Verify Your Account..');
+            // return view('front.auth.otp_verification', ['email' => $request->email, 'user_id' => $user->id])->with('message', 'Please Enter OTP To Verify Your Account..');
+            return redirect()->route('front.otp_verification.get',['id'=>$user_id])->with('message', 'Otp Send To Your Email. Please Enter OTP To Verify Your Account..');
         } else {
+            return redirect()->back()->with('error', 'Somthing Went Wrong..');
+        }
+    }
+    public function showotp_verificationFormget($id)
+    {
+        $id = decrypt($id);
+        if($id){
+            return view('front.auth.otp_verification', ['user_id' => $id])->with('message', 'Please Enter OTP To Verify Your Account..');
+        }
+        else{
             return redirect()->back()->with('error', 'Somthing Went Wrong..');
         }
     }
     public function postotp_verification(Request $request)
     {
         $ValidatedData = Validator::make($request->all(), [
-            'user_id' => 'required|max:40',
-            'email' => 'required|email',
+            'user_id' => 'required',
             'otp' => 'required',
         ]);
         if ($ValidatedData->fails()) {

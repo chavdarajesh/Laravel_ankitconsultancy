@@ -1,7 +1,9 @@
 @extends('front.layouts.main')
 @section('title', 'OTP Verification')
 @section('content')
-
+@php
+    use App\Models\User;
+@endphp
     <main id="main">
 
 
@@ -35,7 +37,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <!-- Logo -->
-
                                 <!-- /Logo -->
                                 <h4 class="mb-2">Welcome to FINANCIAL ADVISOR 👋</h4>
                                 <h4 class="mb-2">OTP Verification 🔒</h4>
@@ -44,11 +45,11 @@
                                 <form id="formAuthentication" class="mb-3"
                                     action="{{ route('front.post.otp_verification') }}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="user_id" value="{{$user_id  ? $user_id : ''}}">
+                                    <input type="hidden" name="user_id" value="{{ $user_id  ? $user_id : ''}}">
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="text" class="form-control" id="email" name="email"
-                                            placeholder="Enter your email" value="{{ $email ? $email : ''}}"/>
+                                            placeholder="Enter your email" value="{{ User::get_user_by_id($user_id)->email ? User::get_user_by_id($user_id)->email : ''}}"/>
                                     </div>
                                     <div class="mb-3">
                                         <label for="otp" class="form-label">OTP</label>
