@@ -48,13 +48,19 @@
                                     <input type="hidden" name="user_id" value="{{ $user_id  ? $user_id : ''}}">
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="email" name="email"
-                                            placeholder="Enter your email" value="{{ User::get_user_by_id($user_id)->email ? User::get_user_by_id($user_id)->email : ''}}"/>
+                                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email"
+                                            placeholder="Enter your email" value="{{ User::get_user_by_id($user_id)->email ? User::get_user_by_id($user_id)->email : old('email')}}"/>
+                                            @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="otp" class="form-label">OTP</label>
-                                        <input type="number" class="form-control" id="otp" name="otp"
-                                            placeholder="Enter your OTP" autofocus />
+                                        <input type="number" class="form-control @error('otp') is-invalid @enderror" id="otp" name="otp"
+                                            placeholder="Enter your OTP" autofocus value=""/>
+                                            @error('otp')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <button class="btn btn-primary d-grid w-100">Submit</button>
                                 </form>

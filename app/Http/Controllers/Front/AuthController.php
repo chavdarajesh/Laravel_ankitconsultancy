@@ -37,7 +37,6 @@ class AuthController extends Controller
     }
     public function postregister(Request $request)
     {
-        // $ValidatedData = Validator::make($request->all(), [
         $request->validate([
             'name' => 'required|max:40',
             'email' => 'required|unique:users',
@@ -84,13 +83,12 @@ class AuthController extends Controller
     }
     public function postotp_verification(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'user_id' => 'required',
-            'otp' => 'required',
+            'email'=>'required|email|exists:users',
+            'otp' => 'required|min:6|max:6',
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Filed Require..!');
-        } else {
+      
             $user_email_check  = User::where([['email', '=', $request->email]])->first();
             if ($user_email_check) {
 
@@ -109,7 +107,7 @@ class AuthController extends Controller
             } else {
                 return redirect()->back()->with('error', 'User Not Found...!');
             }
-        }
+        
     }
 
     public function postlogin(Request $request)
@@ -150,12 +148,9 @@ class AuthController extends Controller
 
     public function postforgotpassword(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'email' => 'required|email|exists:users'
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', $ValidatedData->errors());
-        } else {
             $user = User::where('email', $request->email)->where('status', 1)->where('is_verified', 1)->first();
             if ($user) {
 
@@ -169,11 +164,11 @@ class AuthController extends Controller
                     'token' => $token
                 ];
                 Mail::to($request->email)->send(new ForgotPassword($data));
-                return redirect()->route('front.login')->with('message', 'Mail send  Successfully Please Chacek MAil..');
+                return redirect()->route('front.login')->with('message', 'Password Reset Link send Successfully Please Chacek your Email..');
             } else {
                 return redirect()->back()->with('error', 'User Not Found..!');
             }
-        }
+        
     }
 
     public function showResetPasswordFormget($token)
@@ -183,13 +178,11 @@ class AuthController extends Controller
 
     public function submitResetPasswordFormpost(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
-            'newpassword' => 'min:6',
-            'confirmnewpasswod' => 'required_with:newpassword|same:newpassword|min:6'
+        $request->validate([
+            'newpassword' => 'required|min:6',
+            'confirmnewpasswod' => 'required|same:newpassword|min:6'
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', $ValidatedData->errors());
-        } else {
+       
             $updatePassword = DB::table('password_resets')->where('token', $request->token)->first();
             if (!$updatePassword) {
                 return back()->withInput()->with('error', 'Invalid token!');
@@ -202,6 +195,6 @@ class AuthController extends Controller
             } else {
                 return redirect()->route('front.login')->with('error', 'Somthing Went Wrong..!');
             }
-        }
+        
     }
 }

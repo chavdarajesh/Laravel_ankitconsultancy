@@ -46,37 +46,55 @@
                             <div class="row">
                                 <div class="mb-3 col-md-12">
                                     <label for="name" class="form-label">Name</label>
-                                    <input class="form-control" type="text" id="name" name="name"
-                                        value="{{ $User->name }}" autofocus />
+                                    <input class="form-control  @error('name') is-invalid @enderror" type="text" id="name" name="name"
+                                        value="{{  old('name') ?  old('name') : $User->name }}" autofocus />
+                                        @error('name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3 col-md-12">
                                     <label for="email" class="form-label">E-mail</label>
-                                    <input class="form-control" type="text" id="email" name="email"
-                                        value="{{ $User->email }}" />
+                                    <input class="form-control  @error('email') is-invalid @enderror" type="text" id="email" name="email"
+                                        value="{{  old('email') ?  old('email') : $User->email }}" />
+                                        @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label" for="phone">Phone Number</label>
-                                    <div class="input-group input-group-merge">
+                                    <div class="input-group input-group-merge  @error('phone') border border-danger @enderror">
                                         <span class="input-group-text">IND (+91)</span>
-                                        <input type="text" id="phone" name="phone" class="form-control"
-                                            value="{{ $User->phone }}" />
+                                        <input type="text" id="phone" name="phone" class="form-control @error('phone') is-invalid @enderror"
+                                            value="{{  old('phone')?  old('phone') : $User->phone }}" />
+                                            @error('phone')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="username" class="form-label">User Name</label>
-                                    <input class="form-control" type="text" id="username" name="username"
-                                        value="{{ $User->username }}" autofocus />
+                                    <input class="form-control @error('username') is-invalid @enderror" type="text" id="username" name="username"
+                                        value="{{  old('username') ?  old('username') : $User->username }}" autofocus />
+                                        @error('username')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="adminname" class="form-label">Address</label>
-                                    <textarea name="address" id="address" rows="3" class="form-control">{{ $User->address }}</textarea>
+                                    <textarea name="address" id="address" rows="3" class="form-control @error('address') is-invalid @enderror">{{  old('address') ?  old('address') :$User->address }}</textarea>
+                                    @error('address')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="dateofbirth" class="form-label">Date OF Birth</label>
-                                    <input class="form-control" type="date" id="dateofbirth" name="dateofbirth"
-                                        value="{{ $User->dateofbirth }}" autofocus />
+                                    <input class="form-control @error('dateofbirth') is-invalid @enderror" type="date" id="dateofbirth" name="dateofbirth"
+                                        value="{{  old('dateofbirth') ?  old('dateofbirth') : $User->dateofbirth }}" autofocus />
+                                        @error('dateofbirth')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="defaultSelect" class="form-label">Default select</label>

@@ -55,17 +55,15 @@ class UserController extends Controller
 
     public function user_update(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|max:40',
-            'email' => 'required',
-            'phone' => 'required ',
-            'username' => 'required ',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'username' => 'required',
             'address' => 'required',
             'dateofbirth' => 'required',
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', 'All Fileds are Required..');
-        } else {
+       
             $User = User::find($request->id);
             $User->name = $request['name'];
             $User->username = $request['username'];
@@ -97,7 +95,7 @@ class UserController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
-        }
+        
     }
 
     public function user_status_update(Request $request)

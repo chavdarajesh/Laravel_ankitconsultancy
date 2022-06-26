@@ -48,19 +48,25 @@
                                     <div class="mb-3 form-password-toggle">
                                         <label for="newpassword" class="form-label">New Password</label>
                                         <div class="input-group input-group-merge">
-                                            <input type="password" id="newpassword" class="form-control" name="newpassword"
+                                            <input required type="password" id="newpassword" class="form-control @error('newpassword') is-invalid @enderror" name="newpassword"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                                aria-describedby="password" />
+                                                aria-describedby="password"  value="{{old('newpassword')}}"/>
                                         </div>
+                                        @error('newpassword')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                     </div>
                                     <div class="mb-3 form-password-toggle">
                                         <label for="confirmnewpasswod" class="form-label">New Conform Password</label>
                                         <div class="input-group input-group-merge">
-                                            <input type="password" id="confirmnewpasswod" class="form-control"
+                                            <input required type="password" id="confirmnewpasswod" class="form-control @error('confirmnewpasswod') is-invalid @enderror"
                                                 name="confirmnewpasswod"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                                aria-describedby="password" />
+                                                aria-describedby="password"  value="{{old('confirmnewpasswod')}}" />
                                         </div>
+                                        @error('confirmnewpasswod')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                     </div>
 
                                     <div class="mb-3">
