@@ -17,8 +17,11 @@
 
                     <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
                         data-aos-delay="200">
+                        @if(Auth::check())
                         {{-- <input type="text" class="form-control" placeholder="ZIP code or CitY"> --}}
+                        @else
                         <a href="{{route('front.register')}}" class="btn btn-primary w-100">Register</a>
+                        @endif
                     </form>
 
                     {{-- <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
