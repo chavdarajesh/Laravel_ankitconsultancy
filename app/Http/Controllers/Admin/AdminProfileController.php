@@ -89,12 +89,9 @@ class AdminProfileController extends Controller
     }
     public function adminforgotpasswordpost(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
+            $request->validate([
             'email' => 'required|email|exists:users'
-        ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', $ValidatedData->errors());
-        } else {
+            ]);
             $token = Str::random(64);
             DB::table('password_resets')->insert([
                 'email' => $request->email,
@@ -105,8 +102,8 @@ class AdminProfileController extends Controller
                 'token' => $token
             ];
             Mail::to($request->email)->send(new ForgotPassword($data));
-            return redirect()->route('admin.login')->with('message', 'Mail send  Successfully Please Chacek MAil..');
-        }
+            return redirect()->route('admin.login')->with('message', 'Reset Link send Successfully Please Chacek your Email..');
+        
     }
 
     public function showResetPasswordFormget($token)
@@ -115,13 +112,11 @@ class AdminProfileController extends Controller
     }
     public function submitResetPasswordFormpost(Request $request)
     {
-        $ValidatedData = Validator::make($request->all(), [
-            'adminnewpassword' => 'min:6',
-            'adminconfirmnewpasswod' => 'required_with:adminnewpassword|same:adminnewpassword|min:6'
+        $request->validate([
+            'newpassword' => 'required|min:6',
+            'confirmnewpasswod' => 'required|same:newpassword|min:6'
         ]);
-        if ($ValidatedData->fails()) {
-            return redirect()->back()->with('error', $ValidatedData->errors());
-        } else {
+       
             $updatePassword = DB::table('password_resets')->where('token', $request->token)->first();
             if (!$updatePassword) {
                 return back()->withInput()->with('error', 'Invalid token!');
@@ -130,6 +125,6 @@ class AdminProfileController extends Controller
                 ->update(['password' => Hash::make($request->adminnewpassword)]);
             DB::table('password_resets')->where(['email' => $updatePassword->email])->delete();
             return redirect()->route('admin.login')->with('message', 'Your password has been changed!');
-        }
+        
     }
 }

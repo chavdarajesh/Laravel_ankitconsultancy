@@ -94,24 +94,30 @@
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
                             <div class="mb-3 form-password-toggle">
-                                <label for="adminnewpassword" class="form-label">New Password</label>
+                                <label for="newpassword" class="form-label">New Password</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="adminnewpassword" class="form-control"
-                                        name="adminnewpassword"
+                                    <input required type="password" id="newpassword" class="form-control  @error('newpassword') is-invalid @enderror"
+                                        name="newpassword"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
+                                        aria-describedby="password"  value="{{old('newpassword')}}"/>
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
+                                @error('newpassword')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             </div>
                             <div class="mb-3 form-password-toggle">
-                                <label for="adminconfirmnewpasswod" class="form-label">New Conform Password</label>
+                                <label for="confirmnewpasswod" class="form-label">New Conform Password</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="adminconfirmnewpasswod" class="form-control"
-                                        name="adminconfirmnewpasswod"
+                                    <input required type="password" id="confirmnewpasswod" class="form-control  @error('confirmnewpasswod') is-invalid @enderror"
+                                        name="confirmnewpasswod"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
+                                        aria-describedby="password"  value="{{old('confirmnewpasswod')}}"/>
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
+                                @error('confirmnewpasswod')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             </div>
 
                             <div class="mb-3">

@@ -42,7 +42,7 @@ class DashboardController extends Controller
                             return redirect()->back()->with('error', 'You have not Admin access');
                         }
                     } else {
-                        return redirect()->back()->with('errors', 'Invalid Credantials');
+                        return redirect()->route('admin.login')->with('error', 'Invalid Credantials');
                     }
                 
             } else {
