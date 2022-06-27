@@ -101,7 +101,7 @@
                                         <label for="referral_code" class="form-label">Referral Code</label>
                                         <input type="tel" class="form-control @error('referral_code') is-invalid @enderror"
                                             value="{{ old('referral_code') }}" id="referral_code" name="referral_code"
-                                            placeholder="Enter your Phone" />
+                                            placeholder="Enter Referral_code" />
                                         @error('referral_code')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
