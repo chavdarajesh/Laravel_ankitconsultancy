@@ -29,6 +29,8 @@ class CreateUsersTable extends Migration
             $table->string('otp')->nullable();
             $table->string('profileimage')->nullable();
             $table->string('qrcode')->nullable();
+            $table->string('referral_code')->nullable();
+            $table->string('other_referral_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

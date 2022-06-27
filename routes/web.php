@@ -93,6 +93,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'is_a
     Route::post('/not_verified_payment_is_verified/update', [AdminPaymentController::class, 'not_verified_payment_is_verified_update'])->name('admin.update.not_verified_payment.is_verified');
 
     Route::get('/user_payment/{id}', [AdminPaymentController::class, 'get_user_payment'])->name('admin.get.user_payment');
+    Route::get('/user_referrals/{id}', [UserController::class, 'get_user_referrals'])->name('admin.get.user_referrals');
 
     Route::get('/users', [UserController::class, 'get_users'])->name('admin.get.users');
     Route::delete('/user/delete/{id}', [UserController::class, 'user_delete'])->name('admin.delete.user');

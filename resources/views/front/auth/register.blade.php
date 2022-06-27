@@ -99,7 +99,15 @@
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-
+                                    <div class="mb-3">
+                                        <label for="referral_code" class="form-label">Referral Code</label>
+                                        <input type="tel" class="form-control @error('referral_code') is-invalid @enderror"
+                                            value="{{ old('referral_code') }}" id="referral_code" name="referral_code"
+                                            placeholder="Enter your Phone" />
+                                        @error('referral_code')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                     <div class="mb-3">
                                         <div class="form-check">
                                             <input class="form-check-input"  @if(old('accept_t_c')) {{'checked'}} @endif type="checkbox" id="accept_t_c" name="accept_t_c" required/>

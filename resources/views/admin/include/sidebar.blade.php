@@ -69,7 +69,7 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Payment</span>
         </li>
-        <li class="menu-item {{ $current_route_name == 'admin.get.first_payment' || $current_route_name == 'admin.get.all_payment' || $current_route_name == 'admin.get.not_verified_payment' ? 'open active' : '' }}"
+        <li class="menu-item {{ $current_route_name == 'admin.get.first_payment' || $current_route_name == 'admin.get.all_payment' || $current_route_name == 'admin.get.not_verified_payment' ||  $current_route_name == 'admin.get.user_payment' ? 'open active' : '' }}"
             style="">
             <a href="{{ route('admin.get.first_payment') }}" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons bx bxs-credit-card'></i>
@@ -86,7 +86,7 @@
                         <div data-i18n="Without menu">Not Verified Payment</div>
                     </a>
                 </li>
-                <li class="menu-item {{ $current_route_name == 'admin.get.all_payment' ? 'active' : '' }}">
+                <li class="menu-item {{ $current_route_name == 'admin.get.all_payment' ||  $current_route_name == 'admin.get.user_payment' ? 'active' : '' }}">
                     <a href="{{ route('admin.get.all_payment') }}" class="menu-link">
                         <div data-i18n="Without menu">All Payment</div>
                     </a>
@@ -96,7 +96,7 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Users</span>
         </li>
-        <li class="menu-item {{ $current_route_name == 'admin.get.users' || $current_route_name == 'admin.edit.user' || $current_route_name == 'admin.view.user' ? 'open active' : '' }}"
+        <li class="menu-item {{ $current_route_name == 'admin.get.users' || $current_route_name == 'admin.edit.user' || $current_route_name == 'admin.view.user' || $current_route_name == 'admin.get.user_referrals' ? 'open active' : '' }}"
             style="">
             <a href="{{ route('admin.get.users') }}" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons bx bxs-user' ></i>
@@ -105,7 +105,7 @@
 
             <ul class="menu-sub">
                 <li
-                    class="menu-item {{ $current_route_name == 'admin.get.users' || $current_route_name == 'admin.edit.user' || $current_route_name == 'admin.view.user' ? 'active' : '' }}">
+                    class="menu-item {{ $current_route_name == 'admin.get.users' || $current_route_name == 'admin.edit.user' || $current_route_name == 'admin.view.user' || $current_route_name == 'admin.get.user_referrals' ? 'active' : '' }}">
                     <a href="{{ route('admin.get.users') }}" class="menu-link">
                         <div data-i18n="Without menu">All Users</div>
                     </a>

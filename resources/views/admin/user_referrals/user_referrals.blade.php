@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', 'Users Page')
+@section('title', 'Users Referrals Page')
 @section('css')
     <style>
         .add-form {
@@ -16,13 +16,13 @@ table.dataTable thead>tr>th.sorting_desc{
 @section('content')
 @php use App\Models\Front\Payment; use App\Models\User; @endphp
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Users /</span> All Users </h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Users /</span> All Users / {{$User->name}} Referrals</h4>
 
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
-                        <a class="nav-link active " href="javascript:void(0);"><i class="bx bx-user me-1"></i>
+                        <a class="nav-link active " href="{{route('admin.get.users')}}"><i class="bx bx-user me-1"></i>
                             All Users
                         </a>
                     </li>
@@ -36,7 +36,6 @@ table.dataTable thead>tr>th.sorting_desc{
                                 <tr>
                                     <th class="text-center" >ID</th>
                                     <th class="text-center" >Instalment</th>
-                                    <th class="text-center" >Refer Count </th>
                                     <th class="text-center" >Name</th>
                                     <th class="text-center" >Email </th>
                                     {{-- <th class="text-center" >Phone</th> --}}
@@ -51,8 +50,7 @@ table.dataTable thead>tr>th.sorting_desc{
                                     <td class="text-center"><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                         <strong>{{ $User->id }}</strong>
                                     </td>
-                                    <td class="text-center"><a href="{{ route('admin.get.user_payment', $User->id) }}"><span class="badge badge-center bg-primary">{{ count(Payment::get_total_payment_by_user_id($User->id))}}</span></a></td>
-                                    <td class="text-center"><a href="{{route('admin.get.user_referrals',$User->id)}}"><span class="badge badge-center bg-success">{{ User::get_total_use_referral_user_by_id($User->id)}}</span></a></td>
+                                    <td class="text-center"><span class="badge badge-center bg-primary">{{ count(Payment::get_total_payment_by_user_id($User->id))}}</span></td>
 
                                         <td class="text-center"><a href="{{ route('admin.get.user_payment', $User->id) }}">{{ $User->name }}</a></td>
                                         <td class="text-center">{{ $User->email }}</td>

@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row gy-4 d-flex justify-content-between">
                 <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <h2 data-aos="fade-up">Don't Wait For The Prefer Moment , Take The Moment And Make It Perfect</h2>
+                    <h2 data-aos="fade-up">Don't Wait For The Perfect Moment , Take The Moment And Make It Perfect</h2>
                     {{-- <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur repellat non
                         praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis eum vel eum voluptatem
                         eum maiores eaque id optio ullam occaecati odio est possimus vel reprehenderit</p> --}}
@@ -262,8 +262,8 @@
                         <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                             mollit anim id est laborum.</p>
-                        <a class="cta-btn" href="#">Call To Action</a>
-                        </dic>
+                        <a class="cta-btn" href="{{route('front.contactpage')}}">Call To Action</a>
+                        </div>
                     </div>
 
                 </div>

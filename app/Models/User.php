@@ -57,4 +57,16 @@ class User extends Authenticatable
     {
         return User::find($id);
     }
+    public function get_total_use_referral_user_by_id($id)
+    {
+        $user=User::find($id);
+        if($user){
+            $user_referral_code=$user->referral_code;
+            $user_other_referral_code=User::where('other_referral_code',$user_referral_code)->count();
+            return $user_other_referral_code;
+        }
+        else{
+            return 0;
+        }
+    }
 }

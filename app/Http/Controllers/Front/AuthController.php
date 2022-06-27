@@ -16,6 +16,7 @@ use App\Mail\Front\ForgotPassword;
 use App\Mail\Front\OTPVerification;
 
 
+
 class AuthController extends Controller
 {
     //
@@ -39,14 +40,18 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required|max:40',
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:users|min:6',
             'phone' => 'required |unique:users',
             'username' => 'required |unique:users',
             'address' => 'required',
             'dateofbirth' => 'required',
             'accept_t_c' => 'required',
         ]);
-
+        if($request['referral_code']){
+            $request->validate([
+                'referral_code' => 'exists:users',
+            ]);
+        }
         $user = new User();
         $user->name = $request['name'];
         $user->username = $request['username'];
@@ -54,6 +59,8 @@ class AuthController extends Controller
         $user->phone = $request['phone'];
         $user->address = $request['address'];
         $user->dateofbirth = $request['dateofbirth'];
+        $user->referral_code = Str::slug($request['username'], "-");
+        $user->other_referral_code = $request['referral_code'] ? $request['referral_code'] :'' ;
         $random_pass = rand(100000, 999999);
         $user->password = Hash::make($random_pass);
         $user->otp = $random_pass;
@@ -88,7 +95,7 @@ class AuthController extends Controller
             'email'=>'required|email|exists:users',
             'otp' => 'required|min:6|max:6',
         ]);
-      
+
             $user_email_check  = User::where([['email', '=', $request->email]])->first();
             if ($user_email_check) {
 
@@ -107,7 +114,7 @@ class AuthController extends Controller
             } else {
                 return redirect()->back()->with('error', 'User Not Found...!');
             }
-        
+
     }
 
     public function postlogin(Request $request)
@@ -168,7 +175,7 @@ class AuthController extends Controller
             } else {
                 return redirect()->back()->with('error', 'User Not Found..!');
             }
-        
+
     }
 
     public function showResetPasswordFormget($token)
@@ -182,7 +189,7 @@ class AuthController extends Controller
             'newpassword' => 'required|min:6',
             'confirmnewpasswod' => 'required|same:newpassword|min:6'
         ]);
-       
+
             $updatePassword = DB::table('password_resets')->where('token', $request->token)->first();
             if (!$updatePassword) {
                 return back()->withInput()->with('error', 'Invalid token!');
@@ -195,6 +202,6 @@ class AuthController extends Controller
             } else {
                 return redirect()->route('front.login')->with('error', 'Somthing Went Wrong..!');
             }
-        
+
     }
 }

@@ -63,7 +63,7 @@ class UserController extends Controller
             'address' => 'required',
             'dateofbirth' => 'required',
         ]);
-       
+
             $User = User::find($request->id);
             $User->name = $request['name'];
             $User->username = $request['username'];
@@ -95,7 +95,7 @@ class UserController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
-        
+
     }
 
     public function user_status_update(Request $request)
@@ -127,6 +127,18 @@ class UserController extends Controller
             }
         } else {
             return response()->json(['error' => 'Payment Not Found..!']);
+        }
+    }
+
+    public function get_user_referrals($id)
+    {
+        if($id){
+            $User=User::find($id);
+            $Users = User::where('is_admin', 0)->where('other_referral_code',$User->referral_code)->get();
+            return view('admin.user_referrals.user_referrals', ['Users' => $Users,'User'=>$User]);
+        }
+        else{
+            return redirect()->back()->with('error', 'User Not Found..');
         }
     }
 }
