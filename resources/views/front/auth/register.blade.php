@@ -1,7 +1,9 @@
 @extends('front.layouts.main')
 @section('title', 'Register')
 @section('content')
-
+@php
+    $referral_code=@$_GET['referral_code'] ? @$_GET['referral_code'] : ''
+@endphp
     <main id="main">
 
 
@@ -83,7 +85,7 @@
                                     <div class="mb-3">
                                         <label for="address" class="form-label">Address<span class="text-danger">*</span></label>
                                         <textarea name="address" class="form-control @error('address') is-invalid @enderror" name="address" id="address"
-                                            rows="2" placeholder="Enter Your address" required>{{ old('address') }}</textarea>
+                                            rows="2" placeholder="Enter Your Address" required>{{ old('address') }}</textarea>
                                         @error('address')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -100,7 +102,7 @@
                                     <div class="mb-3">
                                         <label for="referral_code" class="form-label">Referral Code</label>
                                         <input type="tel" class="form-control @error('referral_code') is-invalid @enderror"
-                                            value="{{ old('referral_code') }}" id="referral_code" name="referral_code"
+                                            value="{{ $referral_code ? $referral_code :  old('referral_code') }}" id="referral_code" name="referral_code"
                                             placeholder="Enter Referral code" />
                                         @error('referral_code')
                                             <div class="text-danger">{{ $message }}</div>

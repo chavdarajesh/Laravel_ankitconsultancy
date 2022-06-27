@@ -43,7 +43,7 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email or Username<span class="text-danger">*</span></label>
-                                        <input type="email" value="" class="form-control " id="email"
+                                        <input type="text" value="" class="form-control " id="email"
                                             name="email" placeholder="Enter your email or username" autofocus required />
 
                                     </div>

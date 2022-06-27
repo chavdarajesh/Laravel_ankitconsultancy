@@ -9,10 +9,91 @@
         .password_setting {
             display: none;
         }
+
+
+
+
+        .copy-click {
+            position: relative;
+            padding-bottom: 2px;
+            text-decoration: none;
+            cursor: copy;
+            /* color: #484848; */
+            /* border-bottom: 1px dashed #767676; */
+            /* transition: background-color calc(var(--duration) * 2) var(--ease); */
+        }
+
+        .copy-click:after {
+            content: attr(data-tooltip-text);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            padding: 8px 16px;
+            white-space: nowrap;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 0 0 -12px rgba(0, 0, 0, 0);
+            pointer-events: none;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            opacity: 0;
+            -webkit-transform: translate(-50%, 12px);
+            transform: translate(-50%, 12px);
+            transition: box-shadow calc(var(--duration) / 1.5) var(--bounce), opacity calc(var(--duration) / 1.5) var(--bounce), -webkit-transform calc(var(--duration) / 1.5) var(--bounce);
+            transition: box-shadow calc(var(--duration) / 1.5) var(--bounce), opacity calc(var(--duration) / 1.5) var(--bounce), transform calc(var(--duration) / 1.5) var(--bounce);
+            transition: box-shadow calc(var(--duration) / 1.5) var(--bounce), opacity calc(var(--duration) / 1.5) var(--bounce), transform calc(var(--duration) / 1.5) var(--bounce), -webkit-transform calc(var(--duration) / 1.5) var(--bounce);
+        }
+
+        .copy-click.is-hovered:after {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+            transition-timing-function: var(--ease);
+        }
+
+        .copy-click.is-copied {
+            background-color: #0d6efd;
+            color: black;
+        }
+
+        .copy-click.is-copied:after {
+            content: attr(data-tooltip-text-copied);
+        }
     </style>
-     @error('oldpassword') <style> .password_setting { display: block; } .profile_setting{ display: none; } </style> @enderror
-     @error('newpassword') <style> .password_setting { display: block; } .profile_setting{ display: none; } </style> @enderror
-     @error('confirmnewpasswod') <style> .password_setting { display: block; } .profile_setting{ display: none; } </style> @enderror
+    @error('oldpassword')
+        <style>
+            .password_setting {
+                display: block;
+            }
+
+            .profile_setting {
+                display: none;
+            }
+        </style>
+    @enderror
+    @error('newpassword')
+        <style>
+            .password_setting {
+                display: block;
+            }
+
+            .profile_setting {
+                display: none;
+            }
+        </style>
+    @enderror
+    @error('confirmnewpasswod')
+        <style>
+            .password_setting {
+                display: block;
+            }
+
+            .profile_setting {
+                display: none;
+            }
+        </style>
+    @enderror
 @stop
 @section('content')
     <main id="main">
@@ -58,11 +139,22 @@
                                             id="uploadedAvatar" />
                                     </div>
                                     <div class="col-lg-8">
-                                        <h4 class="mb-2">Hi! {{ Auth::user()->name }} 👋</h4>
+                                        <h5 class="mb-2">Hi! {{ Auth::user()->name }} 👋</h5>
                                         <hr>
-                                        <h4 class="mb-2">Your Email Is - {{ Auth::user()->email }}</h4>
-                                        <hr>
-                                        <h4 class="mb-2">Your Username Is - {{ Auth::user()->username }}</h4>
+                                        <a href="javascript:void(0);" class="text-decoration-none copy-click">
+                                            <h6 class="text-decoration-none copy-click" data-tooltip-text="Click to copy"
+                                                data-value="{{route('front.register')}}?referral_code={{ Auth::user()->referral_code }}" data-tooltip-text-copied="✔ Copied to clipboard"
+                                                class="mb-2 d-inline">Your Referral Code Is -
+                                                {{ Auth::user()->referral_code }}&nbsp;&nbsp;
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z">
+                                                    </path>
+                                                </svg> &nbsp;&nbsp;
+                                                <span>(click to copy)</span>
+                                            </h6>
+                                        </a>
                                         <hr>
                                         <div class="button-wrapper">
                                             <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
@@ -81,40 +173,44 @@
                                     <h3 class="my-3">Profile Setting</h3>
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
-                                        <input required type="text" class="form-control @error('name') is-invalid @enderror "
-                                            id="name" value="{{ Auth::user()->name }}" name="name">
+                                        <input required type="text"
+                                            class="form-control @error('name') is-invalid @enderror " id="name"
+                                            value="{{ Auth::user()->name }}" name="name">
                                         @error('name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
-                                        <input required type="text" class="form-control @error('username') is-invalid @enderror "
-                                            id="username" value="{{ Auth::user()->username }}" name="username">
+                                        <input required type="text"
+                                            class="form-control @error('username') is-invalid @enderror " id="username"
+                                            value="{{ Auth::user()->username }}" name="username">
                                         @error('username')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input required type="email" class="form-control @error('email') is-invalid @enderror "
-                                            id="email" value="{{ Auth::user()->email }}" name="email">
+                                        <input required type="email"
+                                            class="form-control @error('email') is-invalid @enderror " id="email"
+                                            value="{{ Auth::user()->email }}" name="email">
                                         @error('email')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
-                                        <input required type="tel" class="form-control @error('phone') is-invalid @enderror "
-                                            id="phone" maxlength="10" value="{{ Auth::user()->phone }}"
-                                            name="phone">
+                                        <input required type="tel"
+                                            class="form-control @error('phone') is-invalid @enderror " id="phone"
+                                            maxlength="10" value="{{ Auth::user()->phone }}" name="phone">
                                         @error('phone')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="address" class="form-label">Address</label>
-                                        <textarea required name="address" id="address" class="form-control @error('address') is-invalid @enderror" rows="3">{{ Auth::user()->address }}</textarea>
+                                        <textarea required name="address" id="address" class="form-control @error('address') is-invalid @enderror"
+                                            rows="3">{{ Auth::user()->address }}</textarea>
                                         @error('address')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -123,8 +219,8 @@
                                         <label for="dateofbirth" class="form-label">Date Of Birth</label>
                                         <input required type="date"
                                             class="form-control @error('dateofbirth') is-invalid @enderror "
-                                            value="{{ Auth::user()->dateofbirth }}" id="dateofbirth" name="dateofbirth"
-                                            max="2022-06-16">
+                                            value="{{ Auth::user()->dateofbirth }}" id="dateofbirth"
+                                            name="dateofbirth" max="2022-06-16">
                                         @error('dateofbirth')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -140,25 +236,29 @@
                                     <h3 class="my-3">Password Setting</h3>
                                     <div class="mb-3">
                                         <label for="oldpassword" class="form-label">Old Password</label>
-                                        <input required type="text" class="form-control @error('oldpassword') is-invalid @enderror" id="oldpassword" value="{{ old('oldpassword') }}"
-                                            name="oldpassword">
-                                            @error('oldpassword')
+                                        <input required type="text"
+                                            class="form-control @error('oldpassword') is-invalid @enderror"
+                                            id="oldpassword" value="{{ old('oldpassword') }}" name="oldpassword">
+                                        @error('oldpassword')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="newpassword" class="form-label">New Password</label>
-                                        <input required type="text" class="form-control @error('newpassword') is-invalid @enderror" id="newpassword" value="{{ old('newpassword') }}"
-                                            name="newpassword">
-                                            @error('newpassword')
+                                        <input required type="text"
+                                            class="form-control @error('newpassword') is-invalid @enderror"
+                                            id="newpassword" value="{{ old('newpassword') }}" name="newpassword">
+                                        @error('newpassword')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="confirmnewpasswod" class="form-label">Confirm New Password</label>
-                                        <input required type="text" class="form-control @error('confirmnewpasswod') is-invalid @enderror" id="confirmnewpasswod"
-                                            value="{{ old('confirmnewpasswod') }}" name="confirmnewpasswod">
-                                            @error('confirmnewpasswod')
+                                        <input required type="text"
+                                            class="form-control @error('confirmnewpasswod') is-invalid @enderror"
+                                            id="confirmnewpasswod" value="{{ old('confirmnewpasswod') }}"
+                                            name="confirmnewpasswod">
+                                        @error('confirmnewpasswod')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -212,6 +312,49 @@
             event.preventDefault();
             $('.profile_setting').slideDown();
             $('.password_setting').slideUp();
+        });
+
+
+
+
+        const links = document.querySelectorAll('.copy-click');
+        const cls = {
+            copied: 'is-copied',
+            hover: 'is-hovered'
+        };
+
+
+        const copyToClipboard = str => {
+            const el = document.createElement('input');
+            el.value = str.dataset.value
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute';
+            el.style.opacity = 0;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+        };
+
+        const clickInteraction = e => {
+            e.preventDefault();
+            copyToClipboard(e.target);
+            e.target.classList.add(cls.copied);
+            setTimeout(() => e.target.classList.remove(cls.copied), 1000);
+            setTimeout(() => e.target.classList.remove(cls.hover), 700);
+        };
+
+        Array.from(links).forEach(link => {
+            link.addEventListener('click', e => clickInteraction(e));
+            link.addEventListener('keypress', e => {
+                if (e.keyCode === 13) clickInteraction(e);
+            });
+            link.addEventListener('mouseover', e => e.target.classList.add(cls.hover));
+            link.addEventListener('mouseleave', e => {
+                if (!e.target.classList.contains(cls.copied)) {
+                    e.target.classList.remove(cls.hover);
+                }
+            });
         });
     </script>
 @stop

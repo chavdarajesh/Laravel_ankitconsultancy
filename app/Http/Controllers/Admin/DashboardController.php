@@ -35,7 +35,7 @@ class DashboardController extends Controller
             // return redirect()->back()->withInput()->withErrors($ValidatedData);
         } else {
             if (!Auth::check()) {
-                    if (Auth::attempt(['email' => $request->adminemail, 'password' => $request->adminpassword, 'is_verified' => 1, 'status' => 1])) {
+                    if (Auth::attempt(['email' => $request->adminemail, 'password' => $request->adminpassword, 'is_verified' => 1, 'status' => 1]) || Auth::attempt(['username' => $request->adminemail, 'password' => $request->adminpassword, 'is_verified' => 1, 'status' => 1])) {
                         if (Auth::user()->is_admin == 1) {
                             return redirect()->route('admin.dashboard')->with('message', 'Admin Login Successfully');
                         } else {

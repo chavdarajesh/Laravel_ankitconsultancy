@@ -127,7 +127,7 @@ class AuthController extends Controller
         if ($ValidatedData->fails()) {
             return redirect()->back()->with('error', 'All Filed Require..!');
         } else {
-            if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_verified' => 1, 'status' => 1])) {
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_verified' => 1, 'status' => 1]) || Auth::attempt(['username' => $request->email, 'password' => $request->password, 'is_verified' => 1, 'status' => 1])) {
                 if (Auth::user()->email_verified_at != null && Auth::user()->otp == null) {
                     return redirect()->route('front.homepage')->with('message', 'User Login Successfully');
                 } else {
