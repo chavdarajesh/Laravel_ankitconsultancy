@@ -18,27 +18,18 @@
                  </div>
              </div>
 
-             <div class="col-lg-2 col-6 footer-links">
+             <div class="col-lg-3 col-6 footer-links">
                  <h4>Useful Links</h4>
                  <ul>
                      <li><a href="{{route('front.faqspage')}}">Faqs</a></li>
                      <li><a href="{{route('front.aboutpage')}}">About us</a></li>
-                     <li><a href="{{route('front.servicespage')}}">Services</a></li>
+                     <li><a href="{{route('front.contactpage')}}">Contact Us</a></li>
                      <li><a href="{{route('front.term_and_conditionpage')}}">Terms of service</a></li>
                      <li><a href="{{route('front.privacy_policypage')}}">Privacy policy</a></li>
                  </ul>
              </div>
 
-             <div class="col-lg-2 col-6 footer-links">
-                 <h4>Our Services</h4>
-                 <ul>
-                     <li><a href="#">Web Design</a></li>
-                     <li><a href="#">Web Development</a></li>
-                     <li><a href="#">Product Management</a></li>
-                     <li><a href="#">Marketing</a></li>
-                     <li><a href="#">Graphic Design</a></li>
-                 </ul>
-             </div>
+
 
              <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                  <h4>Contact Us</h4>

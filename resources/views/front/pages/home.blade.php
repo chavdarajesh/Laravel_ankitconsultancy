@@ -61,9 +61,9 @@
                     </div> --}}
                 </div>
 
-                <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                {{-- <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
                     <img src="{{ asset('assets/front/img/hero-img.svg') }}" class="img-fluid mb-3 mb-lg-0" alt="">
-                </div>
+                </div> --}}
 
             </div>
         </div>
@@ -71,7 +71,7 @@
 
     <main id="main">
 
-        <!-- ======= Featured Services Section ======= -->
+        {{-- <!-- ======= Featured Services Section ======= -->
         <section id="featured-services" class="featured-services">
             <div class="container">
 
@@ -114,25 +114,24 @@
                 </div>
 
             </div>
-        </section><!-- End Featured Services Section -->
+        </section><!-- End Featured Services Section --> --}}
 
         <!-- ======= About Us Section ======= -->
-        <section id="about" class="about pt-0">
+        <section id="about" class="about">
             <div class="container" data-aos="fade-up">
 
                 <div class="row gy-4">
-                    <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+                    {{-- <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
                         <img src="{{ asset('assets/front/img/about.jpg') }}" class="img-fluid" alt="">
                         <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-                    </div>
-                    <div class="col-lg-6 content order-last  order-lg-first">
+                    </div> --}}
+                    <div class="col-lg-12 content order-last  order-lg-first">
                         <h3>About Us</h3>
                         <p>
-                            Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti.
-                            Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius
-                            incidunt reiciendis veritatis asperiores placeat.
+                            Planning Is Bringing The Future Into The Present So That You Can Do Somthing About It Now.
                         </p>
-                        <ul>
+                        <p>We Have Planned A System To Meet Long -term Financial Goals We Analyze Your Goals And Recommend An Investment Strategy Designed To Meet Your Risk Tolerance</p>
+                        {{-- <ul>
                             <li data-aos="fade-up" data-aos-delay="100">
                                 <i class="bi bi-diagram-3"></i>
                                 <div>
@@ -156,7 +155,7 @@
                                         veniam</p>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
 
@@ -164,7 +163,7 @@
         </section><!-- End About Us Section -->
 
         <!-- ======= Services Section ======= -->
-        <section id="service" class="services pt-0">
+        <section id="service" class="services pt-5">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
@@ -175,77 +174,7 @@
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ asset('assets/front/img/storage-service.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </div>
-                            <h3><a href="#" class="stretched-link">Storage</a></h3>
-                            <p>Cumque eos in qui numquam. Aut aspernatur perferendis sed atque quia voluptas quisquam
-                                repellendus temporibus itaqueofficiis odit</p>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ asset('assets/front/img/logistics-service.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </div>
-                            <h3><a href="#" class="stretched-link">Logistics</a></h3>
-                            <p>Asperiores provident dolor accusamus pariatur dolore nam id audantium ut et iure incidunt
-                                molestiae dolor ipsam ducimus occaecati nisi</p>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ asset('assets/front/img/cargo-service.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </div>
-                            <h3><a href="#" class="stretched-link">Cargo</a></h3>
-                            <p>Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque
-                                oluptatem aut et molestiae ut et nihil</p>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ asset('assets/front/img/trucking-service.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </div>
-                            <h3><a href="#" class="stretched-link">Trucking</a></h3>
-                            <p>Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque
-                                oluptatem aut et molestiae ut et nihil</p>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ asset('assets/front/img/packaging-service.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </div>
-                            <h3><a href="#" class="stretched-link">Packaging</a></h3>
-                            <p>Illo consequuntur quisquam delectus praesentium modi dignissimos facere vel cum onsequuntur
-                                maiores beatae consequatur magni voluptates</p>
-                        </div>
-                    </div><!-- End Card Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="{{ asset('assets/front/img/warehousing-service.jpg') }}" alt=""
-                                    class="img-fluid">
-                            </div>
-                            <h3><a href="#" class="stretched-link">Warehousing</a></h3>
-                            <p>Quas assumenda non occaecati molestiae. In aut earum sed natus eatae in vero. Ab modi
-                                quisquam aut nostrum unde et qui est non quo nulla</p>
-                        </div>
-                    </div><!-- End Card Item -->
+                <h2 class="text-center">We Are Providing Financial Advice To Help Transform Your Business.</h2>
 
                 </div>
 
@@ -259,9 +188,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
                         <h3>Call To Action</h3>
-                        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.</p>
+                        <p> It Is Never Too Get Started On Your Investment Plans Tells Us We Will Give You A Plan To Achieve Them.</p>
                         <a class="cta-btn" href="{{route('front.contactpage')}}">Call To Action</a>
                         </div>
                     </div>
@@ -270,7 +197,7 @@
         </section><!-- End Call To Action Section -->
 
         <!-- ======= Features Section ======= -->
-        <section id="features" class="features">
+        {{-- <section id="features" class="features">
             <div class="container">
 
                 <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
@@ -539,7 +466,7 @@
                 </div>
 
             </div>
-        </section><!-- End Testimonials Section -->
+        </section><!-- End Testimonials Section --> --}}
 
         <!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq">

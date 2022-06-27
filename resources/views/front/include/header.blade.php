@@ -17,7 +17,7 @@
                         class="{{ $current_route_name == 'front.homepage' ? 'active' : '' }}">Home</a></li>
                 <li><a href="{{ route('front.aboutpage') }}"
                         class="{{ $current_route_name == 'front.aboutpage' ? 'active' : '' }}">About</a></li>
-                <li><a href="{{ route('front.servicespage') }}"
+                <li><a href="{{ route('front.homepage') }}/#service"
                         class="{{ $current_route_name == 'front.servicespage' ? 'active' : '' }}">Services</a></li>
                 <li><a href="{{ route('front.contactpage') }}"
                         class="{{ $current_route_name == 'front.contactpage' ? 'active' : '' }}">Contact</a></li>

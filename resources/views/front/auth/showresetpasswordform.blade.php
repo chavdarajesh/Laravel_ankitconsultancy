@@ -12,9 +12,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-6 text-center">
                             <h2>Forgot Password</h2>
-                            <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas
-                                consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione
-                                sint. Sit quaerat ipsum dolorem.</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -23,7 +21,7 @@
                 <div class="container">
                     <ol>
                         <li><a href="{{ route('front.homepage') }}">Home</a></li>
-                        <li>Login</li>
+                        <li>Forgot Password</li>
                     </ol>
                 </div>
             </nav>
