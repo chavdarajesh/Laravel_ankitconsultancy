@@ -36,7 +36,7 @@
                             <div class="card-body">
                                 <!-- Logo -->
                                 <!-- /Logo -->
-                                <h4 class="mb-2">Welcome to FINANCIAL ADVISOR 👋</h4>
+                                <h4 class="mb-2">Welcome to Ankit Consultancy 👋</h4>
                                 <h4 class="mb-2">OTP Verification 🔒</h4>
                                 <p class="mb-4">Please Enter OTP Code Send To Your Email Address To Continue.</p>
 

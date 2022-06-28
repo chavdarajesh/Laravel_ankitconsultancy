@@ -45,7 +45,7 @@
                                 <!-- Logo -->
 
                                 <!-- /Logo -->
-                                <h4 class="mb-2">Welcome to FINANCIAL ADVISOR 👋</h4>
+                                <h4 class="mb-2">Welcome to Ankit Consultancy 👋</h4>
                                 <h4 class="mb-2">Reset Password!</h4>
                                 <p class="mb-4">Enter New Password and Confirm Password to Continue!..</p>
 

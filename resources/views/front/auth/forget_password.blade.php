@@ -35,7 +35,7 @@
                                 <!-- Logo -->
 
                                 <!-- /Logo -->
-                                <h4 class="mb-2">Welcome to FINANCIAL ADVISOR 👋</h4>
+                                <h4 class="mb-2">Welcome to Ankit Consultancy 👋</h4>
                                 <h4 class="mb-2">Forgot Password? 🔒</h4>
                                 <p class="mb-4">Enter your email and we'll send you instructions to reset your
                                     password</p>

@@ -34,7 +34,7 @@
                     <div class="col-lg-12 content order-last  order-lg-first">
                         <h3><strong>Terms and Conditions</strong></h3>
 
-                        <p>Welcome to FINANCIAL ADVISOR!</p>
+                        <p>Welcome to Ankit Consultancy!</p>
 
                         <p>These terms and conditions outline the rules and regulations for the use of FINANCIAL ADVISOR's Website, located at https://ankitconsultancy.com/.</p>
 
