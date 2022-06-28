@@ -237,7 +237,7 @@
 
                                     <!-- /Logo -->
                                     <h4 class="mb-2">Please Submit Your Payment Screenshot 👋</h4>
-                                    <p class="mb-4">After Verfiy Your Pyament Screenshot Paasword will send to your email
+                                    <p class="mb-4">After Verify Your Payment Screenshot Paasword will send to your email
                                         address.</p>
                                     <form action="{{ route('front.post.first_payment') }}" method="POST"
                                         enctype="multipart/form-data">
@@ -247,7 +247,7 @@
                                         <input type="hidden" name="user_id" id="user_id"
                                             value="{{ Auth::user()->id }}">
                                         <div class="mb-3">
-                                            <label for="formFile" class="form-label">Choose Scrrenshot </label>
+                                            <label for="formFile" class="form-label">Choose Screenshot </label>
                                             <input required accept="image/*"
                                                 class="form-control @error('payment_screenshot') is-invalid @enderror"
                                                 name="payment_screenshot" type="file" onchange="readURL(this)">
@@ -266,7 +266,7 @@
                         <div class="col-lg-4">
                             <div class="card h-100">
                                 <div class="card-body text-center d-flex align-items-center">
-                                    <h1 class="ss-section-h1">ScrrenShot Section</h1>
+                                    <h1 class="ss-section-h1">Screenshot Section</h1>
                                     <img src="" class=" ss-image-section rounded" height="100%" width="100%"
                                         id="uploadedscreenshot" />
                                 </div>
