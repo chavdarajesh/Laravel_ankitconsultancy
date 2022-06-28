@@ -1,5 +1,5 @@
 @extends('front.layouts.main')
-@section('title', 'About Page')
+@section('title', 'Installment Page')
 @section('content')
     <main id="main">
 
@@ -20,7 +20,7 @@
                 <div class="container">
                     <ol>
                         <li><a href="{{ route('front.homepage') }}">Home</a></li>
-                        <li>All EMI</li>
+                        <li>All Installment</li>
                     </ol>
                 </div>
             </nav>
@@ -30,7 +30,7 @@
                 <div class="section-header">
                     <span>Hi! {{Auth::user()->name}} </span>
                     <h2>Hi! {{Auth::user()->name}} </h2>
-                    <h3> Your Letest Instalments </h3><p>(Total Instalments - {{count($Payments)}}) </p>
+                    <h3> Your Latest Installment </h3><p>(Total Installment - {{count($Payments)}}) </p>
 
                 </div>
 
@@ -52,7 +52,7 @@
                                             }
                                         </style>
                                         <i class="bi bi-question-circle-{{$counter}} question-icon"></i>
-                                        Amount :- {{$Payment->emi_amount}} | Instalment Date:- {{$Payment->created_at}} | Reference ID -  {{$Payment->id}}
+                                        Amount :- {{$Payment->emi_amount}} | Installment Date:- {{$Payment->created_at}} | Reference ID -  {{$Payment->id}}
                                     </button>
                                 </h3>
                                 <div id="faq-content-{{$Payment->id}}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
