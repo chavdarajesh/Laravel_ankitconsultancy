@@ -1,5 +1,5 @@
 @extends('front.layouts.main')
-@section('title', 'Conatct Page')
+@section('title', 'Contact Page')
 @section('content')
     <main id="main">
 
