@@ -30,8 +30,8 @@ use App\Http\Controllers\Front\ProfileController;
 */
 
 
-Auth::routes();
-
+Auth::routes(['register' => false,'login'=>false]);
+// Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin/login', [DashboardController::class, 'adminloginget'])->name('admin.login');
@@ -140,7 +140,7 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('/contact', [ContactController::class, 'postcontact'])->name('front.post.contact');
 
     Route::get('/login', [AuthController::class, 'login'])->name('front.login');
-    Route::get('/register?{referral_code?}', [AuthController::class, 'register'])->name('front.register');
+    Route::get('/register', [AuthController::class, 'register'])->name('front.register');
     Route::get('/forgotpassword', [AuthController::class, 'forgotpasswordget'])->name('front.forgotpassword');
     Route::get('/reset-password/{token}', [AuthController::class, 'showResetPasswordFormget'])->name('front.reset.password.get');
     Route::get('/otp_verification/{id}', [AuthController::class, 'showotp_verificationFormget'])->name('front.otp_verification.get');
