@@ -56,7 +56,7 @@ class PaymentController extends Controller
             if ($Payment) {
                 Auth::logout();
                 $request->session()->flush();
-                return redirect()->route('front.homepage')->with('message', 'After Verfiy Your Pyament Screenshot Paasword will send to your email address.');
+                return redirect()->route('front.homepage')->with('message', 'After Verfiy Your Payment Screenshot Paasword will send to your email address.');
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
@@ -105,7 +105,7 @@ class PaymentController extends Controller
             }
             $Payment = $Payment->save();
             if ($Payment) {
-                return redirect()->route('front.homepage')->with('message', 'Payment Sucsses Fully Done');
+                return redirect()->route('front.homepage')->with('message', 'Payment Successfully Done');
             } else {
                 return redirect()->back()->with('error', 'Somthing Went Wrong..');
             }
@@ -120,7 +120,7 @@ class PaymentController extends Controller
             return view('front.payment.all_emi',['Payments'=>$Payments]);
         }
         else{
-            return redirect()->route('front.homepage')->with('error','You Not Done Payment Yet..!');
+            return redirect()->route('front.homepage')->with('error','You Not Done Any Payment Yet..!');
         }
     }
 }

@@ -104,7 +104,7 @@ class AuthController extends Controller
                     User::where('id', '=', $request->user_id)->where('email', '=', $request->email)->update(['otp' => null]);
                     User::where('id', '=', $request->user_id)->where('email', '=', $request->email)->update(['email_verified_at' =>  Carbon::now()]);
                     if (Auth::attempt(['email' => $request->email, 'password' => $request->otp])) {
-                        return redirect()->route('front.first_paymentpage')->with('message', 'Account Created Sucssesfully..');
+                        return redirect()->route('front.first_paymentpage')->with('message', 'Account Created Successfully..');
                     } else {
                         return redirect()->back()->with('error', 'Somthing Went Wrong11..');
                     }

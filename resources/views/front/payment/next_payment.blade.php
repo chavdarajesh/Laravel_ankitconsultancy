@@ -191,7 +191,7 @@
 
                             <!-- /Logo -->
                             <h4 class="mb-2">Bank Account Details! 👋</h4>
-                            <p class="mb-4">if UPI ID and QR Codes Not Working Then Please Use Bank Details.</p>
+                            <p class="mb-4">If UPI ID and QR Codes Not Working Then Please Use Bank Details.</p>
                             <div class="mb-3">
                                 <label for="bank_name" class="form-label">Bank Name</label>
                                 <input type="text" class="form-control " value="{{ $BankDetails['bank_name'] }}"
@@ -240,7 +240,7 @@
 
                                     <!-- /Logo -->
                                     <h4 class="mb-2">Please Submit Your Payment Screenshot 👋</h4>
-                                    <p class="mb-4">After Verify Your Payment Screenshot Paasword will send to your email
+                                    <p class="mb-4">After Verify Your Payment Screenshot Password will send to your email
                                         address.</p>
                                     <form action="{{ route('front.post.next_payment') }}" method="POST"
                                         enctype="multipart/form-data">

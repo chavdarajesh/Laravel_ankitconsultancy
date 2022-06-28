@@ -28,7 +28,7 @@
                             <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             <li><a href="{{ route('front.next_paymentpage') }}" class="active">Next Payment</a></li>
-                            <li><a href="{{ route('front.all_emipage') }}">All Paymnent</a></li>
+                            <li><a href="{{ route('front.all_emipage') }}">All Payment</a></li>
                         </ul>
                     </li>
                     @else

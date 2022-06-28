@@ -123,7 +123,7 @@
                         </form>
 
                         <p class="text-center">
-                            <span>Go to Front platform?</span>
+                            <span>Go to Front Platform?</span>
                             <a href="{{ route('front.login') }}">
                                 <span>Click Here.</span>
                             </a>

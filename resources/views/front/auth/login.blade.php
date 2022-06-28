@@ -91,7 +91,7 @@
                                 </form>
 
                                 <p class="text-center">
-                                    <span>New on our platform?</span>
+                                    <span>New on our Platform?</span>
                                     <a href="{{ route('front.register') }}">
                                         <span>Create an account</span>
                                     </a>
