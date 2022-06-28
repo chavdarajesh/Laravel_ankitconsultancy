@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="otp" class="form-label">OTP</label>
-                                        <input type="number" class="form-control @error('otp') is-invalid @enderror" id="otp" name="otp"
+                                        <input  minlength="6" maxlength="6" type="number" class="form-control @error('otp') is-invalid @enderror" id="otp" name="otp"
                                             placeholder="Enter your OTP" autofocus value=""/>
                                             @error('otp')
                                             <div class="text-danger">{{ $message }}</div>

@@ -171,7 +171,7 @@ class AuthController extends Controller
                     'token' => $token
                 ];
                 Mail::to($request->email)->send(new ForgotPassword($data));
-                return redirect()->route('front.login')->with('message', 'Password Reset Link send Successfully Please Chacek your Email..');
+                return redirect()->route('front.login')->with('message', 'Password Reset Link send Successfully Please Check your Email..');
             } else {
                 return redirect()->back()->with('error', 'User Not Found..!');
             }

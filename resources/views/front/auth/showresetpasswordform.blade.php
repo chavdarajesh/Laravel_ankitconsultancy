@@ -1,5 +1,5 @@
 @extends('front.layouts.main')
-@section('title', 'Forgot Password')
+@section('title', 'Reset Password')
 @section('content')
 
     <main id="main">
@@ -11,7 +11,7 @@
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-6 text-center">
-                            <h2>Forgot Password</h2>
+                            <h2>Reset Password</h2>
                             <p></p>
                         </div>
                     </div>
