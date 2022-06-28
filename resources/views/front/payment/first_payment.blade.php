@@ -193,31 +193,38 @@
                                 <input type="text" class="form-control " value="{{ $BankDetails['bank_name'] }}"
                                     readonly>
                             </div>
+                            @if($BankDetails['branch_name'])
                             <div class="mb-3">
                                 <label for="branch_name" class="form-label">Branch Name</label>
                                 <input type="text" class="form-control " value="{{ $BankDetails['branch_name'] }}"
                                     readonly>
                             </div>
+                            @endif
+                            @if($BankDetails['branch_code'])
                             <div class="mb-3">
                                 <label for="branch_code" class="form-label">Branch Code</label>
                                 <input type="text" class="form-control " value="{{ $BankDetails['branch_code'] }}"
                                     readonly>
                             </div>
+                            @endif
                             <div class="mb-3">
                                 <label for="ifsc_code" class="form-label">IFSC Code</label>
                                 <input type="text" class="form-control " value="{{ $BankDetails['ifsc_code'] }}"
                                     readonly>
                             </div>
+                            
                             <div class="mb-3">
                                 <label for="bank_aaccount_no" class="form-label">Bank Account No.</label>
                                 <input type="text" class="form-control "
                                     value="{{ $BankDetails['bank_aaccount_no'] }}" readonly>
                             </div>
+                            @if($BankDetails['bank_aaccount_holder_name'])
                             <div class="mb-3">
                                 <label for="bank_aaccount_holder_name" class="form-label">Bank Account Holder Name</label>
                                 <input type="text" class="form-control "
                                     value="{{ $BankDetails['bank_aaccount_holder_name'] }}" readonly>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

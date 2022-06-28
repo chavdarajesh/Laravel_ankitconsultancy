@@ -20,11 +20,8 @@ class BankDetailsSedder extends Seeder
         DB::table('bank_details')->insert([
             'bank_name' => 'State Bank Of India',
             'static_id' => 1,
-            'branch_name' => 'MG Road',
-            'branch_code' => 456,
             'ifsc_code' => 'SBIN000456',
             'bank_aaccount_no' => 444444444444,
-            'bank_aaccount_holder_name' => 'Test Name',
             'status' => 1,
             'created_at'=>Carbon::now()
     

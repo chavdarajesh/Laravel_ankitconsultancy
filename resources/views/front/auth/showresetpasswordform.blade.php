@@ -1,5 +1,15 @@
 @extends('front.layouts.main')
 @section('title', 'Reset Password')
+@section('css')
+    <style>
+        .open_eye {
+            display: none;
+        }
+        .open_eye_c {
+            display: none;
+        }
+    </style>
+@stop
 @section('content')
 
     <main id="main">
@@ -49,6 +59,9 @@
                                             <input required type="password" id="newpassword" class="form-control @error('newpassword') is-invalid @enderror" name="newpassword"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                                 aria-describedby="password"  value="{{old('newpassword')}}"/>
+                                                <span class="input-group-text toggle_password" id="basic-addon2"><i
+                                                    class="fa fa-eye-slash close_eye" aria-hidden="true"></i><i
+                                                    class="fa fa-eye open_eye" aria-hidden="true"></i></span>
                                         </div>
                                         @error('newpassword')
                                         <div class="text-danger">{{ $message }}</div>
@@ -61,6 +74,9 @@
                                                 name="confirmnewpasswod"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                                 aria-describedby="password"  value="{{old('confirmnewpasswod')}}" />
+                                                <span class="input-group-text toggle_password_c" id="basic-addon2"><i
+                                                    class="fa fa-eye-slash close_eye_c" aria-hidden="true"></i><i
+                                                    class="fa fa-eye open_eye_c" aria-hidden="true"></i></span>
                                         </div>
                                         @error('confirmnewpasswod')
                                         <div class="text-danger">{{ $message }}</div>
@@ -93,4 +109,22 @@
         </section>
 
     </main>
+@stop
+@section('js')
+    <script>
+        $('.toggle_password').click(function() {
+            $('#newpassword').attr('type', function(index, attr) {
+                return attr == 'password' ? 'text' : 'password';
+            });
+            $('.open_eye').toggle();
+            $('.close_eye').toggle();
+        })
+        $('.toggle_password_c').click(function() {
+            $('#confirmnewpasswod').attr('type', function(index, attr) {
+                return attr == 'password' ? 'text' : 'password';
+            });
+            $('.open_eye_c').toggle();
+            $('.close_eye_c').toggle();
+        })
+    </script>
 @stop

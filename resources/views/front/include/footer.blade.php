@@ -8,8 +8,8 @@
                  <a href="{{ route('front.homepage') }}" class="logo d-flex align-items-center">
                      <span>FINANCIAL ADVISOR</span>
                  </a>
-                 <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
-                     darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                 {{-- <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
+                     darta donna mare fermentum iaculis eu non diam phasellus.</p> --}}
                  <div class="social-links d-flex mt-4">
                      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -35,8 +35,8 @@
                  <h4>Contact Us</h4>
                  <p>
                     {{ ContactSetting::get_contact_us_details()->location ? ContactSetting::get_contact_us_details()->location : 'A108 Adam Street, New York, NY 535022' }}<br><br>
-                     <strong>Phone:</strong> <a href="tel:{{ContactSetting::get_contact_us_details()->phone ? ContactSetting::get_contact_us_details()->phone : '+1 5589 55488 55' }}" class="Blondie">{{ ContactSetting::get_contact_us_details()->phone ? ContactSetting::get_contact_us_details()->phone : '+1 5589 55488 55' }}</a><br>
-                     <strong>Email:</strong> <a href="mailto:{{ ContactSetting::get_contact_us_details()->email ? ContactSetting::get_contact_us_details()->email : 'info@example.com' }}">{{ ContactSetting::get_contact_us_details()->email ? ContactSetting::get_contact_us_details()->email : 'info@example.com' }}</a><br>
+                     <strong>Phone:</strong> <a href="tel:{{ContactSetting::get_contact_us_details()->phone ? ContactSetting::get_contact_us_details()->phone : '+91888888888' }}" class="Blondie">{{ ContactSetting::get_contact_us_details()->phone ? ContactSetting::get_contact_us_details()->phone : '+1 5589 55488 55' }}</a><br>
+                     <strong>Email:</strong> <a href="mailto:{{ ContactSetting::get_contact_us_details()->email ? ContactSetting::get_contact_us_details()->email : 'financialadvisory@ankitconsultancy.com' }}">{{ ContactSetting::get_contact_us_details()->email ? ContactSetting::get_contact_us_details()->email : 'info@example.com' }}</a><br>
                  </p>
 
              </div>

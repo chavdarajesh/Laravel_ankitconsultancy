@@ -57,7 +57,7 @@
                             <i class="bi bi-envelope flex-shrink-0"></i>
                             <div>
                                 <h4>Email:</h4>
-                                <a href="mailto:{{ $ContactSetting['email'] ? $ContactSetting['email'] : 'info@example.com' }}">{{ $ContactSetting['email'] ? $ContactSetting['email'] : 'info@example.com' }}</a>
+                                <a href="mailto:{{ $ContactSetting['email'] ? $ContactSetting['email'] : 'financialadvisory@ankitconsultancy.com' }}">{{ $ContactSetting['email'] ? $ContactSetting['email'] : 'info@example.com' }}</a>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -65,7 +65,7 @@
                             <i class="bi bi-phone flex-shrink-0"></i>
                             <div>
                                 <h4>Call:</h4>
-                                <a href="tel:{{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+1 5589 55488 55' }}" class="Blondie">{{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+1 5589 55488 55' }}</a>
+                                <a href="tel:{{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+91888888888' }}" class="Blondie">{{ $ContactSetting['phone'] ? $ContactSetting['phone'] : '+1 5589 55488 55' }}</a>
                             </div>
                         </div><!-- End Info Item -->
                         <div class="info-item d-flex">

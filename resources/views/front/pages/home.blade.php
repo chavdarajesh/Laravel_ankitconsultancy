@@ -1,10 +1,11 @@
 @extends('front.layouts.main')
 @section('title', 'Home Page')
 @section('content')
-@php
+    @php
     use App\Models\Admin\Faqs;
-    $Faqs= Faqs::get_all_faqs();
-@endphp
+    use App\Models\Admin\ContactSetting; 
+    $Faqs = Faqs::get_all_faqs();
+    @endphp
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero d-flex align-items-center">
         <div class="container">
@@ -17,10 +18,10 @@
 
                     <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
                         data-aos-delay="200">
-                        @if(Auth::check())
-                        {{-- <input type="text" class="form-control" placeholder="ZIP code or CitY"> --}}
+                        @if (Auth::check())
+                            {{-- <input type="text" class="form-control" placeholder="ZIP code or CitY"> --}}
                         @else
-                        <a href="{{route('front.register')}}" class="btn btn-primary w-100">Register</a>
+                            <a href="{{ route('front.register') }}" class="btn btn-primary w-100">Register</a>
                         @endif
                     </form>
 
@@ -130,7 +131,8 @@
                         <p>
                             Planning Is Bringing The Future Into The Present So That You Can Do Somthing About It Now.
                         </p>
-                        <p>We Have Planned A System To Meet Long -term Financial Goals We Analyze Your Goals And Recommend An Investment Strategy Designed To Meet Your Risk Tolerance</p>
+                        <p>We Have Planned A System To Meet Long -term Financial Goals We Analyze Your Goals And Recommend
+                            An Investment Strategy Designed To Meet Your Risk Tolerance</p>
                         {{-- <ul>
                             <li data-aos="fade-up" data-aos-delay="100">
                                 <i class="bi bi-diagram-3"></i>
@@ -174,7 +176,7 @@
 
                 <div class="row gy-4">
 
-                <h2 class="text-center">We Are Providing Financial Advice To Help Transform Your Business.</h2>
+                    <h2 class="text-center">We Are Providing Financial Advice To Help Transform Your Business.</h2>
 
                 </div>
 
@@ -188,12 +190,13 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
                         <h3>Call To Action</h3>
-                        <p> It Is Never Too Get Started On Your Investment Plans Tells Us We Will Give You A Plan To Achieve Them.</p>
-                        <a class="cta-btn" href="{{route('front.contactpage')}}">Call To Action</a>
-                        </div>
+                        <p> It Is Never Too Get Started On Your Investment Plans Tells Us We Will Give You A Plan To Achieve
+                            Them.</p>
+                        <a class="cta-btn" href="tel:{{ContactSetting::get_contact_us_details()->phone ? ContactSetting::get_contact_us_details()->phone : '+918888888888' }}">Call To Action</a>
                     </div>
-
                 </div>
+
+            </div>
         </section><!-- End Call To Action Section -->
 
         <!-- ======= Features Section ======= -->
@@ -467,49 +470,49 @@
 
             </div>
         </section><!-- End Testimonials Section --> --}}
+        @if (!$Faqs->isEmpty())
+            <!-- ======= Frequently Asked Questions Section ======= -->
+            <section id="faq" class="faq">
+                <div class="container" data-aos="fade-up">
 
-        <!-- ======= Frequently Asked Questions Section ======= -->
-        <section id="faq" class="faq">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-header">
-                    <span>Frequently Asked Questions</span>
-                    <h2>Frequently Asked Questions</h2>
-
-                </div>
-
-                <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="col-lg-10">
-
-                        <div class="accordion accordion-flush" id="faqlist">
-
-                            @foreach ($Faqs as $Faq)
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-{{$Faq->id}}">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                       {{$Faq->title}}
-                                    </button>
-                                </h3>
-                                <div id="faq-content-{{$Faq->id}}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        {{$Faq->description}}
-
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-                            @endforeach
-
-                        </div>
+                    <div class="section-header">
+                        <span>Frequently Asked Questions</span>
+                        <h2>Frequently Asked Questions</h2>
 
                     </div>
+
+                    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-10">
+
+                            <div class="accordion accordion-flush" id="faqlist">
+
+                                @foreach ($Faqs as $Faq)
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $Faq->id }}">
+                                                <i class="bi bi-question-circle question-icon"></i>
+                                                {{ $Faq->title }}
+                                            </button>
+                                        </h3>
+                                        <div id="faq-content-{{ $Faq->id }}" class="accordion-collapse collapse"
+                                            data-bs-parent="#faqlist">
+                                            <div class="accordion-body">
+                                                {{ $Faq->description }}
+
+                                            </div>
+                                        </div>
+                                    </div><!-- # Faq item-->
+                                @endforeach
+
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
-
-            </div>
-        </section><!-- End Frequently Asked Questions Section -->
-
+            </section><!-- End Frequently Asked Questions Section -->
+        @endif
     </main><!-- End #main -->
 
 

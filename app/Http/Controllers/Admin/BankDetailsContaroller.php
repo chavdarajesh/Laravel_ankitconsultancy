@@ -18,19 +18,19 @@ class BankDetailsContaroller extends Controller
     {
         $request->validate([
             'bank_name' => 'required',
-            'branch_name' => 'required',
-            'branch_code' => 'required',
+            // 'branch_name' => 'required',
+            // 'branch_code' => 'required',
             'ifsc_code' => 'required',
             'bank_aaccount_no' => 'required',
-            'bank_aaccount_holder_name' => 'required',
+            // 'bank_aaccount_holder_name' => 'required',
         ]);
 
         $BankDetails = BankDetails::find($request->id);
         $BankDetails->bank_name = $request['bank_name'];
+        $BankDetails->bank_aaccount_no = $request['bank_aaccount_no'];
+        $BankDetails->ifsc_code = $request['ifsc_code'];
         $BankDetails->branch_name = $request['branch_name'];
         $BankDetails->branch_code = $request['branch_code'];
-        $BankDetails->ifsc_code = $request['ifsc_code'];
-        $BankDetails->bank_aaccount_no = $request['bank_aaccount_no'];
         $BankDetails->bank_aaccount_holder_name = $request['bank_aaccount_holder_name'];
         $BankDetails->update();
 

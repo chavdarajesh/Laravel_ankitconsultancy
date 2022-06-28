@@ -73,7 +73,7 @@ class PaymentController extends Controller
                     $user->is_verified = 1;
                     $user->update();
                     Mail::to($user->email)->send(new PasswordSend($data));
-                    return response()->json(['success' => 'Verified Status change successfully. MAil Sent ']);
+                    return response()->json(['success' => 'Verified Status change successfully.Password Send to User Email successfully ']);
                 } else {
                     return response()->json(['success' => 'Verified Status change successfully. Mail Not SEnd']);
                 }

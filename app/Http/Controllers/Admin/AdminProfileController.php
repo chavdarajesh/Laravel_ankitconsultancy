@@ -102,7 +102,7 @@ class AdminProfileController extends Controller
                 'token' => $token
             ];
             Mail::to($request->email)->send(new ForgotPassword($data));
-            return redirect()->route('admin.login')->with('message', 'password Reset Link send Successfully Please Chacek your Email..');
+            return redirect()->route('admin.login')->with('message', 'password Reset Link send Successfully Please Check your Email..');
         
     }
 

@@ -28,7 +28,7 @@ class DashboardController extends Controller
     {
         $ValidatedData = Validator::make($request->all(), [
             'adminpassword' => 'required | min:6',
-            'adminemail' => 'required|email'
+            'adminemail' => 'required'
         ]);
         if ($ValidatedData->fails()) {
             return redirect()->back()->with('error', 'All Fileds are Required..');
