@@ -10,7 +10,7 @@
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-6 text-center">
-                            <h2>Your All EMI</h2>
+                            <h2>Your All Installment</h2>
                             <p></p>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="section-header">
                     <span>Hi! {{Auth::user()->name}} </span>
                     <h2>Hi! {{Auth::user()->name}} </h2>
-                    <h3> Your Latest Installment </h3><p>(Total Installment - {{count($Payments)}}) </p>
+                    <h3> Your Latest Installment </h3><p>(Total Installment = 60, Paid Installment = {{count($Payments)}}, Remaining Installment = {{60-count($Payments)}})</p>
 
                 </div>
 

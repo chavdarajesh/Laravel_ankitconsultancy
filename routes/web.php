@@ -162,7 +162,7 @@ Route::group(['namespace' => 'Front'], function () {
         Route::post('/first_payment', [PaymentController::class, 'postfirst_payment'])->name('front.post.first_payment');
         Route::get('/next_payment', [PaymentController::class, 'next_paymentpage'])->name('front.next_paymentpage');
         Route::post('/next_payment', [PaymentController::class, 'postnext_paymentpage'])->name('front.post.next_payment');
-        Route::get('/all_emi', [PaymentController::class, 'all_emipage'])->name('front.all_emipage');
+        Route::get('/all_installment', [PaymentController::class, 'all_emipage'])->name('front.all_emipage');
 
         Route::get('/profile', [ProfileController::class, 'profilepage'])->name('front.profilepage');
         Route::post('/profile', [ProfileController::class, 'postprofilepage'])->name('front.post.profilepage');

@@ -35,7 +35,7 @@ table.dataTable thead>tr>th.sorting_desc{
                             <thead>
                                 <tr>
                                     <th class="text-center" >ID</th>
-                                    <th class="text-center" >Instalment</th>
+                                    <th class="text-center" >Installment</th>
                                     <th class="text-center" >Refer Count </th>
                                     <th class="text-center" >Name</th>
                                     <th class="text-center" >Email </th>

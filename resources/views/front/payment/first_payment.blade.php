@@ -143,7 +143,7 @@
                 <div class="row">
 
                     <div class="col-lg-12 text-center">
-                        <h1 class="text-center">Select Your Equated Monthly Instalment</h1>
+                        <h1 class="text-center">Select Your Equated Monthly Installment</h1>
                         <div class="select-menu active">
                             <div class="select-btn">
                                 <span class="sBtn-text">Select your option</span>

@@ -95,6 +95,9 @@
         </style>
     @enderror
 @stop
+@php
+    use App\Models\User;
+@endphp
 @section('content')
     <main id="main">
 
@@ -155,6 +158,7 @@
                                                 <span>(click to copy)</span>
                                             </h6>
                                         </a>
+                                        Total Referral Counts <span class="badge badge-secondary bg-primary">{{ User::get_total_use_referral_user_by_id(Auth::user()->id)}}</span>
                                         <hr>
                                         <div class="button-wrapper">
                                             <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">

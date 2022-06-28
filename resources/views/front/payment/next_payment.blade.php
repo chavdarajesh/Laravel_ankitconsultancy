@@ -141,7 +141,7 @@
                 <div class="row">
 
                     <div class="col-lg-12 text-center">
-                        <h1 class="text-center"> Your Equated Monthly Instalment</h1>
+                        <h1 class="text-center"> Your Equated Monthly Installment</h1>
                         <div class="select-menu ">
                             <div class="select-btn">
                                 <span class="sBtn-text"> {{ $EMIAmount['emi_amount'] }}</span>
