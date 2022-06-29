@@ -20,9 +20,12 @@
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/front/css/main.css') }}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
   @yield('css')
   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap');
+     .breadcrumbs .page-header h2{
+        font-family: 'Palanquin Dark', sans-serif;
+    }
     .logout-btn{
       color: var(--color-secondary);
     }
