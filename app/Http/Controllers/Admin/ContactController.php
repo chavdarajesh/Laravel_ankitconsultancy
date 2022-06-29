@@ -52,7 +52,7 @@ class ContactController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'location' => 'required',
-            'map_iframe' => 'required',
+            // 'map_iframe' => 'required',
         ]);
 
         $ContactSetting = ContactSetting::find($request->id);

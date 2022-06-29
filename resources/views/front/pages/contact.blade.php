@@ -1,18 +1,20 @@
 @extends('front.layouts.main')
 @section('title', 'Contact Page')
 @section('css')
-<style>
-     @import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@500&display=swap');
-    .breadcrumbs p{
-        font-size: 28px !important;
-        font-family: 'DM Serif Text', serif;
-    }
-    @media only screen and (max-width: 767px) {
-        .breadcrumbs p{
-        font-size: 22px !important;
-    }
-    }
-</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@500&display=swap');
+
+        .breadcrumbs p {
+            font-size: 28px !important;
+            font-family: 'DM Serif Text', serif;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .breadcrumbs p {
+                font-size: 22px !important;
+            }
+        }
+    </style>
 @stop
 @section('content')
 @section('content')
@@ -45,11 +47,11 @@
 
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">
-
-                <div>
-                    {!! $ContactSetting['map_iframe'] ? $ContactSetting['map_iframe'] : '<iframe style="border:0; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>' !!}
-                </div>
-
+                @if ($ContactSetting['map_iframe'])
+                    <div>
+                        {!! $ContactSetting['map_iframe'] ? $ContactSetting['map_iframe'] : '<iframe style="border:0; width: 100%; height: 340px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>' !!}
+                    </div>
+                @endif
                 <div class="row gy-4 mt-4">
                     <h1 class="text-center">Ankit Consultancy</h1>
                     <hr>
