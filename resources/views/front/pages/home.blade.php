@@ -9,10 +9,6 @@
             font-size: 40px !important;
         }
 
-        .hero h2 {
-            color: black
-        }
-
         main p {
             font-size: 28px !important;
             font-family: 'Taviraj', serif;
@@ -22,32 +18,18 @@
             main p {
                 font-size: 22px !important;
             }
-
-            .bg-video-wrap {
-                min-height: 50vh !important;
+            .bg-video-wrap , video{
+                min-height: 100vh !important;
             }
-
-            .overlay,
-            .bg-video-wrap {
-                height: 50vh !important;
-            }
-            video{
-                width: 100vh !important;
-            }
-            video, .bg-video-wrap {
-               
-                min-width: 100%;
-                min-height: 100% !important;
-                width: auto;
-                height: auto;
-               
-                background-size: cover;
-                overflow: hidden;
+            .overlay,.bg-video-wrap{
+                height: 100vh !important;
             }
         }
 
         .hero {
             background-image: unset !important;
+        }.hero h2{
+            color: black
         }
 
         .bg-video-wrap {
@@ -59,9 +41,9 @@
         }
 
         video {
-            width: 100%;
             position: absolute;
             top: 0;
+            width: 100%;
             min-width: 100%;
             min-height: 100vh;
             /* z-index: 1; */
@@ -87,13 +69,13 @@
     @endphp
 
     <section id="hero" class="hero d-flex align-items-center bg-video-wrap">
-        <video src="{{ asset('assets/front/videos/homepage/3943971.mp4') }}" loop muted autoplay>
+        <video src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" loop muted autoplay>
         </video>
         <div class="overlay">
         </div>
         <div class="container">
             <div class="row gy-4 d-flex justify-content-between">
-                <div class="col-lg-12 order-2 order-lg-1 d-flex flex-column justify-content-center text-center">
+                <div class="col-lg-12 m-auto order-2 order-lg-1 d-flex flex-column text-center justify-content-center">
                     <h2 data-aos="fade-up">Don't Wait For The Perfect Moment ,<br> Take The Moment And Make It Perfect</h2>
 
 
@@ -101,7 +83,7 @@
                         data-aos-delay="200">
                         @if (Auth::check())
                         @else
-                            <a href="{{ route('front.register') }}" class="btn btn-primary w-100">Register</a>
+                            <a href="{{ route('front.register') }}" class="btn btn-primary w-auto m-auto">Register</a>
                         @endif
                     </form>
 
