@@ -8,7 +8,9 @@
         .call-to-action h3 {
             font-size: 40px !important;
         }
-
+        .hero h2{
+            color: black
+        }
         main p {
             font-size: 28px !important;
             font-family: 'Taviraj', serif;
