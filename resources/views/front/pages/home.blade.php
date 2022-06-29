@@ -24,6 +24,9 @@
             .overlay,.bg-video-wrap{
                 height: 100vh !important;
             }
+            video{
+                width: unset !important;
+            }
         }
 
         .hero {
