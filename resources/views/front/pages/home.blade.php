@@ -8,9 +8,11 @@
         .call-to-action h3 {
             font-size: 40px !important;
         }
-        .hero h2{
+
+        .hero h2 {
             color: black
         }
+
         main p {
             font-size: 28px !important;
             font-family: 'Taviraj', serif;
@@ -20,11 +22,27 @@
             main p {
                 font-size: 22px !important;
             }
-            .bg-video-wrap , video{
+
+            .bg-video-wrap {
                 min-height: 50vh !important;
             }
-            .overlay,.bg-video-wrap{
-                height: 60vh !important;
+
+            .overlay,
+            .bg-video-wrap {
+                height: 50vh !important;
+            }
+            video{
+                width: 100vh !important;
+            }
+            video, .bg-video-wrap {
+               
+                min-width: 100%;
+                min-height: 100% !important;
+                width: auto;
+                height: auto;
+               
+                background-size: cover;
+                overflow: hidden;
             }
         }
 
@@ -41,6 +59,7 @@
         }
 
         video {
+            width: 100%;
             position: absolute;
             top: 0;
             min-width: 100%;
@@ -68,7 +87,7 @@
     @endphp
 
     <section id="hero" class="hero d-flex align-items-center bg-video-wrap">
-        <video src="{{asset('assets/front/videos/homepage/3943971.mp4')}}"  loop muted autoplay>
+        <video src="{{ asset('assets/front/videos/homepage/3943971.mp4') }}" loop muted autoplay>
         </video>
         <div class="overlay">
         </div>
