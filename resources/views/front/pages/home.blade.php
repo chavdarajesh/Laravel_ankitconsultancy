@@ -69,7 +69,9 @@
     @endphp
 
     <section id="hero" class="hero d-flex align-items-center bg-video-wrap">
-        <video src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" loop muted autoplay>
+        <video  loop muted autoplay>
+            <source src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" type="video/mp4">
+                Your browser does not support the video tag.
         </video>
         <div class="overlay">
         </div>
