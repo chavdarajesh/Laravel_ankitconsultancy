@@ -68,17 +68,17 @@
     @endphp
 
     <section id="hero" class="hero d-flex align-items-center bg-video-wrap">
-        <video src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" width="100%" loop muted autoplay>
+        <video src="{{asset('assets/front/videos/homepage/3943971.mp4')}}"  loop muted autoplay>
         </video>
         <div class="overlay">
         </div>
         <div class="container">
             <div class="row gy-4 d-flex justify-content-between">
-                <div class="col-lg-9 m-auto order-2 order-lg-1 d-flex flex-column justify-content-center text-center">
+                <div class="col-lg-12 order-2 order-lg-1 d-flex flex-column justify-content-center text-center">
                     <h2 data-aos="fade-up">Don't Wait For The Perfect Moment ,<br> Take The Moment And Make It Perfect</h2>
 
 
-                    <form action="#" class="form-search d-flex align-items-stretch mb-3 w-25 m-auto" data-aos="fade-up"
+                    <form action="#" class="form-search d-flex align-items-stretch mb-3 w-auto m-auto" data-aos="fade-up"
                         data-aos-delay="200">
                         @if (Auth::check())
                         @else
