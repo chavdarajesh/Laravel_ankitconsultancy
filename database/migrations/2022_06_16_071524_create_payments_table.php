@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->string('payment_screenshot')->nullable();
             $table->boolean('status')->default(1);
             $table->boolean('is_verified')->default(0);
+            $table->boolean('is_not_verified')->default(0);
             $table->boolean('first_payment')->default(0);
             $table->timestamps();
             $table->softDeletes();

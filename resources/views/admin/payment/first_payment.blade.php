@@ -5,6 +5,84 @@
         .add-form {
             display: none;
         }
+
+        .switch_payment_verified,.switch_payment_not_verified {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch_payment_verified input,.switch_payment_not_verified input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider_payment_verified,.slider_payment_not_verified {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .slider_payment_verified{
+            background-color: #71dd37;
+
+        }
+        .slider_payment_not_verified{
+            background-color: #ff3e1d;
+
+        }
+
+        .slider_payment_verified:before ,.slider_payment_not_verified:before{
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .slider_payment_verified:before{
+            background-color: white;
+        }
+        .slider_payment_not_verified:before{
+            background-color: white;
+        }
+        input:checked+.slider_payment_verified {
+            background-color: #2a7800;
+        }
+        input:checked+.slider_payment_not_verified{
+            background-color: #8d1905;
+        }
+
+        input:focus+.slider_payment_verified  {
+            box-shadow: 0 0 1px #81f542;
+        }
+        input:focus+.slider_payment_not_verified {
+            box-shadow: 0 0 1px #ff3e1d;
+        }
+
+        input:checked+.slider_payment_verified:before ,  input:checked+.slider_payment_not_verified:before{
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider_payment_verified.round ,.slider_payment_not_verified.round{
+            border-radius: 34px;
+        }
+
+        .slider_payment_verified.round:before ,.slider_payment_not_verified.round:before{
+            border-radius: 50%;
+        }
     </style>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
@@ -25,12 +103,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.get.not_verified_payment')}}"><i class='bx bx-credit-card me-1'></i>
+                        <a class="nav-link" href="{{ route('admin.get.not_verified_payment') }}"><i
+                                class='bx bx-credit-card me-1'></i>
                             Not Verified Payment
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{route('admin.get.all_payment')}}"><i class='bx bx-credit-card me-1'></i>
+                        <a class="nav-link " href="{{ route('admin.get.all_payment') }}"><i
+                                class='bx bx-credit-card me-1'></i>
                             All Payment
                         </a>
                     </li>
@@ -93,11 +173,16 @@
                                                 class="payment_status" type="checkbox" data-onstyle="success"
                                                 data-offstyle="danger" data-toggle="toggle" data-on="Active"
                                                 data-off="InActive" {{ $Payment->status ? 'checked' : '' }}></td>
-                                        <td class="text-center"> <input data-id="{{ $Payment->id }}"
-                                                class="payment_verified" type="checkbox" data-onstyle="success"
-                                                data-offstyle="danger" data-toggle="toggle" data-on="Verified"
-                                                data-off="Not Verified"
-                                                {{ $Payment->is_verified ? 'checked disabled' : '' }}></td>
+                                        <td class="text-center">
+                                            <label class="switch_payment_verified">
+                                                <input type="checkbox" class="payment_verified" data-id="{{ $Payment->id }}" {{ $Payment->is_verified ? 'checked disabled' : '' }} >
+                                                <span class="slider_payment_verified round"></span>
+                                            </label>
+                                            <label class="switch_payment_not_verified">
+                                                <input type="checkbox"  class="payment_not_verified" data-id="{{ $Payment->id }}" {{ $Payment->is_not_verified ? 'checked' : '' }} {{ $Payment->is_verified ? 'disabled' : '' }}>
+                                                <span class="slider_payment_not_verified round"></span>
+                                            </label>
+                                        </td>
                                         <td class="text-center">{{ $Payment->created_at }}</td>
                                         <td class="text-center">
                                             <button type="button" class="btn btn-icon btn-outline-danger"
@@ -151,17 +236,41 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
-                "order": [[ 0, 'desc' ]]
+                "order": [
+                    [0, 'desc']
+                ]
             });
         });
         $(function() {
             $('.payment_verified').change(function() {
-                $(this).prop('disabled',true)
+                $(this).prop('disabled', true)
                 var is_verified = $(this).prop('checked') == true ? 1 : 0;
                 var id = $(this).data('id');
                 $.ajax({
                     type: "POST",
                     url: '{{ route('admin.update.first_payment.is_verified') }}',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        'is_verified': is_verified,
+                        'id': id
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            toastr.success(data.success);
+                        }
+                        if (data.error) {
+                            toastr.error(data.error);
+                        }
+                    }
+                });
+            })
+            $('.payment_not_verified').change(function() {
+                $(this).prop('disabled', true)
+                var is_verified = $(this).prop('checked') == true ? 1 : 0;
+                var id = $(this).data('id');
+                $.ajax({
+                    type: "POST",
+                    url: '{{ route('admin.update.first_payment.is_not_verified') }}',
                     data: {
                         "_token": "{{ csrf_token() }}",
                         'is_verified': is_verified,

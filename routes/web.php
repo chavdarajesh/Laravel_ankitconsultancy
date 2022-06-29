@@ -80,6 +80,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'is_a
     Route::delete('/first_payment/delete/{id}', [AdminPaymentController::class, 'first_payment_delete'])->name('admin.delete.first_payment');
     Route::post('/first_payment_status/update', [AdminPaymentController::class, 'first_payment_status_update'])->name('admin.update.first_payment.status');
     Route::post('/first_payment_is_verified/update', [AdminPaymentController::class, 'first_payment_is_verified_update'])->name('admin.update.first_payment.is_verified');
+    Route::post('/first_payment_is_not_verified/update', [AdminPaymentController::class, 'first_payment_is_not_verified_update'])->name('admin.update.first_payment.is_not_verified');
 
     Route::get('/all_payment', [AdminPaymentController::class, 'get_all_payment'])->name('admin.get.all_payment');
     Route::delete('/all_payment/delete/{id}', [AdminPaymentController::class, 'all_payment_delete'])->name('admin.delete.all_payment');

@@ -1,21 +1,62 @@
 @extends('front.layouts.main')
 @section('title', 'Home Page')
 @section('css')
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@500&display=swap');
-    .about .content h3,.call-to-action h3{
-        font-size: 40px !important;
-    }
-    main p{
-        font-size: 28px !important;
-        font-family: 'Taviraj', serif;
-    }
-    @media only screen and (max-width: 767px) {
-        main p{
-        font-size: 22px !important;
-    }
-    }
-</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@500&display=swap');
+
+        .about .content h3,
+        .call-to-action h3 {
+            font-size: 40px !important;
+        }
+
+        main p {
+            font-size: 28px !important;
+            font-family: 'Taviraj', serif;
+        }
+
+        @media only screen and (max-width: 767px) {
+            main p {
+                font-size: 22px !important;
+            }
+            .bg-video-wrap , video{
+                min-height: 50vh !important;
+            }
+            .overlay,.bg-video-wrap{
+                height: 60vh !important;
+            }
+        }
+
+        .hero {
+            background-image: unset !important;
+        }
+
+        .bg-video-wrap {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            /* background: url(https://designsupply-web.com/samplecontent/vender/codepen/20181014.png) no-repeat center center/cover; */
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            min-width: 100%;
+            min-height: 100vh;
+            /* z-index: 1; */
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* background-image: linear-gradient(45deg, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .7) 50%); */
+            background-size: 3px 3px;
+            /* z-index: 2; */
+        }
+    </style>
 @stop
 @section('content')
     @php
@@ -24,7 +65,11 @@
     $Faqs = Faqs::get_all_faqs();
     @endphp
 
-    <section id="hero" class="hero d-flex align-items-center">
+    <section id="hero" class="hero d-flex align-items-center bg-video-wrap">
+        <video src="{{asset('assets/front/videos/homepage/180405_FinancialCharts_14.mp4')}}" loop muted autoplay>
+        </video>
+        <div class="overlay">
+        </div>
         <div class="container">
             <div class="row gy-4 d-flex justify-content-between">
                 <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
