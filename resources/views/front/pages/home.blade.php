@@ -66,7 +66,7 @@
     @endphp
 
     <section id="hero" class="hero d-flex align-items-center bg-video-wrap">
-        <video src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" loop muted autoplay>
+        <video src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" width="100%" loop muted autoplay>
         </video>
         <div class="overlay">
         </div>
