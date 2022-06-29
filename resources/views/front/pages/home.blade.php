@@ -84,13 +84,12 @@
                     <h2 data-aos="fade-up">Don't Wait For The Perfect Moment ,<br> Take The Moment And Make It Perfect</h2>
 
 
+                    @if (!Auth::check())
                     <form action="#" class="form-search d-flex align-items-stretch mb-3 w-auto m-auto" data-aos="fade-up"
                         data-aos-delay="200">
-                        @if (Auth::check())
-                        @else
                             <a href="{{ route('front.register') }}" class="btn btn-primary w-auto m-auto">Register</a>
+                        </form>
                         @endif
-                    </form>
 
 
                 </div>
