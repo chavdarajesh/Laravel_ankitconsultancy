@@ -29,6 +29,11 @@
     .logout-btn{
       color: var(--color-secondary);
     }
+    .header {
+    background: rgba(14, 29, 52, 0.9);
+    padding: 15px 0;
+    box-shadow: 0px 2px 20px rgb(14 29 52 / 10%);
+}
     @media (max-width: 1279px){
 .navbar button:hover, .navbar .active, .navbar .active:focus, .navbar li:hover>button , .logout-btn{
     color: #fff;
