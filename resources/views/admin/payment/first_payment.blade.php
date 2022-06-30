@@ -244,6 +244,7 @@
         $(function() {
             $('.payment_verified').change(function() {
                 $(this).prop('disabled', true)
+                $('.payment_not_verified').prop('disabled', true)
                 var is_verified = $(this).prop('checked') == true ? 1 : 0;
                 var id = $(this).data('id');
                 $.ajax({
