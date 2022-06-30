@@ -109,10 +109,10 @@ class AuthController extends Controller
                         return redirect()->back()->with('error', 'Somthing Went Wrong11..');
                     }
                 } else {
-                    return redirect()->back()->with('error', 'User Not Found..');
+                    return redirect()->back()->with('error', 'OTP Is Invalid..!');
                 }
             } else {
-                return redirect()->back()->with('error', 'User Not Found...!');
+                return redirect()->back()->with('error', 'OTP Is Invalid..!!');
             }
 
     }
