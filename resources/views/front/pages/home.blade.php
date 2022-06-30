@@ -14,53 +14,44 @@
             font-family: 'Taviraj', serif;
         }
 
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: 845px) {
             main p {
                 font-size: 22px !important;
             }
-            .bg-video-wrap , video{
-                min-height: 100vh !important;
+
+            /* .bg-video-wrap , video{
+                        min-height: 100vh !important;
+                    }
+                    .overlay,.bg-video-wrap{
+                        height: 100vh !important;
+                    }
+                    video{
+                        width: unset !important;
+                    } */
+            video {
+                height: 84vh;
+                background-color: #f6fbff;
+                transform: scale(3);
             }
-            .overlay,.bg-video-wrap{
-                height: 100vh !important;
-            }
-            video{
-                width: unset !important;
+            .hero{
+                /* padding-top: 66px !important; */
             }
         }
 
         .hero {
             background-image: unset !important;
-        }.hero h2{
+        }
+
+        .hero h2 {
             color: black
         }
 
-        .bg-video-wrap {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 100vh;
-            /* background: url(https://designsupply-web.com/samplecontent/vender/codepen/20181014.png) no-repeat center center/cover; */
-        }
-
-        video {
+        .content-hero {
             position: absolute;
-            top: 0;
-            width: 100%;
+            right: 0;
+            bottom: 0;
             min-width: 100%;
-            min-height: 100vh;
-            /* z-index: 1; */
-        }
-
-        .overlay {
-            width: 100%;
-            height: 100vh;
-            position: absolute;
-            top: 0;
-            left: 0;
-            /* background-image: linear-gradient(45deg, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .7) 50%); */
-            background-size: 3px 3px;
-            /* z-index: 2; */
+            min-height: 100%;
         }
     </style>
 @stop
@@ -71,25 +62,30 @@
     $Faqs = Faqs::get_all_faqs();
     @endphp
 
-    <section id="hero" class="hero d-flex align-items-center bg-video-wrap">
-        <video src="{{asset('assets/front/videos/homepage/Untitled.mp4')}}" loop autoplay muted>
-            {{-- <source src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" type="video/mp4"> --}}
+    <section id="hero" class="hero d-flex align-items-center bg-video-wrap position-relative p-0">
+        {{-- <video src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" loop autoplay muted>
+            <source src="{{asset('assets/front/videos/homepage/3943971.mp4')}}" type="video/mp4">
                 Your browser does not support the video tag.
         </video>
         <div class="overlay">
-        </div>
+        </div> --}}
+
+        <video autoplay muted loop id="myVideo" width="100%">
+            <source src="{{ asset('assets/front/videos/homepage/Untitled.mp4') }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
         <div class="container">
-            <div class="row gy-4 d-flex justify-content-between">
+            <div class="row gy-4 d-flex justify-content-between content-hero">
                 <div class="col-lg-12 m-auto order-2 order-lg-1 d-flex flex-column text-center justify-content-center">
                     <h2 data-aos="fade-up">Don't Wait For The Perfect Moment ,<br> Take The Moment And Make It Perfect</h2>
 
 
                     @if (!Auth::check())
-                    <form action="#" class="form-search d-flex align-items-stretch mb-3 w-auto m-auto" data-aos="fade-up"
-                        data-aos-delay="200">
+                        <form action="#" class="form-search d-flex align-items-stretch mb-3 w-auto m-auto"
+                            data-aos="fade-up" data-aos-delay="200">
                             <a href="{{ route('front.register') }}" class="btn btn-primary w-auto m-auto">Register</a>
                         </form>
-                        @endif
+                    @endif
 
 
                 </div>
