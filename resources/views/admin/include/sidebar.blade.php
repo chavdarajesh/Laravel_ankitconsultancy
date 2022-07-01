@@ -148,7 +148,7 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Contacts</span>
         </li>
-        <li class="menu-item {{ $current_route_name == 'admin.get.contact_msg' || $current_route_name == 'admin.get.contact_settings' ? 'open active' : '' }}"
+        <li class="menu-item {{ $current_route_name == 'admin.get.contact_msg' || $current_route_name == 'admin.get.contact_settings' ,|| $current_route_name == 'admin.get.home_settings' ? 'open active' : '' }}"
             style="">
             <a href="{{ route('admin.get.contact_msg') }}" class="menu-link menu-toggle">
                 <i class='menu-icon tf-icons bx bxs-contact'></i>
@@ -166,6 +166,12 @@
                     class="menu-item {{ $current_route_name == 'admin.get.contact_settings' ? 'active' : '' }}">
                     <a href="{{ route('admin.get.contact_settings') }}" class="menu-link">
                         <div data-i18n="Without menu">Contact Settings</div>
+                    </a>
+                </li>
+                <li
+                    class="menu-item {{ $current_route_name == 'admin.get.home_settings' ? 'active' : '' }}">
+                    <a href="{{ route('admin.get.home_settings') }}" class="menu-link">
+                        <div data-i18n="Without menu">Home Settings</div>
                     </a>
                 </li>
             </ul>
