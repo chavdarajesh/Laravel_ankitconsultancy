@@ -45,16 +45,7 @@
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                {{-- <div class="mb-3 col-md-12">
-                                    <label for="map_iframe" class="form-label">Home Page Video</label>
-
-                                    <textarea rows="5" class="form-control @error('map_iframe') is-invalid @enderror" type="text" id="map_iframe"
-                                        name="map_iframe" autofocus>{{ $ContactSetting ? $ContactSetting['map_iframe'] : old('map_iframe') }}</textarea>
-                                    @error('map_iframe')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div> --}}
-                                <video height="100%" src="{{ $ContactSetting ? $ContactSetting['home_page_video'] : old('home_page_video') }}"></video>
+                                <video controls autoplay muted height="500px" src="{{ $ContactSetting['home_page_video'] ? asset($ContactSetting['home_page_video']) : old('home_page_video') }}"></video>
                             </div>
                             <div class="mt-2">
                                 <button type="submit" class="btn btn-primary me-2">Save</button>

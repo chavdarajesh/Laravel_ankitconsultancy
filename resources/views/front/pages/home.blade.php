@@ -72,6 +72,7 @@
 
         <video autoplay muted loop id="myVideo" width="100%">
             <source src="{{ asset('assets/front/videos/homepage/Untitled.mp4') }}" type="video/mp4">
+                {{ ContactSetting::get_contact_us_details()->home_page_video ? asset(ContactSetting::get_contact_us_details()->home_page_video) : 'assets/front/videos/homepage/Untitled.mp4' }}
             Your browser does not support HTML5 video.
         </video>
         <div class="container">
