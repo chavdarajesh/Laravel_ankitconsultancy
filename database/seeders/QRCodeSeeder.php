@@ -21,7 +21,7 @@ class QRCodeSeeder extends Seeder
             'qrcodeimage' => 'assets/admin/img/custom/1655438173images.png',
             'status' => 1,
             'upiid' => 'testupi@upi',
-            'created_at'=>Carbon::now()
+            'created_at'=>Carbon::now('Asia/Kolkata')
         ]);
     }
 }

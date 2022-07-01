@@ -111,7 +111,7 @@ class AuthController extends Controller
             $user  = User::where([['id', '=', $request->user_id], ['otp', '=', $request->otp], ['email', '=', $request->email]])->first();
             if ($user) {
                 User::where('id', '=', $request->user_id)->where('email', '=', $request->email)->update(['otp' => null]);
-                User::where('id', '=', $request->user_id)->where('email', '=', $request->email)->update(['email_verified_at' =>  Carbon::now()]);
+                User::where('id', '=', $request->user_id)->where('email', '=', $request->email)->update(['email_verified_at' =>  Carbon::now('Asia/Kolkata')]);
                 if (Auth::attempt(['email' => $request->email, 'password' => $request->otp])) {
                     return redirect()->route('front.first_paymentpage')->with('message', 'Account Created Successfully..');
                 } else {
@@ -173,7 +173,7 @@ class AuthController extends Controller
             DB::table('password_resets')->insert([
                 'email' => $request->email,
                 'token' => $token,
-                'created_at' => Carbon::now(),
+                'created_at' => Carbon::now('Asia/Kolkata'),
             ]);
             $data = [
                 'token' => $token

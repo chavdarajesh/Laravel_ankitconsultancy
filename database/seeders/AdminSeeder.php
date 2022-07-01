@@ -28,9 +28,9 @@ class AdminSeeder extends Seeder
             'is_admin' => 1,
             'status' => 1,
             'is_verified' => 1,
-            'created_at'=>Carbon::now(),
+            'created_at'=>Carbon::now('Asia/Kolkata'),
             'otp'=> null,
-            'email_verified_at'=>Carbon::now(),
+            'email_verified_at'=>Carbon::now('Asia/Kolkata'),
             'referral_code'=>'admin',
         ]);
     }

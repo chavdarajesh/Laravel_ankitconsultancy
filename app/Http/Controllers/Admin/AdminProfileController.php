@@ -96,14 +96,14 @@ class AdminProfileController extends Controller
             DB::table('password_resets')->insert([
                 'email' => $request->email,
                 'token' => $token,
-                'created_at' => Carbon::now(),
+                'created_at' => Carbon::now('Asia/Kolkata'),
             ]);
             $data = [
                 'token' => $token
             ];
             Mail::to($request->email)->send(new ForgotPassword($data));
             return redirect()->route('admin.login')->with('message', 'password Reset Link send Successfully Please Check your Email..');
-        
+
     }
 
     public function showResetPasswordFormget($token)
@@ -116,7 +116,7 @@ class AdminProfileController extends Controller
             'newpassword' => 'required|min:6',
             'confirmnewpasswod' => 'required|same:newpassword|min:6'
         ]);
-       
+
             $updatePassword = DB::table('password_resets')->where('token', $request->token)->first();
             if (!$updatePassword) {
                 return back()->withInput()->with('error', 'Invalid token!');
@@ -125,6 +125,6 @@ class AdminProfileController extends Controller
                 ->update(['password' => Hash::make($request->adminnewpassword)]);
             DB::table('password_resets')->where(['email' => $updatePassword->email])->delete();
             return redirect()->route('admin.login')->with('message', 'Your password has been changed!');
-        
+
     }
 }

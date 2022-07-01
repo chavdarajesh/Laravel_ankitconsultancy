@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     //
     public function adminloginget()
     {
+        $todayDate = Carbon::now('Asia/Kolkata');
         if (Auth::check()) {
             if (Auth::user()->is_admin == 1) {
                 return redirect()->route('admin.dashboard')->with('message', 'Admin Login Successfully');
@@ -44,7 +46,7 @@ class DashboardController extends Controller
                     } else {
                         return redirect()->route('admin.login')->with('error', 'Invalid Credantials');
                     }
-                
+
             } else {
                 if (Auth::user()->is_admin == 1) {
                     return redirect()->route('admin.dashboard')->with('message', 'Admin Login Successfully');

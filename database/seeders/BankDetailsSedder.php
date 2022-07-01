@@ -23,8 +23,8 @@ class BankDetailsSedder extends Seeder
             'ifsc_code' => 'SBIN000456',
             'bank_aaccount_no' => 444444444444,
             'status' => 1,
-            'created_at'=>Carbon::now()
-    
+            'created_at'=>Carbon::now('Asia/Kolkata')
+
         ]);
 
     }

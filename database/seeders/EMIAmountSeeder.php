@@ -20,7 +20,7 @@ class EMIAmountSeeder extends Seeder
         DB::table('e_m_i_amounts')->insert([
             'emi_amount' => 10000,
             'status' => 1,
-            'created_at'=>Carbon::now()
+            'created_at'=>Carbon::now('Asia/Kolkata')
         ]);
     }
 }
