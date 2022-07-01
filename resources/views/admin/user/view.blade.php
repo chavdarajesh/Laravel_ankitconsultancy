@@ -75,7 +75,7 @@
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label for="dateofbirth" class="form-label">Created At</label>
-                                <input class="form-control" type="date" id="dateofbirth" name="dateofbirth"
+                                <input class="form-control" type="text" id="dateofbirth" name="dateofbirth"
                                     value="{{ $User->created_at }}" autofocus readonly />
                             </div>
 
