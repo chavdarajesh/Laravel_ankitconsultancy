@@ -18,6 +18,7 @@ class ContactSetting extends Model
         'created_at',
         'updated_at',
         'deleted_at',
+        'home_page_video',
     ];
 
     public function get_contact_us_details()

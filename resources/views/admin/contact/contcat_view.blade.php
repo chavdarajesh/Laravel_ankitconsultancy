@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', 'User Page')
+@section('title', 'Contact Message View')
 @section('content')
     @php
     use App\Models\Admin\QRCode;
@@ -18,7 +18,10 @@
                         <a class="nav-link" href="{{route('admin.get.contact_settings')}}"><i class='bx bxs-contact me-1' ></i>  Contact Settings
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.get.contact_settings')}}"><i class='bx bxs-contact me-1' ></i>  Home Settings
+                        </a>
+                    </li>
                 </ul>
                 <div class="card mb-4">
                     <h5 class="card-header">Contact Message View</h5>

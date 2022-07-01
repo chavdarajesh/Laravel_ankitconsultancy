@@ -38,7 +38,7 @@
             "closeButton": true,
             "progressBar": true,
             "preventDuplicates": true,
-            'closeDuration'   : 2000,
+            'closeDuration'   : 6000,
 
         }
         toastr.info("{{ session('info') }}");

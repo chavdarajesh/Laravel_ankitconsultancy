@@ -111,7 +111,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'is_a
 
 
     Route::get('/contact_settings', [AdminContactController::class, 'get_contact_settings'])->name('admin.get.contact_settings');
+    Route::get('/home_settings', [AdminContactController::class, 'get_home_settings'])->name('admin.get.home_settings');
     Route::post('/contact_settings', [AdminContactController::class, 'post_contact_settings'])->name('admin.post.contact_settings');
+    Route::post('/home_settings', [AdminContactController::class, 'post_home_settings'])->name('admin.post.home_settings');
 
     Route::get('/faqs', [AdminFaqsController::class, 'get_faqs'])->name('admin.get.faqs');
     Route::get('/faqs/add', [AdminFaqsController::class, 'get_faqs_add'])->name('admin.add.faq');
@@ -141,6 +143,7 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('/contact', [ContactController::class, 'postcontact'])->name('front.post.contact');
 
     Route::get('/login', [AuthController::class, 'login'])->name('front.login');
+    Route::get('/login_payment_not_done', [AuthController::class, 'login_payment_not_done'])->name('front.login_payment_not_done');
     Route::get('/register', [AuthController::class, 'register'])->name('front.register');
     Route::get('/forgotpassword', [AuthController::class, 'forgotpasswordget'])->name('front.forgotpassword');
     Route::get('/reset-password/{token}', [AuthController::class, 'showResetPasswordFormget'])->name('front.reset.password.get');
@@ -148,6 +151,7 @@ Route::group(['namespace' => 'Front'], function () {
 
 
     Route::post('/login', [AuthController::class, 'postlogin'])->name('front.post.login');
+    Route::post('/login_payment_not_done', [AuthController::class, 'postlogin_payment_not_done'])->name('front.post.login_payment_not_done');
     Route::post('/register', [AuthController::class, 'postregister'])->name('front.post.register');
     Route::post('/otp_verification', [AuthController::class, 'postotp_verification'])->name('front.post.otp_verification');
     Route::post('/forgotpassword', [AuthController::class, 'postforgotpassword'])->name('front.post.forgotpassword');

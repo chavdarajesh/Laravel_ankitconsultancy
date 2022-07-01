@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', 'Bank Details Page')
+@section('title', 'Contact Message')
 @section('content')
 
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -19,6 +19,10 @@
                             Contact Settings
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.get.home_settings')}}"><i class='bx bxs-contact me-1' ></i>  Home Settings
+                        </a>
+                    </li>
                 </ul>
                 <div class="card mb-4">
                     <h5 class="card-header">Contact Settings</h5>
@@ -26,7 +30,7 @@
 
                     <hr class="my-0" />
                     <div class="card-body">
-                        <form id="formAccountSettings" method="POST" action="">
+                        <form id="formAccountSettings" method="POST" action="{{route('admin.post.contact_settings')}}">
                             @csrf
                             <input type="hidden" name="id"
                                 value="{{ $ContactSetting ? $ContactSetting['id'] : 1 }}">

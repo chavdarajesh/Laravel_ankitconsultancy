@@ -125,6 +125,12 @@
                                         <span>Sign In</span>
                                     </a>
                                 </p>
+                                <p class="text-center">
+                                    <span>Account Created But Payment Not Done?</span>
+                                    <a href="{{ route('front.login_payment_not_done') }}">
+                                        <span>Login Here</span>
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>

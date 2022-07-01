@@ -67,4 +67,36 @@ class ContactController extends Controller
             return redirect()->back()->with('error', 'Somthing Went Wrong..');
         }
     }
+
+    public function get_home_settings()
+    {
+        $ContactSetting = ContactSetting::where('static_id', 1)->where('status', 1)->first();
+        return view('admin.contact.home_setting',['ContactSetting'=>$ContactSetting]);
+    }
+
+    public function post_home_settings(Request $request)
+    {
+        $request->validate([
+            'home_page_video'=>'required',
+        ]);
+        $ContactSetting = ContactSetting::find($request->id);
+        if ($request->home_page_video) {
+            $folderPath = public_path('assets/front/videos/homepage/');
+            if (!file_exists($folderPath)) {
+                mkdir($folderPath, 0777, true);
+            }
+            $file = $request->file('home_page_video');
+            $imageoriginalname = str_replace(" ", "-", $file->getClientOriginalName());
+            $imageName = time() . $imageoriginalname;
+            $file->move($folderPath, $imageName);
+            $ContactSetting->home_page_video = 'assets/front/videos/homepage/' . $imageName;
+        }
+        // $ContactSetting->home_page_video = $request['home_page_video'];
+        $ContactSetting->update();
+        if ($ContactSetting) {
+            return redirect()->route('admin.get.home_settings')->with('message', 'Home Setting Saved Sucssesfully..');
+        } else {
+            return redirect()->back()->with('error', 'Somthing Went Wrong..');
+        }
+    }
 }
