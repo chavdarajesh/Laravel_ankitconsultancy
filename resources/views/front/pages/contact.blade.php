@@ -93,7 +93,7 @@
                         <div class="info-item d-flex">
                             <i class="bi bi-calendar-check flex-shrink-0"></i>
                             <div>
-                                <h4>Timimg:</h4>
+                                <h4>Timing:</h4>
                                 <h6>Monday To Friday (10am-5pm) </h6>
                                 <h6>Saturday and Sunday (By Appointment)</h6>
                             </div>

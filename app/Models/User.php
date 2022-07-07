@@ -56,7 +56,12 @@ class User extends Authenticatable
 
     public function get_user_by_id($id)
     {
-        return User::find($id);
+        $User=[];
+        $user=User::find($id);
+        if($user){
+            $User=$user;
+        }
+        return $User;
     }
     public function get_total_use_referral_user_by_id($id)
     {
