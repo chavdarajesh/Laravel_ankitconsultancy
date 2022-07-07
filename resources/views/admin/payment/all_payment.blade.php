@@ -153,7 +153,7 @@
                                             <strong>{{ $Payment->id }}</strong>
                                         </td>
                                         <td class="text-center">{{ $Payment->emi_amount }}</td>
-                                        <td class="text-center">{{ User::get_user_by_id($Payment->user_id)->name }}</td>
+                                        <td class="text-center">{{ @User::get_user_by_id($Payment->user_id)->name ? @User::get_user_by_id($Payment->user_id)->name : 'User Deleted' }}</td>
                                         <td class="text-center">
                                             <img src="{{ asset($Payment->payment_screenshot) }}"
                                                 alt="{{ asset($Payment->payment_screenshot) }}" width="40px"
