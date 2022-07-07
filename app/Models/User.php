@@ -61,6 +61,9 @@ class User extends Authenticatable
         if($user){
             $User=$user;
         }
+        else{
+            $User['name']='User Deleted';
+        }
         return $User;
     }
     public function get_total_use_referral_user_by_id($id)
