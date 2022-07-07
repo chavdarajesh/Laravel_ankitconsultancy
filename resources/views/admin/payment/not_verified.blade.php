@@ -198,13 +198,13 @@
                                 <td class="text-center">
                                     <label class="switch_payment_verified">
                                         <input type="checkbox" class="payment_verified" data-id="{{ $Payment->id }}"
-                                            {{ $Payment->is_verified ? 'checked disabled' : '' }}>
+                                            {{ $Payment->is_verified ? 'checked disabled' : '' }} {{ @User::get_user_by_id($Payment->user_id)->name ? '' : 'disabled' }}>
                                         <span class="slider_payment_verified round"></span>
                                     </label>
                                     <label class="switch_payment_not_verified">
                                         <input type="checkbox" class="payment_not_verified" data-id="{{ $Payment->id }}"
                                             {{ $Payment->is_not_verified ? 'checked' : '' }}
-                                            {{ $Payment->is_verified ? 'disabled' : '' }}>
+                                            {{ $Payment->is_verified ? 'disabled' : '' }} {{ @User::get_user_by_id($Payment->user_id)->name ? '' : 'disabled' }}>
                                         <span class="slider_payment_not_verified round"></span>
                                     </label>
                                 </td>
