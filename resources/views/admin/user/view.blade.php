@@ -61,7 +61,7 @@
                             <div class="mb-3 col-md-12">
                                 <label for="upiid" class="form-label">UPI ID</label>
                                 <input class="form-control" type="text" id="upiid" name="upiid"
-                                    value="{{ $User->qrcode ? QRCode::get_qrcode_by_id($User->qrcode)->upiid : '' }}"
+                                    value="{{ $User->qrcode ? @QRCode::get_qrcode_by_id($User->qrcode)->upiid : '' }}"
                                     autofocus readonly />
                             </div>
                             <div class="mb-3 col-md-12">

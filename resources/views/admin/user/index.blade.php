@@ -51,7 +51,7 @@ table.dataTable thead>tr>th.sorting_desc{
                                     <td class="text-center"><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                         <strong>{{ $User->id }}</strong>
                                     </td>
-                                    <td class="text-center"><a href="{{ route('admin.get.user_payment', $User->id) }}"><span class="badge badge-center bg-primary">{{ count(Payment::get_total_payment_by_user_id($User->id))}}</span></a></td>
+                                    <td class="text-center"><a href="{{ route('admin.get.user_payment', $User->id) }}"><span class="badge badge-center bg-primary">{{ count(@Payment::get_total_payment_by_user_id($User->id)) ? count(@Payment::get_total_payment_by_user_id($User->id)) : 0 }}</span></a></td>
                                     <td class="text-center"><a href="{{route('admin.get.user_referrals',$User->id)}}"><span class="badge badge-center bg-success">{{ User::get_total_use_referral_user_by_id($User->id)}}</span></a></td>
 
                                         <td class="text-center"><a href="{{ route('admin.get.user_payment', $User->id) }}">{{ $User->name }}</a></td>
