@@ -54,7 +54,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function get_user_by_id($id)
+    static public function get_user_by_id($id)
     {
         $User=[];
         $user=User::find($id);
@@ -66,7 +66,7 @@ class User extends Authenticatable
         }
         return $User;
     }
-    public function get_total_use_referral_user_by_id($id)
+    static public function get_total_use_referral_user_by_id($id)
     {
         $user=User::find($id);
         if($user){

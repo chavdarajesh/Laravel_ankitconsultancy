@@ -21,7 +21,7 @@ class ContactSetting extends Model
         'home_page_video',
     ];
 
-    public function get_contact_us_details()
+    static public function get_contact_us_details()
     {
         return ContactSetting::where('static_id', 1)->where('status', 1)->first();
     }

@@ -22,7 +22,7 @@ class Payment extends Model
         'deleted_at',
     ];
 
-    public function get_total_payment_by_user_id($id)
+    static public function get_total_payment_by_user_id($id)
     {
         return Payment::where('user_id',$id)->get();
     }
