@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_admin')->default(0);
             $table->boolean('status')->default(1);
             $table->boolean('is_verified')->default(0);
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('phone')->nullable();
             $table->string('username')->nullable();
             $table->string('address')->nullable();

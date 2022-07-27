@@ -50,9 +50,9 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required|max:40',
-            'email' => 'required|unique:users|min:6',
-            'phone' => 'required |unique:users',
-            'username' => 'required |unique:users',
+            'email' => 'required|unique:users,email,NULL,id,deleted_at,NULL',
+            'phone' => 'required |unique:users,phone,NULL,id,deleted_at,NULL',
+            'username' => 'required |unique:users,username,NULL,id,deleted_at,NULL',
             'address' => 'required',
             'dateofbirth' => 'required',
             'accept_t_c' => 'required',
